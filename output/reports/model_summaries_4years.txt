@@ -1,0 +1,145 @@
+================================================================================ 
+MODEL 1: AGE × OCCUPATION ( Random Effects )
+================================================================================ 
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ young + senior + high_skill + 
+    managerial + factor(year), data = pdata1, model = "random")
+
+Unbalanced Panel: n = 974, T = 1-4, N = 2346
+
+Effects:
+                 var std.dev share
+idiosyncratic 80.789   8.988 0.601
+individual    53.615   7.322 0.399
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2247  0.3445  0.3445  0.3967  0.4769  0.4769 
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-174.7375   -3.3975    0.4596    0.0297    4.1221   35.4821 
+
+Coefficients:
+                 Estimate Std. Error z-value  Pr(>|z|)    
+(Intercept)      16.49752    0.87529 18.8481 < 2.2e-16 ***
+young            -7.11178    0.78996 -9.0027 < 2.2e-16 ***
+senior            0.43323    0.78955  0.5487  0.583205    
+high_skill        4.65984    0.96339  4.8369 1.319e-06 ***
+managerial       -1.01145    1.27565 -0.7929  0.427841    
+factor(year)2014 -0.66573    0.74959 -0.8881  0.374475    
+factor(year)2018 -1.18882    0.68969 -1.7237  0.084761 .  
+factor(year)2022 -2.36772    0.69582 -3.4028  0.000667 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    211750
+Residual Sum of Squares: 190960
+R-Squared:      0.098268
+Adj. R-Squared: 0.095569
+Chisq: 157.664 on 7 DF, p-value: < 2.22e-16
+
+Robust Standard Errors:
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)      16.49752    0.90404 18.2486 < 2.2e-16 ***
+young            -7.11178    0.86744 -8.1986 3.964e-16 ***
+senior            0.43323    0.78280  0.5534 0.5800149    
+high_skill        4.65984    0.82538  5.6457 1.845e-08 ***
+managerial       -1.01145    1.24358 -0.8133 0.4161059    
+factor(year)2014 -0.66573    0.61307 -1.0859 0.2776369    
+factor(year)2018 -1.18882    0.77755 -1.5289 0.1264179    
+factor(year)2022 -2.36772    0.63291 -3.7410 0.0001877 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+ ================================================================================ 
+MODEL 2: SECTOR × OCCUPATION ( Fixed Effects )
+================================================================================ 
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + factor(year), data = pdata2, model = "within")
+
+Unbalanced Panel: n = 5248, T = 1-4, N = 14725
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-154.1108   -2.8608    0.0000    3.0049  115.0041 
+
+Coefficients:
+                 Estimate Std. Error t-value  Pr(>|t|)    
+factor(year)2014 -1.03953    0.25969 -4.0030 6.303e-05 ***
+factor(year)2018 -0.71432    0.25625 -2.7876  0.005321 ** 
+factor(year)2022 -1.73239    0.26151 -6.6245 3.674e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1033900
+Residual Sum of Squares: 1029000
+R-Squared:      0.0047984
+Adj. R-Squared: -0.54669
+F-statistic: 15.2265 on 3 and 9474 DF, p-value: 6.9928e-10
+
+Robust Standard Errors:
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+factor(year)2014 -1.03953    0.26494 -3.9237 8.783e-05 ***
+factor(year)2018 -0.71432    0.27494 -2.5981  0.009389 ** 
+factor(year)2022 -1.73239    0.26769 -6.4715 1.018e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+ ================================================================================ 
+MODEL 3: SECTOR × EDUCATION ( Fixed Effects )
+================================================================================ 
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = gender_pay_gap ~ medium_edu + high_edu + industry + 
+    construction + public_sector + high_edu:industry + factor(year), 
+    data = pdata3, model = "within")
+
+Unbalanced Panel: n = 1840, T = 1-3, N = 4408
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-123.8411   -2.1504    0.0000    2.1441  123.8411 
+
+Coefficients:
+                  Estimate Std. Error t-value Pr(>|t|)  
+factor(year)2018  0.058257   0.359698  0.1620  0.87135  
+factor(year)2022 -0.660065   0.367865 -1.7943  0.07288 .
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    188630
+Residual Sum of Squares: 188180
+R-Squared:      0.0024031
+Adj. R-Squared: -0.71333
+F-statistic: 3.09054 on 2 and 2566 DF, p-value: 0.045647
+
+Robust Standard Errors:
+
+t test of coefficients:
+
+                  Estimate Std. Error t value Pr(>|t|)  
+factor(year)2018  0.058257   0.337258  0.1727  0.86287  
+factor(year)2022 -0.660065   0.331181 -1.9931  0.04636 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

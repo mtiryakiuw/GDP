@@ -1,0 +1,124 @@
+================================================================================ 
+PANEL 2: SECTOR × OCCUPATION ANALYSIS
+18 Detailed Sectors × 9 Occupations
+================================================================================ 
+
+PRIMARY MODEL ( Fixed Effects )
+-------------------------------------------------------------------------------- 
+
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + services + 
+    public_sector + high_skill + managerial + factor(year), data = pdata2, 
+    model = "within")
+
+Unbalanced Panel: n = 5176, T = 1-4, N = 14430
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-37.4496  -2.7976   0.0000   2.8114  44.6723 
+
+Coefficients:
+                 Estimate Std. Error  t-value  Pr(>|t|)    
+factor(year)2014 -1.36094    0.20740  -6.5620 5.592e-11 ***
+factor(year)2018 -1.01482    0.20435  -4.9662 6.951e-07 ***
+factor(year)2022 -2.17274    0.20826 -10.4327 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    630180
+Residual Sum of Squares: 622570
+R-Squared:      0.012072
+Adj. R-Squared: -0.54089
+F-statistic: 37.6813 on 3 and 9251 DF, p-value: < 2.22e-16
+
+
+Robust Standard Errors:
+
+t test of coefficients:
+
+                 Estimate Std. Error  t value  Pr(>|t|)    
+factor(year)2014 -1.36094    0.20406  -6.6694 2.716e-11 ***
+factor(year)2018 -1.01482    0.21808  -4.6535 3.309e-06 ***
+factor(year)2022 -2.17274    0.21634 -10.0433 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+ ================================================================================ 
+INTERACTION MODEL
+-------------------------------------------------------------------------------- 
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + services + 
+    public_sector + high_skill + managerial + industry:high_skill + 
+    industry:managerial + public_sector:high_skill + public_sector:managerial + 
+    factor(year), data = pdata2, model = "random")
+
+Unbalanced Panel: n = 5176, T = 1-4, N = 14430
+
+Effects:
+                 var std.dev share
+idiosyncratic 67.298   8.204 0.496
+individual    68.496   8.276 0.504
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2960  0.5033  0.5559  0.5099  0.5559  0.5559 
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-34.2361  -4.5186  -0.1207  -0.0225   4.4068  51.3239 
+
+Coefficients:
+                         Estimate Std. Error  z-value  Pr(>|z|)    
+(Intercept)              13.41978    0.43985  30.5102 < 2.2e-16 ***
+industry                  4.08863    0.55953   7.3073 2.726e-13 ***
+construction              1.34325    0.71660   1.8745 0.0608665 .  
+services                  0.63675    0.46501   1.3693 0.1709026    
+public_sector            -2.85956    0.58001  -4.9302 8.215e-07 ***
+high_skill                2.51982    0.52781   4.7741 1.805e-06 ***
+managerial                4.53985    0.69436   6.5382 6.227e-11 ***
+factor(year)2014         -1.72812    0.20348  -8.4928 < 2.2e-16 ***
+factor(year)2018         -1.46733    0.20014  -7.3315 2.276e-13 ***
+factor(year)2022         -2.67309    0.20246 -13.2030 < 2.2e-16 ***
+industry:high_skill      -3.35165    1.05792  -3.1682 0.0015341 ** 
+industry:managerial      -3.25331    1.42376  -2.2850 0.0223119 *  
+public_sector:high_skill  4.80095    1.12409   4.2710 1.946e-05 ***
+public_sector:managerial -5.44937    1.47432  -3.6962 0.0002189 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1073300
+Residual Sum of Squares: 1008300
+R-Squared:      0.060588
+Adj. R-Squared: 0.059741
+Chisq: 567.221 on 13 DF, p-value: < 2.22e-16
+
+
+Robust Standard Errors:
+
+t test of coefficients:
+
+                         Estimate Std. Error  t value  Pr(>|t|)    
+(Intercept)              13.41978    0.46232  29.0271 < 2.2e-16 ***
+industry                  4.08863    0.59441   6.8784 6.301e-12 ***
+construction              1.34325    0.68958   1.9479 0.0514437 .  
+services                  0.63675    0.48027   1.3258 0.1849248    
+public_sector            -2.85956    0.58555  -4.8835 1.053e-06 ***
+high_skill                2.51982    0.43323   5.8163 6.143e-09 ***
+managerial                4.53985    0.65014   6.9828 3.019e-12 ***
+factor(year)2014         -1.72812    0.19953  -8.6609 < 2.2e-16 ***
+factor(year)2018         -1.46733    0.21161  -6.9341 4.263e-12 ***
+factor(year)2022         -2.67309    0.20694 -12.9174 < 2.2e-16 ***
+industry:high_skill      -3.35165    0.90194  -3.7160 0.0002031 ***
+industry:managerial      -3.25331    1.41939  -2.2921 0.0219169 *  
+public_sector:high_skill  4.80095    1.08169   4.4384 9.132e-06 ***
+public_sector:managerial -5.44937    1.54229  -3.5333 0.0004117 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
