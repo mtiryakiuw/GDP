@@ -12,6 +12,8 @@ library(sandwich)
 library(stargazer)
 library(ggplot2)
 library(gridExtra)
+library(diptest)
+library(strucchange)
 
 cat("============================================\n")
 cat("PANEL 2: SECTOR × OCCUPATION ANALYSIS\n")
@@ -336,9 +338,9 @@ print(robust_interaction)
 cat("\n\n\n🔬 STEP 9: DIAGNOSTIC TESTS\n")
 cat("============================\n\n")
 
-# Serial Correlation Test
-cat("1. Serial Correlation Test (Breusch-Godfrey):\n")
-cat("----------------------------------------------\n")
+# Serial Correlation Test (Breusch-Godfrey)
+cat("1. Serial Correlation Test (Breusch-Godfrey/Wooldridge):\n")
+cat("----------------------------------------------------------\n")
 serial_test <- tryCatch({
   pbgtest(model_primary)
 }, error = function(e) {
@@ -348,6 +350,10 @@ serial_test <- tryCatch({
 
 if(!is.null(serial_test)) {
   print(serial_test)
+  cat(sprintf("\n📊 Test statistic: chisq = %.3f, df = %d, p-value = %s\n",
+              serial_test$statistic,
+              serial_test$parameter,
+              format.pval(serial_test$p.value, digits = 4)))
   if(serial_test$p.value < 0.05) {
     cat("⚠️ Serial correlation detected (p < 0.05)\n")
   } else {
@@ -355,10 +361,37 @@ if(!is.null(serial_test)) {
   }
 }
 
-# Heteroskedasticity Test
-cat("\n\n2. Heteroskedasticity Assessment:\n")
-cat("----------------------------------\n")
-cat("Using cluster-robust standard errors to address potential heteroskedasticity\n")
+# Heteroskedasticity Test (Breusch-Pagan)
+cat("\n\n2. Heteroskedasticity Test (Breusch-Pagan):\n")
+cat("--------------------------------------------\n")
+bp_test <- tryCatch({
+  # Convert to lm for bptest
+  lm_model <- lm(
+    gender_pay_gap ~ 
+      industry + construction + services + public_sector +
+      high_skill + managerial + 
+      factor(year),
+    data = panel2_clean
+  )
+  bptest(lm_model)
+}, error = function(e) {
+  cat("Breusch-Pagan test failed:", e$message, "\n")
+  NULL
+})
+
+if(!is.null(bp_test)) {
+  print(bp_test)
+  cat(sprintf("\n📊 Test statistic: BP = %.3f, df = %d, p-value = %s\n",
+              bp_test$statistic,
+              bp_test$parameter,
+              format.pval(bp_test$p.value, digits = 4)))
+  if(bp_test$p.value < 0.05) {
+    cat("⚠️ Heteroskedasticity detected (p < 0.05)\n")
+    cat("   → Using cluster-robust standard errors (HC1)\n")
+  } else {
+    cat("✅ No significant heteroskedasticity detected\n")
+  }
+}
 
 # Model fit statistics
 cat("\n\n3. Model Fit Statistics:\n")
@@ -368,6 +401,97 @@ cat("  R-squared (within):", round(summary(model_primary)$r.squared["rsq"], 4), 
 if(model_type == "Random Effects") {
   cat("  R-squared (between):", round(summary(model_primary)$r.squared["between"], 4), "\n")
   cat("  R-squared (overall):", round(summary(model_primary)$r.squared["adjrsq"], 4), "\n")
+}
+
+# Distributional Tests
+cat("\n\n4. Distributional Tests:\n")
+cat("-------------------------\n")
+
+# Hartigan's Dip Test for multimodality
+cat("\nHartigan's Dip Test (Multimodality):\n")
+cat("-------------------------------------\n")
+
+sector_groups <- list(
+  "Industry" = panel2_clean$gender_pay_gap[panel2_clean$industry == 1],
+  "Construction" = panel2_clean$gender_pay_gap[panel2_clean$construction == 1],
+  "Services" = panel2_clean$gender_pay_gap[panel2_clean$services == 1],
+  "Public Sector" = panel2_clean$gender_pay_gap[panel2_clean$public_sector == 1]
+)
+
+for(sector_name in names(sector_groups)) {
+  sector_data <- sector_groups[[sector_name]]
+  if(length(sector_data) > 10) {
+    dip_result <- tryCatch({
+      dip.test(sector_data)
+    }, error = function(e) {
+      cat(sprintf("  %s: Test failed\n", sector_name))
+      NULL
+    })
+    
+    if(!is.null(dip_result)) {
+      cat(sprintf("  %s: D = %.4f, p-value = %.3f %s\n",
+                  sector_name,
+                  dip_result$statistic,
+                  dip_result$p.value,
+                  ifelse(dip_result$p.value < 0.05, "(multimodal)", "(unimodal)")))
+    }
+  }
+}
+
+# Kolmogorov-Smirnov Test for distributional equality
+cat("\n\nKolmogorov-Smirnov Test (Distributional Equality):\n")
+cat("---------------------------------------------------\n")
+
+ks_comparisons <- list(
+  c("Industry", "Public Sector"),
+  c("Industry", "Services"),
+  c("Services", "Public Sector")
+)
+
+for(comp in ks_comparisons) {
+  group1 <- sector_groups[[comp[1]]]
+  group2 <- sector_groups[[comp[2]]]
+  
+  if(length(group1) > 10 & length(group2) > 10) {
+    ks_result <- tryCatch({
+      ks.test(group1, group2)
+    }, error = function(e) {
+      NULL
+    })
+    
+    if(!is.null(ks_result)) {
+      cat(sprintf("  %s vs %s: D = %.4f, p-value = %s %s\n",
+                  comp[1], comp[2],
+                  ks_result$statistic,
+                  format.pval(ks_result$p.value, digits = 4),
+                  ifelse(ks_result$p.value < 0.05, "(different distributions)", "(similar distributions)")))
+    }
+  }
+}
+
+# Structural Break Test (Chow Test)
+cat("\n\n5. Structural Break Test (Chow Test):\n")
+cat("---------------------------------------\n")
+
+chow_result <- tryCatch({
+  # Test for structural break at 2014 (midpoint)
+  fs_stats <- sctest(model_primary, type = "Chow", point = 2)
+  fs_stats
+}, error = function(e) {
+  cat("Chow test failed:", e$message, "\n")
+  NULL
+})
+
+if(!is.null(chow_result)) {
+  print(chow_result)
+  cat(sprintf("\n📊 F-statistic = %.3f, p-value = %s\n",
+              chow_result$statistic,
+              format.pval(chow_result$p.value, digits = 4)))
+  if(chow_result$p.value < 0.05) {
+    cat("⚠️ Structural break detected (p < 0.05)\n")
+  } else {
+    cat("✅ No significant structural break\n")
+  }
 }
 
 # ============================================================================

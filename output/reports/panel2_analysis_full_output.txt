@@ -1,0 +1,681 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Attaching package: ‘plm’
+
+The following objects are masked from ‘package:dplyr’:
+
+    between, lag, lead
+
+Loading required package: zoo
+
+Attaching package: ‘zoo’
+
+The following objects are masked from ‘package:base’:
+
+    as.Date, as.Date.numeric
+
+
+Please cite as: 
+
+ Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.
+ R package version 5.2.3. https://CRAN.R-project.org/package=stargazer 
+
+
+Attaching package: ‘gridExtra’
+
+The following object is masked from ‘package:dplyr’:
+
+    combine
+
+
+Attaching package: ‘strucchange’
+
+The following object is masked from ‘package:stringr’:
+
+    boundary
+
+============================================
+PANEL 2: SECTOR × OCCUPATION ANALYSIS
+18 Detailed Sectors × 9 Occupations
+Main Analysis for Thesis
+============================================
+
+📥 STEP 1: LOADING PANEL 2 DATA (Sector × Occupation)...
+----------------------------------------------------------
+  ✅ Panel 2 loaded: 14725 observations
+  Countries: 40 
+  Years: 2010, 2014, 2018, 2022 
+  Sectors: 18 
+  Occupations: 9 
+  Unique panels: 5248 
+
+🔍 STEP 2: DATA QUALITY ASSESSMENT
+====================================
+
+Gender Pay Gap Summary:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-317.898    5.617   12.972   12.719   20.911   87.944 
+
+📊 Observations by Year:
+# A tibble: 4 × 3
+   year     n mean_gap
+  <int> <int>    <dbl>
+1  2010  4552     13.8
+2  2014  3274     12.5
+3  2018  3471     12.8
+4  2022  3428     11.5
+
+📊 Observations by Sector (18 Detailed):
+# A tibble: 18 × 5
+   sector           n_obs mean_gap sd_gap countries
+   <chr>            <int>    <dbl>  <dbl>     <int>
+ 1 Manufacturing     1140    17.1    12.4        40
+ 2 Mining             483    16.6    19.9        36
+ 3 Finance            669    16.6    15.7        40
+ 4 Trade             1076    14.7    13.1        40
+ 5 Electricity        584    14.0    15.7        37
+ 6 Transport          891    13.9    14.4        40
+ 7 Construction       824    13.9    14.1        40
+ 8 Professional       877    13.1    17.1        39
+ 9 IT                 775    12.5    15.2        40
+10 Arts               813    12.4    14.8        40
+11 Real Estate        648    12.1    18.2        37
+12 Health            1015    12.0    14.2        40
+13 Other Services     843    12.0    15.0        39
+14 Admin Services     984    11.2    13.6        39
+15 Water              657    10.2    13.7        38
+16 Public Admin       747    10.0    11.9        34
+17 Education Sector   875     8.64   13.8        40
+18 Hospitality        824     8.25   14.0        40
+
+📊 Observations by Occupation (9 ISCO levels):
+# A tibble: 9 × 4
+  occupation    n_obs mean_gap sd_gap
+  <chr>         <int>    <dbl>  <dbl>
+1 Managers       1892    17.4    15.5
+2 Professionals  2116    14.9    11.3
+3 Craft          1172    14.8    18.0
+4 Technicians    2199    13.6    11.9
+5 Operators      1118    12.7    18.8
+6 Service        1861    12.0    17.0
+7 Elementary     1708    10.5    13.2
+8 Clerical       2120     8.44   11  
+9 Agriculture     539     6.11   20.9
+
+⚠️ Potential outliers (gap < -20% or > 80%): 295 
+Sample of outliers:
+  country year         sector  occupation gender_pay_gap
+1      AL 2018           Arts    Clerical      -50.29133
+2      AL 2018   Construction    Managers      -46.28266
+3      AL 2018        Finance  Elementary      -52.93057
+4      AL 2018        Finance Technicians      -20.84522
+5      AL 2018 Other Services    Clerical      -36.99157
+6      AL 2018 Other Services    Managers      -38.24542
+
+
+🧹 STEP 3: CLEANING EXTREME OUTLIERS
+======================================
+
+Original observations: 14725
+Cleaned observations: 14430
+Removed outliers: 295 (2.0%)
+
+Cleaned data summary:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -19.87    6.15   13.21   13.79   21.08   79.51 
+
+
+🔍 STEP 4: PANEL STRUCTURE VALIDATION
+=======================================
+
+Panel balance:
+
+   1    2    3    4 
+1360  635  924 2257 
+
+Panel completeness:
+  Balanced panels (4 years): 2257 
+  3-year panels: 924 
+  2-year panels: 635 
+  1-year panels: 1360 
+
+
+📊 STEP 5: DESCRIPTIVE STATISTICS
+===================================
+
+By Sector Group:
+# A tibble: 5 × 6
+  sector_group  n_obs mean_gap sd_gap min_gap max_gap
+  <chr>         <int>    <dbl>  <dbl>   <dbl>   <dbl>
+1 Industry       2806     16.0   11.9   -19.7    75.4
+2 Construction    812     14.7   11.3   -19.3    55.5
+3 Services       6602     13.9   11.9   -19.9    78.9
+4 Other          1622     13.2   13.2   -19.8    79.5
+5 Public Sector  2588     11.2   11.6   -19.4    66.8
+
+
+By Occupation Type:
+# A tibble: 3 × 4
+  occ_type             n_obs mean_gap sd_gap
+  <chr>                <int>    <dbl>  <dbl>
+1 Managers              1858     18.3   13.5
+2 High-Skill (Non-Mgr)  2093     15.4   10.0
+3 Other Occupations    10479     12.7   11.9
+
+
+Temporal Trends:
+# A tibble: 4 × 5
+   year n_obs mean_gap sd_gap median_gap
+  <int> <int>    <dbl>  <dbl>      <dbl>
+1  2010  4424     15.4   12.9       15.1
+2  2014  3211     13.4   11.7       12.7
+3  2018  3418     13.5   11.9       13.0
+4  2022  3377     12.3   11.2       11.7
+
+Trend analysis (2010-2022):
+  Total change: -3.11 percentage points
+  Annual change rate: -1.04 pp per 4-year period
+
+
+🔧 STEP 6: PREPARING PANEL DATA STRUCTURE
+===========================================
+
+Panel dimensions:
+  N (observations): 14430 
+  T (time periods): 4 
+  n (panels): 5176 
+
+🎯 STEP 7: ESTIMATING PANEL DATA MODELS
+=========================================
+
+MODEL 1: Random Effects (Primary)
+-----------------------------------
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + services + 
+    public_sector + high_skill + managerial + factor(year), data = pdata2, 
+    model = "random")
+
+Unbalanced Panel: n = 5176, T = 1-4, N = 14430
+
+Effects:
+                 var std.dev share
+idiosyncratic 67.298   8.204  0.49
+individual    69.947   8.363  0.51
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2997  0.5072  0.5597  0.5137  0.5597  0.5597 
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-34.1118  -4.5434  -0.1070  -0.0197   4.4821  50.9107 
+
+Coefficients:
+                 Estimate Std. Error  z-value  Pr(>|z|)    
+(Intercept)      13.56335    0.43830  30.9457 < 2.2e-16 ***
+industry          2.85168    0.52304   5.4522 4.976e-08 ***
+construction      1.33755    0.72163   1.8535   0.06381 .  
+services          0.64564    0.46828   1.3787   0.16797    
+public_sector    -2.28751    0.53782  -4.2533 2.106e-05 ***
+high_skill        2.67108    0.41858   6.3814 1.755e-10 ***
+managerial        3.00977    0.55333   5.4394 5.347e-08 ***
+factor(year)2014 -1.71481    0.20346  -8.4283 < 2.2e-16 ***
+factor(year)2018 -1.45415    0.20012  -7.2663 3.694e-13 ***
+factor(year)2022 -2.66193    0.20246 -13.1481 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1067400
+Residual Sum of Squares: 1007600
+R-Squared:      0.056122
+Adj. R-Squared: 0.055533
+Chisq: 495.223 on 9 DF, p-value: < 2.22e-16
+
+
+MODEL 2: Fixed Effects
+------------------------
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + services + 
+    public_sector + high_skill + managerial + factor(year), data = pdata2, 
+    model = "within")
+
+Unbalanced Panel: n = 5176, T = 1-4, N = 14430
+
+Residuals:
+    Min.  1st Qu.   Median  3rd Qu.     Max. 
+-37.4496  -2.7976   0.0000   2.8114  44.6723 
+
+Coefficients:
+                 Estimate Std. Error  t-value  Pr(>|t|)    
+factor(year)2014 -1.36094    0.20740  -6.5620 5.592e-11 ***
+factor(year)2018 -1.01482    0.20435  -4.9662 6.951e-07 ***
+factor(year)2022 -2.17274    0.20826 -10.4327 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    630180
+Residual Sum of Squares: 622570
+R-Squared:      0.012072
+Adj. R-Squared: -0.54089
+F-statistic: 37.6813 on 3 and 9251 DF, p-value: < 2.22e-16
+
+
+Hausman Test (FE vs RE):
+-------------------------
+
+	Hausman Test
+
+data:  gender_pay_gap ~ industry + construction + services + public_sector +  ...
+chisq = 92.091, df = 3, p-value < 2.2e-16
+alternative hypothesis: one model is inconsistent
+
+
+⚠️ Hausman test significant (p < 0.05) → Fixed Effects preferred
+
+
+
+MODEL 3: Sector-Occupation Interactions
+-----------------------------------------
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + services + 
+    public_sector + high_skill + managerial + industry:high_skill + 
+    industry:managerial + public_sector:high_skill + public_sector:managerial + 
+    factor(year), data = pdata2, model = "random")
+
+Unbalanced Panel: n = 5176, T = 1-4, N = 14430
+
+Effects:
+                 var std.dev share
+idiosyncratic 67.298   8.204 0.496
+individual    68.496   8.276 0.504
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2960  0.5033  0.5559  0.5099  0.5559  0.5559 
+
+Residuals:
+    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
+-34.2361  -4.5186  -0.1207  -0.0225   4.4068  51.3239 
+
+Coefficients:
+                         Estimate Std. Error  z-value  Pr(>|z|)    
+(Intercept)              13.41978    0.43985  30.5102 < 2.2e-16 ***
+industry                  4.08863    0.55953   7.3073 2.726e-13 ***
+construction              1.34325    0.71660   1.8745 0.0608665 .  
+services                  0.63675    0.46501   1.3693 0.1709026    
+public_sector            -2.85956    0.58001  -4.9302 8.215e-07 ***
+high_skill                2.51982    0.52781   4.7741 1.805e-06 ***
+managerial                4.53985    0.69436   6.5382 6.227e-11 ***
+factor(year)2014         -1.72812    0.20348  -8.4928 < 2.2e-16 ***
+factor(year)2018         -1.46733    0.20014  -7.3315 2.276e-13 ***
+factor(year)2022         -2.67309    0.20246 -13.2030 < 2.2e-16 ***
+industry:high_skill      -3.35165    1.05792  -3.1682 0.0015341 ** 
+industry:managerial      -3.25331    1.42376  -2.2850 0.0223119 *  
+public_sector:high_skill  4.80095    1.12409   4.2710 1.946e-05 ***
+public_sector:managerial -5.44937    1.47432  -3.6962 0.0002189 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1073300
+Residual Sum of Squares: 1008300
+R-Squared:      0.060588
+Adj. R-Squared: 0.059741
+Chisq: 567.221 on 13 DF, p-value: < 2.22e-16
+
+
+
+📊 STEP 8: ROBUST STANDARD ERRORS
+===================================
+
+Primary Model ( Fixed Effects ) - Robust SE:
+-------------------------------------------------- 
+
+t test of coefficients:
+
+                 Estimate Std. Error  t value  Pr(>|t|)    
+factor(year)2014 -1.36094    0.20406  -6.6694 2.716e-11 ***
+factor(year)2018 -1.01482    0.21808  -4.6535 3.309e-06 ***
+factor(year)2022 -2.17274    0.21634 -10.0433 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+Interaction Model - Robust SE:
+-------------------------------------------------- 
+
+t test of coefficients:
+
+                         Estimate Std. Error  t value  Pr(>|t|)    
+(Intercept)              13.41978    0.46232  29.0271 < 2.2e-16 ***
+industry                  4.08863    0.59441   6.8784 6.301e-12 ***
+construction              1.34325    0.68958   1.9479 0.0514437 .  
+services                  0.63675    0.48027   1.3258 0.1849248    
+public_sector            -2.85956    0.58555  -4.8835 1.053e-06 ***
+high_skill                2.51982    0.43323   5.8163 6.143e-09 ***
+managerial                4.53985    0.65014   6.9828 3.019e-12 ***
+factor(year)2014         -1.72812    0.19953  -8.6609 < 2.2e-16 ***
+factor(year)2018         -1.46733    0.21161  -6.9341 4.263e-12 ***
+factor(year)2022         -2.67309    0.20694 -12.9174 < 2.2e-16 ***
+industry:high_skill      -3.35165    0.90194  -3.7160 0.0002031 ***
+industry:managerial      -3.25331    1.41939  -2.2921 0.0219169 *  
+public_sector:high_skill  4.80095    1.08169   4.4384 9.132e-06 ***
+public_sector:managerial -5.44937    1.54229  -3.5333 0.0004117 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+
+🔬 STEP 9: DIAGNOSTIC TESTS
+============================
+
+1. Serial Correlation Test (Breusch-Godfrey/Wooldridge):
+----------------------------------------------------------
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  gender_pay_gap ~ industry + construction + services + public_sector +  ...
+chisq = 1144.3, df = 1, p-value < 2.2e-16
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+
+📊 Test statistic: chisq = 1144.311, df = 1, p-value = < 2.2e-16
+⚠️ Serial correlation detected (p < 0.05)
+
+
+2. Heteroskedasticity Test (Breusch-Pagan):
+--------------------------------------------
+
+	studentized Breusch-Pagan test
+
+data:  lm_model
+BP = 194.47, df = 9, p-value < 2.2e-16
+
+
+📊 Test statistic: BP = 194.466, df = 9, p-value = < 2.2e-16
+⚠️ Heteroskedasticity detected (p < 0.05)
+   → Using cluster-robust standard errors (HC1)
+
+
+3. Model Fit Statistics:
+-------------------------
+Primary Model ( Fixed Effects ):
+  R-squared (within): 0.0121 
+
+
+4. Distributional Tests:
+-------------------------
+
+Hartigan's Dip Test (Multimodality):
+-------------------------------------
+  Industry: D = 0.0051, p-value = 0.956 (unimodal)
+  Construction: D = 0.0091, p-value = 0.965 (unimodal)
+  Services: D = 0.0026, p-value = 0.995 (unimodal)
+  Public Sector: D = 0.0055, p-value = 0.927 (unimodal)
+
+
+Kolmogorov-Smirnov Test (Distributional Equality):
+---------------------------------------------------
+  Industry vs Public Sector: D = 0.2269, p-value = < 2.2e-16 (different distributions)
+  Industry vs Services: D = 0.0899, p-value = 2.93e-14 (different distributions)
+  Services vs Public Sector: D = 0.1455, p-value = < 2.2e-16 (different distributions)
+
+
+5. Structural Break Test (Chow Test):
+---------------------------------------
+Chow test failed: no applicable method for 'estfun' applied to an object of class "c('plm', 'panelmodel')" 
+
+
+
+🎯 STEP 10: HYPOTHESIS TESTING
+================================
+
+HYPOTHESIS 1: Sectoral Effects
+-------------------------------
+H1: Industry & Construction sectors show larger gender pay gaps
+
+
+
+HYPOTHESIS 2: Occupational Hierarchy Effects
+----------------------------------------------
+H2: High-skill and managerial positions show distinct gap patterns
+
+
+
+HYPOTHESIS 3: Temporal Convergence
+-----------------------------------
+H3: Gender pay gaps decrease over time
+
+Year fixed effects:
+  factor(year)2014: -1.361 ***
+  factor(year)2018: -1.015 ***
+  factor(year)2022: -2.173 ***
+
+✅ H3 SUPPORTED: Consistent negative time trend
+
+
+
+🔄 STEP 11: ROBUSTNESS CHECKS
+==============================
+
+ROBUSTNESS 1: Balanced Panel Analysis
+---------------------------------------
+Balanced panel observations: 9028 
+
+Balanced Panel Model Results:
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)      13.02195    0.58082 22.4199 < 2.2e-16 ***
+industry          3.19358    0.70787  4.5115 6.518e-06 ***
+construction      2.15876    0.83989  2.5703   0.01018 *  
+services          0.83196    0.60582  1.3733   0.16970    
+public_sector    -1.73037    0.70608 -2.4507   0.01428 *  
+high_skill        3.29827    0.44299  7.4454 1.055e-13 ***
+managerial        2.83544    0.67314  4.2123 2.553e-05 ***
+factor(year)2014 -1.37468    0.21265 -6.4644 1.069e-10 ***
+factor(year)2018 -1.01056    0.22288 -4.5340 5.862e-06 ***
+factor(year)2022 -2.15313    0.21956 -9.8065 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+ROBUSTNESS 2: Winsorized Gender Pay Gap
+-----------------------------------------
+Winsorized at 5th (-5.43) and 95th (34.43) percentiles
+
+Winsorized Model Results:
+
+t test of coefficients:
+
+                 Estimate Std. Error  t value  Pr(>|t|)    
+(Intercept)      13.27637    0.38738  34.2726 < 2.2e-16 ***
+industry          2.73310    0.46475   5.8808 4.173e-09 ***
+construction      1.59611    0.60514   2.6376  0.008359 ** 
+services          0.81269    0.40934   1.9854  0.047120 *  
+public_sector    -2.00828    0.47554  -4.2232 2.423e-05 ***
+high_skill        2.59392    0.33228   7.8064 6.288e-15 ***
+managerial        2.52357    0.47943   5.2636 1.433e-07 ***
+factor(year)2014 -1.57088    0.17232  -9.1160 < 2.2e-16 ***
+factor(year)2018 -1.27902    0.18181  -7.0351 2.082e-12 ***
+factor(year)2022 -2.41061    0.18095 -13.3217 < 2.2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+
+🏭 STEP 12: DETAILED SECTORAL ANALYSIS (18 Sectors)
+====================================================
+
+Top 10 Sectors with Highest Gender Pay Gaps:
+# A tibble: 10 × 9
+   sector     n_obs n_countries n_occupations mean_gap median_gap sd_gap min_gap
+   <chr>      <int>       <int>         <int>    <dbl>      <dbl>  <dbl>   <dbl>
+ 1 Mining       461          36             9     19.3       19.4  14.6    -19.7
+ 2 Finance      649          40             9     18.3       18.5  12.1    -19.9
+ 3 Manufactu…  1131          40             9     17.7       17.9   9.91   -18.7
+ 4 Electrici…   570          37             9     15.5       14.9  11.5    -18.8
+ 5 Trade       1067          40             9     15.3       15.2  10.7    -18.3
+ 6 Transport    868          40             9     15.1       14.5  12.2    -19.9
+ 7 Construct…   812          40             9     14.7       14.6  11.3    -19.3
+ 8 Professio…   861          39             9     14.2       14.1  11.8    -17.8
+ 9 IT           760          40             9     13.7       13.8  11.3    -19.8
+10 Real Esta…   631          36             9     13.6       13.4  13.1    -19.8
+# ℹ 1 more variable: max_gap <dbl>
+
+
+Bottom 10 Sectors with Lowest Gender Pay Gaps:
+# A tibble: 10 × 9
+   sector     n_obs n_countries n_occupations mean_gap median_gap sd_gap min_gap
+   <chr>      <int>       <int>         <int>    <dbl>      <dbl>  <dbl>   <dbl>
+ 1 IT           760          40             9    13.7       13.8    11.3   -19.8
+ 2 Real Esta…   631          36             9    13.6       13.4    13.1   -19.8
+ 3 Arts         800          40             9    13.2       11.1    13.1   -19.0
+ 4 Other Ser…   822          39             9    13.1       12.6    13.3   -19.8
+ 5 Health       997          40             9    12.7       10.7    12.6   -19.3
+ 6 Admin Ser…   968          39             9    12.0       11.6    11.7   -19.5
+ 7 Water        644          38             9    11.1       10.6    11.7   -18.7
+ 8 Public Ad…   734          34             9    10.8       10.1    10.6   -19.3
+ 9 Education…   857          40             9     9.78       8.97   10.9   -18.9
+10 Hospitali…   798          40             9     9.71       8.49   11.1   -18.6
+# ℹ 1 more variable: max_gap <dbl>
+
+
+
+💾 STEP 13: SAVING RESULTS
+===========================
+
+✅ output/data/panel2_sector_occupation_cleaned.csv
+✅ output/data/panel2_detailed_sector_analysis.csv
+✅ output/reports/panel2_model_summaries.txt
+
+📝 STEP 14: CREATING LATEX TABLE
+==================================
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Tue, Oct 28, 2025 - 23:54:38
+\begin{table}[!htbp] \centering 
+  \caption{Panel 2: Sector × Occupation Analysis - Gender Pay Gap Determinants (2010-2022)} 
+  \label{} 
+\begin{tabular}{@{\extracolsep{5pt}}lcc} 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & \multicolumn{2}{c}{Gender Pay Gap (\%)} \\ 
+ & Main Effects & With Interactions \\ 
+\\[-1.8ex] & (1) & (2)\\ 
+\hline \\[-1.8ex] 
+ Industry sector &  & 4.089$^{***}$ \\ 
+  &  & (0.560) \\ 
+  & & \\ 
+ Construction &  & 1.343 \\ 
+  &  & (0.717) \\ 
+  & & \\ 
+ Services &  & 0.637 \\ 
+  &  & (0.465) \\ 
+  & & \\ 
+ Public sector &  & $-$2.860$^{***}$ \\ 
+  &  & (0.580) \\ 
+  & & \\ 
+ High-skill occupation &  & 2.520$^{***}$ \\ 
+  &  & (0.528) \\ 
+  & & \\ 
+ Managerial position &  & 4.540$^{***}$ \\ 
+  &  & (0.694) \\ 
+  & & \\ 
+ Industry × High-skill & $-$1.361$^{***}$ & $-$1.728$^{***}$ \\ 
+  & (0.207) & (0.203) \\ 
+  & & \\ 
+ Industry × Managerial & $-$1.015$^{***}$ & $-$1.467$^{***}$ \\ 
+  & (0.204) & (0.200) \\ 
+  & & \\ 
+ Public × High-skill & $-$2.173$^{***}$ & $-$2.673$^{***}$ \\ 
+  & (0.208) & (0.202) \\ 
+  & & \\ 
+ Public × Managerial &  & $-$3.352$^{**}$ \\ 
+  &  & (1.058) \\ 
+  & & \\ 
+ Year 2014 &  & $-$3.253$^{*}$ \\ 
+  &  & (1.424) \\ 
+  & & \\ 
+ Year 2018 &  & 4.801$^{***}$ \\ 
+  &  & (1.124) \\ 
+  & & \\ 
+ Year 2022 &  & $-$5.449$^{***}$ \\ 
+  &  & (1.474) \\ 
+  & & \\ 
+ Constant &  & 13.420$^{***}$ \\ 
+  &  & (0.440) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Observations & 14430 & 14430 \\ 
+Unique panels & 5176 & 5176 \\ 
+Countries & 40 & 40 \\ 
+Detailed sectors & 18 & 18 \\ 
+Occupations (ISCO) & 9 & 9 \\ 
+Model type & Fixed Effects & Random Effects \\ 
+Observations & 14,430 & 14,430 \\ 
+R$^{2}$ & 0.012 & 0.061 \\ 
+Adjusted R$^{2}$ & $-$0.541 & 0.060 \\ 
+F Statistic & 37.681$^{***}$ (df = 3; 9251) & 567.221$^{***}$ \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{2}{l}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 
+ & \multicolumn{2}{l}{Robust standard errors in parentheses.} \\ 
+ & \multicolumn{2}{l}{Reference: Services (other), non-high-skill, non-managerial, Year 2010.} \\ 
+ & \multicolumn{2}{l}{18 detailed NACE sectors: Mining, Manufacturing, Utilities, Construction, Trade,} \\ 
+ & \multicolumn{2}{l}{Transport, Hospitality, IT, Finance, Real Estate, Professional Services,} \\ 
+ & \multicolumn{2}{l}{Admin Services, Public Admin, Education, Health, Arts, Other Services.} \\ 
+\end{tabular} 
+\end{table} 
+✅ LaTeX table saved to: output/tables/panel2_results.tex
+
+
+
+✅ PANEL 2 MAIN ANALYSIS COMPLETE!
+====================================
+
+📊 SUMMARY:
+  Cleaned observations:   14430 
+  Unique panels:          5176 
+  Countries:              40 
+  Years:                  2010, 2014, 2018, 2022 
+  Detailed sectors:       18 (NACE Rev. 2)
+  Occupations:            9 (ISCO-08)
+  Average gap:            13.79 %
+
+📁 OUTPUT FILES:
+  - output/data/panel2_sector_occupation_cleaned.csv
+  - output/data/panel2_detailed_sector_analysis.csv
+  - output/reports/panel2_model_summaries.txt
+  - output/tables/panel2_results.tex
+
+🎯 KEY FINDINGS:
+  Primary model:          Fixed Effects 
+  Hausman test p-value:   0 
+  Model includes:        Sector effects, Occupation effects, Time trends
+  Robustness checks:     Balanced panel, Winsorized DV
+
+🚀 READY FOR THESIS INTEGRATION!
+Next step: Run panel1_supplementary_analysis.R for age dimension
+
