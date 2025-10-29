@@ -496,7 +496,7 @@ where $\hat{V}_{panel}$ and $\hat{V}_{time}$ represent cluster-robust matrices b
 
 \subsection{Addressing Serial Correlation and Heteroskedasticity}
 
-Diagnostic testing reveals significant serial correlation (Breusch-Godfrey/Wooldridge test: \chi\textsuperscript{2} = 1144.3, df = 1, p < 2.2e-16) and heteroskedasticity, necessitating the use of robust estimation procedures. The analysis implements several complementary approaches:
+Diagnostic testing reveals significant serial correlation (Breusch-Godfrey/Wooldridge test: $\chi^2$ = 1144.3, df = 1, p < 2.2e-16) and heteroskedasticity, necessitating the use of robust estimation procedures. The analysis implements several complementary approaches:
 
 \textbf{Serial Correlation Corrections:}
 \begin{itemize}
@@ -512,7 +512,7 @@ Diagnostic testing reveals significant serial correlation (Breusch-Godfrey/Woold
 \item Bootstrap confidence intervals (1,000 replications) for inference
 \end{itemize}
 
-The Hausman test (\chi\textsuperscript{2} = 92.091, df = 3, p < 2.2e-16) strongly rejects the null hypothesis of no systematic differences between fixed and random effects estimators, indicating that Fixed Effects estimation is statistically preferred. The analysis therefore employs Fixed Effects as the primary specification to control for time-invariant unobserved heterogeneity, with cluster-robust standard errors (HC1) to address serial correlation and heteroskedasticity. Random Effects models with interaction terms are used as complementary specifications to examine sector-occupation interactions, as these cannot be identified within the Fixed Effects framework.
+The Hausman test ($\chi^2$ = 92.091, df = 3, p < 2.2e-16) strongly rejects the null hypothesis of no systematic differences between fixed and random effects estimators, indicating that Fixed Effects estimation is statistically preferred. The analysis therefore employs Fixed Effects as the primary specification to control for time-invariant unobserved heterogeneity, with cluster-robust standard errors (HC1) to address serial correlation and heteroskedasticity. Random Effects models with interaction terms are used as complementary specifications to examine sector-occupation interactions, as these cannot be identified within the Fixed Effects framework.
 
 \subsection{Endogeneity Concerns and Identification Strategies}
 
