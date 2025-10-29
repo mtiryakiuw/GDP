@@ -152,7 +152,7 @@
 \vspace{0.5cm}
 
 \begin{justify}
-This thesis examines the determinants of gender wage gaps across European labor markets using advanced panel data methods. It analyzes harmonized Structure of Earnings Survey data from 40 countries spanning 2010-2022, including 14,430 panel observations from 5,176 unique country-sector-occupation combinations across 18 detailed NACE Rev. 2 sectors. The study reveals substantial sectoral heterogeneity: Industry sectors exhibit gender pay gaps 4.089 percentage points larger than other sectors, while Public sector employment shows gaps 2.860 percentage points smaller. Notably, sector-occupation interactions demonstrate complex patterns—high-skill workers in Industry face 3.352 percentage points smaller gaps, while Public sector managers experience 5.449 percentage points lower gaps. Temporal analysis documents consistent convergence, with gaps declining 3.11 percentage points from 2010 (15.4\%) to 2022 (12.3\%). The findings emphasize that wage discrimination operates through nuanced interactions between sectoral institutions and occupational hierarchies, requiring multidimensional policy interventions.
+This thesis examines the determinants of gender wage gaps across European labor markets using advanced panel data methods. It analyzes harmonized Structure of Earnings Survey data from 40 countries spanning 2010-2022, including 14,725 panel observations from 5,248 unique country-sector-occupation combinations across 18 detailed NACE Rev. 2 sectors. The study reveals substantial sectoral heterogeneity: Industry sectors exhibit gender pay gaps 2.165 percentage points larger than other sectors, while Public sector employment shows gaps 2.549 percentage points smaller. Notably, sector-occupation interactions demonstrate complex patterns—high-skill workers in Industry face 3.352 percentage points smaller gaps, while Public sector managers experience 5.449 percentage points lower gaps. Temporal analysis documents consistent convergence, with gaps declining 2.06 percentage points from 2010 to 2022. The findings emphasize that wage discrimination operates through nuanced interactions between sectoral institutions and occupational hierarchies, requiring multidimensional policy interventions.
 \end{justify}
 
 
@@ -411,7 +411,7 @@ Rigorous data cleaning protocols ensure the analytical validity and reliability 
 \item Winsorization of calculated gaps at extreme values (5th and 95th percentiles) to address measurement error
 \end{itemize}
 
-These procedures ensure robust estimation across 14,430 panel observations representing 5,176 unique country-sector-occupation cells across 40 European countries over four time periods (2010, 2014, 2018, 2022). The cleaning process prioritizes maintaining adequate cell sizes for statistical precision while ensuring methodological consistency across countries and time periods.
+These procedures ensure robust estimation across 14,725 panel observations representing 5,248 unique country-sector-occupation cells across 40 European countries over four time periods (2010, 2014, 2018, 2022). The cleaning process prioritizes maintaining adequate cell sizes for statistical precision while ensuring methodological consistency across countries and time periods.
 
 \subsection{Missing Data Analysis and Treatment}
 
@@ -433,7 +433,7 @@ Variable-specific missing data rates remain below 2\% for core analytical variab
 
 \subsection{Panel Structure and Identification Strategy}
 
-The constructed panel dataset exhibits a hierarchical structure, comprising 14,430 observations nested within 5,176 unique country-sector-occupation panels, observed across four time periods (2010, 2014, 2018, 2022). Panel duration varies from 1 to 4 observations, with 2,257 panels (43.6\%) having complete four-period coverage. This structure enables the identification of within-panel wage gap evolution while controlling for time-invariant unobserved heterogeneity.
+The constructed panel dataset exhibits a hierarchical structure, comprising 14,725 observations nested within 5,248 unique country-sector-occupation panels, observed across four time periods (2010, 2014, 2018, 2022). Panel duration varies from 1 to 4 observations, with 2,257 panels (43.6\%) having complete four-period coverage. This structure enables the identification of within-panel wage gap evolution while controlling for time-invariant unobserved heterogeneity.
 
 The identification strategy exploits within-panel variation over time, effectively comparing changes in wage gaps within identical country-sector-occupation cells. This approach eliminates bias from stable, unobserved factors, such as cultural attitudes, industrial relations systems, or occupational prestige, that may correlate with both gender composition and wage levels. The substantial within-panel variation confirms adequate identifying variation for fixed effects estimation.
 
@@ -441,7 +441,7 @@ The identification strategy exploits within-panel variation over time, effective
 
 The analytical sample contains substantial heterogeneity across key dimensions. Sectoral distribution reflects balanced representation across European economic sectors, with Services comprising 45.7\% of observations (6,602 obs), Industry 19.4\% (2,806 obs), Public Sector 17.9\% (2,588 obs), and Construction 5.6\% (812 obs). This distribution ensures adequate coverage across institutional contexts while maintaining sufficient within-sector variation for robust estimation.
 
-The refined dataset thus provides a robust empirical foundation for investigating the determinants of the gender wage gap across European labor markets, combining broad coverage with rigorous quality standards essential for causal inference in observational settings. The final analytical sample comprises 14,430 observations across 5,176 unique country-sector-occupation panels spanning 40 European countries from 2010 to 2022, ensuring sufficient cell sizes for reliable gender pay gap calculations while maintaining panel structure for longitudinal analysis.
+The refined dataset thus provides a robust empirical foundation for investigating the determinants of the gender wage gap across European labor markets, combining broad coverage with rigorous quality standards essential for causal inference in observational settings. The final analytical sample comprises 14,725 observations across 5,248 unique country-sector-occupation panels spanning 40 European countries from 2010 to 2022, ensuring sufficient cell sizes for reliable gender pay gap calculations while maintaining panel structure for longitudinal analysis.
 
 \section{METHODOLOGICAL DESIGN}
 
@@ -496,7 +496,7 @@ where $\hat{V}_{panel}$ and $\hat{V}_{time}$ represent cluster-robust matrices b
 
 \subsection{Addressing Serial Correlation and Heteroskedasticity}
 
-Diagnostic testing reveals significant serial correlation (Breusch-Godfrey/Wooldridge test: $\chi^2$ = 1144.3, df = 1, p < 2.2e-16) and heteroskedasticity, necessitating the use of robust estimation procedures. The analysis implements several complementary approaches:
+Diagnostic testing reveals significant serial correlation (Breusch-Godfrey/Wooldridge test: $\chi^2$ = 1245.2, df = 1, p < 2.2e-16) and heteroskedasticity, necessitating the use of robust estimation procedures. The analysis implements several complementary approaches:
 
 \textbf{Serial Correlation Corrections:}
 \begin{itemize}
@@ -512,7 +512,7 @@ Diagnostic testing reveals significant serial correlation (Breusch-Godfrey/Woold
 \item Bootstrap confidence intervals (1,000 replications) for inference
 \end{itemize}
 
-The Hausman test ($\chi^2$ = 92.091, df = 3, p < 2.2e-16) strongly rejects the null hypothesis of no systematic differences between fixed and random effects estimators, indicating that Fixed Effects estimation is statistically preferred. The analysis therefore employs Fixed Effects as the primary specification to control for time-invariant unobserved heterogeneity, with cluster-robust standard errors (HC1) to address serial correlation and heteroskedasticity. Random Effects models with interaction terms are used as complementary specifications to examine sector-occupation interactions, as these cannot be identified within the Fixed Effects framework.
+The Hausman test ($\chi^2$ = 34.541, df = 3, p < 2.2e-16) strongly rejects the null hypothesis of no systematic differences between fixed and random effects estimators, indicating that Fixed Effects estimation is statistically preferred. The analysis therefore employs Fixed Effects as the primary specification to control for time-invariant unobserved heterogeneity, with cluster-robust standard errors (HC1) to address serial correlation and heteroskedasticity. Random Effects models with interaction terms are used as complementary specifications to examine sector-occupation interactions, as these cannot be identified within the Fixed Effects framework.
 
 \subsection{Endogeneity Concerns and Identification Strategies}
 
@@ -613,11 +613,11 @@ The integrated methodological framework thus provides a rigorous identification 
 
 \section{RESULTS}
 
-The empirical analysis reveals complex, multidimensional patterns of gender wage determination across European labor markets. The analysis leverages harmonized Structure of Earnings Survey data, encompassing 14,430 observations across 5,176 unique country-sector-occupation panels, spanning 40 European countries from 2010 to 2022.
+The empirical analysis reveals complex, multidimensional patterns of gender wage determination across European labor markets. The analysis leverages harmonized Structure of Earnings Survey data, encompassing 14,725 observations across 5,248 unique country-sector-occupation panels, spanning 40 European countries from 2010 to 2022.
 
 \subsection{Descriptive Statistics and Sample Characteristics}
 
-Table \ref{tab:descriptive_stats} presents summary statistics disaggregated by key analytical dimensions, revealing substantial heterogeneity in the magnitudes of the gender pay gap across observational units. The dataset comprises 14,430 panel observations representing 5,176 unique country-sector-occupation cells across four time periods.
+Table \ref{tab:descriptive_stats} presents summary statistics disaggregated by key analytical dimensions, revealing substantial heterogeneity in the magnitudes of the gender pay gap across observational units. The dataset comprises 14,725 panel observations representing 5,248 unique country-sector-occupation cells across four time periods.
 
 
 \begin{table}[htbp]
@@ -674,7 +674,7 @@ The temporal trend reveals consistent convergence, with mean gaps declining from
 
 \subsection{Panel Regression Estimates}
 
-Table \ref{tab:main_results} presents panel regression estimates addressing the multidimensional determinants of gender pay gaps. Model selection follows econometric diagnostics: the Hausman test ($\chi^2$ = 92.091, df = 3, p < 2.2e-16) strongly favors Fixed Effects estimation to control for time-invariant unobserved heterogeneity. The primary specification employs Fixed Effects with time dummies, while a complementary Random Effects model with sector-occupation interactions preserves all theoretical predictors. Both specifications use HC1 cluster-robust standard errors to address serial correlation and heteroskedasticity.
+Table \ref{tab:main_results} presents panel regression estimates addressing the multidimensional determinants of gender pay gaps. Model selection follows econometric diagnostics: the Hausman test ($\chi^2$ = 34.541, df = 3, p < 2.2e-16) strongly favors Fixed Effects estimation to control for time-invariant unobserved heterogeneity. The primary specification employs Fixed Effects with time dummies, while a complementary Random Effects model with sector-occupation interactions preserves all theoretical predictors. Both specifications use HC1 cluster-robust standard errors to address serial correlation and heteroskedasticity.
 
 \begin{table}[H]
 \centering
@@ -686,40 +686,36 @@ Table \ref{tab:main_results} presents panel regression estimates addressing the 
 \textbf{Variable} & \textbf{Fixed Effects} & \textbf{Random Effects} \\
 \hline
 \multicolumn{3}{l}{\textit{Sectoral Variables (RE only)}} \\
-Industry & -- & 4.089*** \\
- & & (0.594) \\
-Construction & -- & 1.343 \\
- & & (0.690) \\
-Services & -- & 0.637 \\
- & & (0.480) \\
-Public Sector & -- & -2.860*** \\
- & & (0.586) \\
+Industry & -- & 2.165*** \\
+ & & (0.481) \\
+Construction & -- & 0.927 \\
+ & & (0.785) \\
+Public Sector & -- & -2.549*** \\
+ & & (0.461) \\
 & & \\
 \multicolumn{3}{l}{\textit{Occupational Hierarchy (RE only)}} \\
-High-Skill Occupation & -- & 2.520*** \\
- & & (0.433) \\
-Managerial Position & -- & 4.540*** \\
- & & (0.650) \\
+High-Skill Occupation & -- & 3.510*** \\
+ & & (0.434) \\
+Managerial Position & -- & 2.730*** \\
+ & & (0.620) \\
 & & \\
 \multicolumn{3}{l}{\textit{Time Fixed Effects}} \\
-Year 2014 & -1.361*** & -1.728*** \\
- & (0.204) & (0.200) \\
-Year 2018 & -1.015*** & -1.467*** \\
- & (0.218) & (0.212) \\
-Year 2022 & -2.173*** & -2.673*** \\
- & (0.216) & (0.207) \\
+Year 2014 & -1.040*** & -1.214*** \\
+ & (0.265) & (0.258) \\
+Year 2018 & -0.714** & -0.919*** \\
+ & (0.275) & (0.269) \\
+Year 2022 & -1.732*** & -2.061*** \\
+ & (0.268) & (0.266) \\
 & & \\
-Constant & -- & 13.420*** \\
- & & (0.462) \\
+Constant & -- & 12.238*** \\
+ & & (0.314) \\
 \hline
 \multicolumn{3}{l}{\textit{Model Statistics}} \\
-Observations & 14,430 & 14,430 \\
-Number of panels & 5,176 & 5,176 \\
+Observations & 14,725 & 14,725 \\
+Number of panels & 5,248 & 5,248 \\
 Countries & 40 & 40 \\
-R$^2$ (within) & 0.0121 & 0.0561 \\
-Hausman test & \multicolumn{2}{c}{$\chi^2$ = 92.091*** (FE preferred)} \\
-Breusch-Godfrey test & \multicolumn{2}{c}{$\chi^2$ = 1144.3*** (df=1)} \\
-Breusch-Pagan test & \multicolumn{2}{c}{BP = 194.47*** (df=9)} \\
+R$^2$ (within) & 0.0048 & 0.0250 \\
+Hausman test & \multicolumn{2}{c}{$\chi^2$ = 34.541*** (FE preferred)} \\
 \hline\hline
 \end{tabularx}
 \begin{tablenotes}[para,flushleft]
@@ -729,26 +725,26 @@ Breusch-Pagan test & \multicolumn{2}{c}{BP = 194.47*** (df=9)} \\
 \end{tablenotes}
 \end{table}
 
-The results reveal substantial heterogeneity in gender wage gaps across sectoral and occupational dimensions. The Random Effects specification, which preserves all theoretical predictors, shows that Industry sectors demonstrate the most significant disparity, with gender pay gaps 4.089 percentage points higher than the Services reference category (p < 0.001). This finding strongly aligns with theoretical predictions that male-dominated sectors maintain traditional wage structures and face weaker competitive pressures for equality.
+The results reveal substantial heterogeneity in gender wage gaps across sectoral and occupational dimensions. The Random Effects specification, which preserves all theoretical predictors, shows that Industry sectors demonstrate significant disparity, with gender pay gaps 2.165 percentage points higher than the Services reference category (p < 0.001). This finding aligns with theoretical predictions that male-dominated sectors maintain traditional wage structures and face weaker competitive pressures for equality.
 
-Conversely, Public Sector employment exhibits significantly lower gender pay gaps, with a reduction of 2.860 percentage points relative to Services (p < 0.001). This substantial effect magnitude—representing approximately 21\% of the mean gap—underscores the equalizing influence of public sector institutional frameworks, including standardized pay scales, transparent promotion criteria, and more vigorous enforcement of equality legislation. Construction shows an intermediate position (+1.343 pp, p = 0.051), marginally significant at conventional levels.
+Conversely, Public Sector employment exhibits significantly lower gender pay gaps, with a reduction of 2.549 percentage points relative to Services (p < 0.001). This substantial effect magnitude—representing approximately 20\% of the mean gap—underscores the equalizing influence of public sector institutional frameworks, including standardized pay scales, transparent promotion criteria, and more vigorous enforcement of equality legislation. Construction shows an intermediate position (+0.927 pp, p = 0.238), not statistically significant at conventional levels.
 
-Occupational hierarchy effects reveal complex patterns. High-skill occupations demonstrate higher gender pay gaps (+2.520 pp, p < 0.001), contrary to simple human capital predictions but consistent with glass ceiling theories wherein discrimination intensifies at higher skill levels. Managerial positions show even larger gaps (+4.540 pp, p < 0.001), indicating persistent barriers to gender equality at organizational peaks where discretionary compensation and promotion decisions enable greater discrimination.
+Occupational hierarchy effects reveal complex patterns. High-skill occupations demonstrate higher gender pay gaps (+3.510 pp, p < 0.001), contrary to simple human capital predictions but consistent with glass ceiling theories wherein discrimination intensifies at higher skill levels. Managerial positions show substantial gaps (+2.730 pp, p < 0.001), indicating persistent barriers to gender equality at organizational peaks where discretionary compensation and promotion decisions enable greater discrimination.
 
-Temporal convergence appears consistently across both specifications. The Fixed Effects model, which provides the most conservative estimates by controlling for all time-invariant panel characteristics, shows gender pay gaps declining by 1.361 percentage points by 2014 (p < 0.001), 1.015 percentage points by 2018 (p < 0.001), and 2.173 percentage points by 2022 (p < 0.001), all relative to the 2010 baseline. The Random Effects model yields slightly larger temporal effects. These trends indicate gradual but persistent progress toward wage equality, though the pace of convergence—approximately 0.26 percentage points per year—suggests complete gap elimination remains several decades distant.
+Temporal convergence appears consistently across both specifications. The Fixed Effects model, which provides the most conservative estimates by controlling for all time-invariant panel characteristics, shows gender pay gaps declining by 1.040 percentage points by 2014 (p < 0.001), 0.714 percentage points by 2018 (p < 0.01), and 1.732 percentage points by 2022 (p < 0.001), all relative to the 2010 baseline. The Random Effects model yields slightly larger temporal effects. These trends indicate gradual but persistent progress toward wage equality, though the pace of convergence—approximately 0.17 percentage points per year—suggests complete gap elimination remains several decades distant.
 
-Model diagnostics confirm the robustness of these findings. The R-squared value (within: 0.0121) indicates modest but significant explanatory power for the Fixed Effects specification, which is expected given the stringent within-panel transformation that eliminates all time-invariant heterogeneity. Diagnostic tests reveal significant serial correlation (Breusch-Godfrey test: $\chi^2$ = 1144.3, df = 1, p < 2.2e-16) and heteroskedasticity (Breusch-Pagan test: BP = 194.47, df = 9, p < 2.2e-16), validating the use of cluster-robust standard errors (HC1) for inference.
+Model diagnostics confirm the robustness of these findings. The R-squared value (within: 0.0048) indicates modest but significant explanatory power for the Fixed Effects specification, which is expected given the stringent within-panel transformation that eliminates all time-invariant heterogeneity. Diagnostic tests reveal significant serial correlation (Breusch-Godfrey test: $\chi^2$ = 1245.2, df = 1, p < 2.2e-16) and heteroskedasticity (Breusch-Pagan test: BP = 29.23, df = 8, p = 0.0003), validating the use of cluster-robust standard errors (HC1) for inference.
 
 
 \subsection{Hypothesis Testing Results}
 
 The econometric evidence provides strong support for the theoretical framework across all three main hypotheses:
 
-\textbf{Hypothesis 1 - Sectoral Institutional Effects:} Strongly supported. Industry sectors exhibit significantly higher gender pay gaps (+4.089 percentage points, p < 0.001) compared to the Services reference category, while Public Sector employment demonstrates significantly lower gaps (-2.860 percentage points, p < 0.001). The 6.95 percentage point spread between Industry and Public Sector confirms substantial sectoral heterogeneity in gender wage equality, consistent with institutional theories emphasizing the equalizing effects of public sector wage structures. Extended sectoral analysis across 18 detailed NACE Rev. 2 sectors reveals an 8.86 percentage point range from Manufacturing (17.11\%) to Hospitality (8.25\%), with substantial proportions of negative gaps in feminized service sectors (Hospitality 20.6\%, Education 16.9\%), directly addressing Research Question 1 and confirming that sectoral disaggregation uncovers meaningful variation in discrimination patterns.
+\textbf{Hypothesis 1 - Sectoral Institutional Effects:} Strongly supported. Industry sectors exhibit significantly higher gender pay gaps (+2.165 percentage points, p < 0.001) compared to the Services reference category, while Public Sector employment demonstrates significantly lower gaps (-2.549 percentage points, p < 0.001). The 4.71 percentage point spread between Industry and Public Sector confirms substantial sectoral heterogeneity in gender wage equality, consistent with institutional theories emphasizing the equalizing effects of public sector wage structures. Extended sectoral analysis across 18 detailed NACE Rev. 2 sectors reveals an 8.86 percentage point range from Manufacturing (17.11\%) to Hospitality (8.25\%), with substantial proportions of negative gaps in feminized service sectors (Hospitality 20.6\%, Education 16.9\%), directly addressing Research Question 1 and confirming that sectoral disaggregation uncovers meaningful variation in discrimination patterns.
 
-\textbf{Hypothesis 2 - Occupational Hierarchy:} Supported with complex patterns. Contrary to human capital predictions, high-skill occupations show higher gender pay gaps (+2.520 percentage points, p < 0.001), while managerial positions demonstrate even larger gaps (+4.540 percentage points, p < 0.001). These findings indicate persistent glass ceiling effects that intensify at higher organizational levels, where discretionary pay and promotion decisions enable greater discrimination. Sector-occupation interaction analyses reveal that the Industry penalty is partially offset in high-skill positions (-3.352 pp, p<0.001), while the Public sector advantage reverses for high-skill workers (+4.801 pp, p<0.001) but strengthens dramatically for managers (-5.449 pp, p<0.001), demonstrating that occupational penalties vary systematically across institutional contexts as predicted by Research Question 2.
+\textbf{Hypothesis 2 - Occupational Hierarchy:} Supported with complex patterns. Contrary to human capital predictions, high-skill occupations show higher gender pay gaps (+3.510 percentage points, p < 0.001), while managerial positions demonstrate substantial gaps (+2.730 percentage points, p < 0.001). These findings indicate persistent glass ceiling effects that intensify at higher organizational levels, where discretionary pay and promotion decisions enable greater discrimination. Sector-occupation interaction analyses reveal that the Industry penalty is partially offset in high-skill positions (-3.352 pp, p<0.001), while the Public sector advantage reverses for high-skill workers (+4.801 pp, p<0.001) but strengthens dramatically for managers (-5.449 pp, p<0.001), demonstrating that occupational penalties vary systematically across institutional contexts as predicted by Research Question 2.
 
-\textbf{Hypothesis 3 - Institutional Determinants and Convergence:} Comprehensively supported through multiple complementary findings. First, cross-national country group analysis reveals an 8.5 percentage point spread between Liberal regimes (17.0\%) and Balkans countries (8.5\%), with Nordic (11.8\%) and Eastern European (11.7\%) countries achieving substantially smaller gaps than Continental (13.8\%) and Mediterranean (14.3\%) countries, confirming institutional variation predictions in Research Question 3. Second, beta convergence analysis provides strong evidence that countries with higher 2010 gaps experienced significantly faster convergence (β = -0.474, p<0.001, R² = 0.517), with each percentage point higher initial gap predicting 0.47 pp additional reduction over 2010-2022. Third, panel time fixed effects demonstrate consistent temporal decline: -1.361 pp by 2014 (p<0.001), -1.015 pp by 2018 (p<0.001), and -2.173 pp by 2022 (p<0.001), representing accelerating convergence at approximately 0.26 percentage points per year. Fourth, country group × sector interactions reveal institutional moderation: the Nordic × Public Sector interaction (+2.307, p<0.05) indicates that Nordic countries achieve equality across both public and private sectors, eliminating the public sector premium observed in other welfare regimes. These converging lines of evidence—cross-sectional institutional differences, beta convergence dynamics, panel time trends, and institutional moderation—provide robust support for H3's prediction that egalitarian institutions, strong public sectors, and EU policy harmonization drive convergence toward greater gender wage equality.
+\textbf{Hypothesis 3 - Institutional Determinants and Convergence:} Comprehensively supported through multiple complementary findings. First, cross-national country group analysis reveals an 8.5 percentage point spread between Liberal regimes (17.0\%) and Balkans countries (8.5\%), with Nordic (11.8\%) and Eastern European (11.7\%) countries achieving substantially smaller gaps than Continental (13.8\%) and Mediterranean (14.3\%) countries, confirming institutional variation predictions in Research Question 3. Second, beta convergence analysis provides strong evidence that countries with higher 2010 gaps experienced significantly faster convergence (β = -0.474, p<0.001, R² = 0.517), with each percentage point higher initial gap predicting 0.47 pp additional reduction over 2010-2022. Third, panel time fixed effects demonstrate consistent temporal decline: -1.040 pp by 2014 (p<0.001), -0.714 pp by 2018 (p<0.01), and -1.732 pp by 2022 (p<0.001), representing convergence at approximately 0.17 percentage points per year. Fourth, country group × sector interactions reveal institutional moderation: the Nordic × Public Sector interaction (+2.307, p<0.05) indicates that Nordic countries achieve equality across both public and private sectors, eliminating the public sector premium observed in other welfare regimes. These converging lines of evidence—cross-sectional institutional differences, beta convergence dynamics, panel time trends, and institutional moderation—provide robust support for H3's prediction that egalitarian institutions, strong public sectors, and EU policy harmonization drive convergence toward greater gender wage equality.
 
 \subsection{Heterogeneous Treatment Effects and Interaction Analyses}
 
@@ -771,9 +767,9 @@ Public Sector $\times$ High-Skill & $4.801^{***}$ & (1.082) \\
 Public Sector $\times$ Managerial & $-5.449^{***}$ & (1.542) \\
 \hline
 \multicolumn{3}{l}{\textit{Combined Effects (illustrative)}} \\
-Industry + High-Skill & \multicolumn{2}{c}{4.089 + 2.520 - 3.352 = 3.26 pp} \\
-Public + High-Skill & \multicolumn{2}{c}{-2.860 + 2.520 + 4.801 = 4.46 pp} \\
-Public + Managerial & \multicolumn{2}{c}{-2.860 + 4.540 - 5.449 = -3.77 pp} \\
+Industry + High-Skill & \multicolumn{2}{c}{2.165 + 3.510 - 3.352 = 2.32 pp} \\
+Public + High-Skill & \multicolumn{2}{c}{-2.549 + 3.510 + 4.801 = 5.76 pp} \\
+Public + Managerial & \multicolumn{2}{c}{-2.549 + 2.730 - 5.449 = -5.27 pp} \\
 \hline\hline
 \end{tabularx}
 \begin{tablenotes}[para,flushleft]
@@ -783,7 +779,7 @@ Public + Managerial & \multicolumn{2}{c}{-2.860 + 4.540 - 5.449 = -3.77 pp} \\
 \end{tablenotes}
 \end{table}
 
-The interaction between Public Sector and high-skill occupations (+4.801, p<0.001) reverses the public sector advantage. While Public Sector employment generally shows a 2.860 percentage point lower gap, high-skill positions in the public sector exhibit a combined effect of +4.461 percentage points (-2.860 + 2.520 + 4.801) relative to low-skill Service sector workers, suggesting that public sector equality benefits do not extend to high-skill occupations where credentialism and professional hierarchies may enable discrimination.
+The interaction between Public Sector and high-skill occupations (+4.801, p<0.001) reverses the public sector advantage. While Public Sector employment generally shows a 2.549 percentage point lower gap, high-skill positions in the public sector exhibit a combined effect of +5.762 percentage points (-2.549 + 3.510 + 4.801) relative to low-skill Service sector workers, suggesting that public sector equality benefits do not extend to high-skill occupations where credentialism and professional hierarchies may enable discrimination.
 
 \subsection{Model Diagnostics and Specification Tests}
 
@@ -814,10 +810,10 @@ Extensive robustness checks validate the stability of findings across alternativ
 \hline\hline
 \textbf{Specification} & \textbf{Sample Size} & \textbf{Industry Coef.} & \textbf{Key Finding} \\
 \hline
-Baseline Random Effects & 14,430 & 4.089*** & Primary results hold \\
-Balanced Panel & 2,257 & 3.842*** & Reduced sample confirms patterns \\
-Quantile Regression (Median) & 14,430 & 3.954*** & Median effects similar to mean \\
-Fixed Effects (time only) & 14,430 & -- & Time trends confirmed \\
+Baseline Random Effects & 14,725 & 2.165*** & Primary results hold \\
+Balanced Panel & 9,028 & 2.134*** & Reduced sample confirms patterns \\
+Quantile Regression (Median) & 14,725 & 2.089*** & Median effects similar to mean \\
+Fixed Effects (time only) & 14,725 & -- & Time trends confirmed \\
 \hline\hline
 \end{tabularx}
 \begin{tablenotes}[para,flushleft]
@@ -1032,17 +1028,17 @@ These interaction patterns highlight the importance of examining institutional c
 
 \section{CONCLUSION}
 
-This thesis undertakes a comprehensive empirical investigation of the determinants of the gender wage gap across European labor markets, employing sophisticated panel data methodologies to unravel the complex interplay between sectoral institutions and occupational hierarchies. The analysis leverages harmonized Structure of Earnings Survey data spanning 2010-2022, encompassing 40 countries and 14,430 panel observations across 5,176 unique country-sector-occupation cells distributed over 18 detailed NACE Rev. 2 sectors and 9 ISCO-08 occupational categories, to provide robust evidence on multidimensional discrimination mechanisms operating within contemporary European economies.
+This thesis undertakes a comprehensive empirical investigation of the determinants of the gender wage gap across European labor markets, employing sophisticated panel data methodologies to unravel the complex interplay between sectoral institutions and occupational hierarchies. The analysis leverages harmonized Structure of Earnings Survey data spanning 2010-2022, encompassing 40 countries and 14,725 panel observations across 5,248 unique country-sector-occupation cells distributed over 18 detailed NACE Rev. 2 sectors and 9 ISCO-08 occupational categories, to provide robust evidence on multidimensional discrimination mechanisms operating within contemporary European economies.
 
 \subsection{Principal Empirical Findings}
 
-The econometric analysis yields four main findings that advance the theoretical and empirical understanding of persistent gender wage inequality across European labor markets. First, sectoral institutional arrangements emerge as primary determinants of wage gap magnitudes, with Industry sectors exhibiting systematically larger differentials (+4.089 percentage points, p<0.001) relative to other service sectors. Public sector employment demonstrates substantially compressed gaps (-2.860 percentage points, p<0.001). These sectoral effects persist under Fixed Effects specifications controlling for time-invariant panel heterogeneity, suggesting that institutional wage-setting mechanisms fundamentally shape gender equality outcomes.
+The econometric analysis yields four main findings that advance the theoretical and empirical understanding of persistent gender wage inequality across European labor markets. First, sectoral institutional arrangements emerge as primary determinants of wage gap magnitudes, with Industry sectors exhibiting systematically larger differentials (+2.165 percentage points, p<0.001) relative to other service sectors. Public sector employment demonstrates substantially compressed gaps (-2.549 percentage points, p<0.001). These sectoral effects persist under Fixed Effects specifications controlling for time-invariant panel heterogeneity, suggesting that institutional wage-setting mechanisms fundamentally shape gender equality outcomes.
 
-Second, occupational hierarchy effects reveal complex, non-monotonic patterns inconsistent with pure human capital explanations. High-skill occupations demonstrate increased gender gaps (+2.520 percentage points, p<0.001), while managerial positions exhibit even larger premiums (+4.540 percentage points, p<0.001), providing quantitative evidence of the glass ceiling phenomenon. This monotonic relationship between hierarchical position and gender wage penalties challenges conventional theories predicting skill-based convergence.
+Second, occupational hierarchy effects reveal complex, non-monotonic patterns inconsistent with pure human capital explanations. High-skill occupations demonstrate increased gender gaps (+3.510 percentage points, p<0.001), while managerial positions exhibit substantial premiums (+2.730 percentage points, p<0.001), providing quantitative evidence of the glass ceiling phenomenon. This relationship between hierarchical position and gender wage penalties challenges conventional theories predicting skill-based convergence.
 
-Third, sector-occupation interactions reveal nuanced discrimination mechanisms operating contingently across labor market segments. Industry sectors show significantly smaller gaps for high-skill workers (-3.352 percentage points, p<0.01) and managers (-3.253 percentage points, p<0.05), suggesting that sectoral premiums disproportionately benefit male workers in lower-skill positions. Conversely, Public sector employment provides substantial additional benefits for high-skill workers (+4.801 percentage points, p<0.001) but penalizes managers (-5.449 percentage points, p<0.001), indicating compressed wage structures at senior levels in public administration.
+Third, sector-occupation interactions reveal nuanced discrimination mechanisms operating contingently across labor market segments. Industry sectors show significantly smaller gaps for high-skill workers (-3.352 percentage points, p<0.01) and managers (-3.253 percentage points, p<0.05), suggesting that sectoral premiums disproportionately benefit male workers in lower-skill positions. Conversely, Public sector employment provides substantial additional benefits for high-skill workers (+4.801 percentage points, p<0.001) but shows strong equality for managers (-5.449 percentage points, p<0.001), indicating compressed wage structures at senior levels in public administration.
 
-Fourth, temporal analysis documents consistent convergence in gender wage gaps over the 2010-2022 period, with differentials declining 3.11 percentage points from 15.4\% (2010) to 12.3\% (2022). Year fixed effects demonstrate accelerating convergence: -1.361 pp by 2014 (p<0.001), -1.015 pp by 2018 (p<0.001), and -2.173 pp by 2022 (p<0.001) relative to the 2010 baseline. This pattern suggests steady progress at approximately 1.04 percentage points per four-year period, persisting through the financial crisis recovery and COVID-19 pandemic disruptions.
+Fourth, temporal analysis documents consistent convergence in gender wage gaps over the 2010-2022 period, with differentials declining 2.06 percentage points. Year fixed effects demonstrate consistent convergence: -1.040 pp by 2014 (p<0.001), -0.714 pp by 2018 (p<0.01), and -1.732 pp by 2022 (p<0.001) relative to the 2010 baseline. This pattern suggests steady progress at approximately 0.17 percentage points per year, persisting through the financial crisis recovery and COVID-19 pandemic disruptions.
 
 \subsection{Theoretical and Policy Implications}
 
@@ -1050,11 +1046,11 @@ The empirical findings generate several theoretical implications for the literat
 
 The complex sector-occupation interaction patterns provide evidence for complementary discrimination mechanisms. The finding that Industry sectors show reduced gaps for high-skill workers and managers suggests that sectoral wage premiums disproportionately benefit male workers in lower-skill positions, while human capital characteristics moderate discrimination at higher occupational levels. Conversely, the Public sector's compressed managerial wage structure indicates that institutional constraints on executive compensation reduce gender-based discretionary pay differentials.
 
-From a policy perspective, the analysis provides actionable insights for equality interventions. The substantial Public sector advantage (-2.860 pp) combined with interaction effects suggests that extending public sector employment practices—including transparent pay scales, formalized promotion procedures, and robust enforcement mechanisms—to private sectors could yield significant equality gains. The quantified magnitude of sectoral effects implies that shifts in sectoral employment composition or adoption of public sector wage-setting practices in Industry (where gaps are +4.089 pp larger) could meaningfully reduce economy-wide gender wage differentials.
+From a policy perspective, the analysis provides actionable insights for equality interventions. The substantial Public sector advantage (-2.549 pp) combined with interaction effects suggests that extending public sector employment practices—including transparent pay scales, formalized promotion procedures, and robust enforcement mechanisms—to private sectors could yield significant equality gains. The quantified magnitude of sectoral effects implies that shifts in sectoral employment composition or adoption of public sector wage-setting practices in Industry (where gaps are +2.165 pp larger) could meaningfully reduce economy-wide gender wage differentials.
 
-The paradoxical managerial gap findings (+4.540 pp premium) necessitate targeted interventions addressing glass ceiling mechanisms beyond general equal pay legislation. Policy instruments might include mandatory pay transparency at executive levels, gender quotas for senior positions, and restructuring of tournament-style promotion systems that disadvantage women through excessive hours requirements and geographical mobility demands. The large negative interaction for Public sector managers (-5.449 pp) demonstrates that institutional constraints can effectively compress executive-level gender gaps.
+The paradoxical managerial gap findings (+2.730 pp premium) necessitate targeted interventions addressing glass ceiling mechanisms beyond general equal pay legislation. Policy instruments might include mandatory pay transparency at executive levels, gender quotas for senior positions, and restructuring of tournament-style promotion systems that disadvantage women through excessive hours requirements and geographical mobility demands. The large negative interaction for Public sector managers (-5.449 pp) demonstrates that institutional constraints can effectively compress executive-level gender gaps.
 
-The temporal convergence patterns document consistent progress at 1.04 percentage points per four-year period (2010-2022), suggesting that existing policies and structural changes are gradually reducing gender wage inequality. However, the accelerating convergence in 2022 (-2.173 pp from 2010 baseline) may reflect pandemic-induced labor market disruptions that disproportionately affected male-dominated sectors. Long-term monitoring will clarify whether this acceleration represents structural change or temporary compositional effects.
+The temporal convergence patterns document consistent progress at 0.17 percentage points per year (2010-2022), suggesting that existing policies and structural changes are gradually reducing gender wage inequality. However, the convergence in 2022 (-1.732 pp from 2010 baseline) may reflect pandemic-induced labor market disruptions that disproportionately affected male-dominated sectors. Long-term monitoring will clarify whether this represents structural change or temporary compositional effects.
 
 \subsection{Limitations and Methodological Caveats}
 
