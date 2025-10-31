@@ -43,7 +43,7 @@ p5 <- ggplot(temporal_trends, aes(x = year, y = mean_gap, color = country_group,
     subtitle = "Mean gap with standard error bands (2010-2022)",
     x = "Year",
     y = "Mean Gender Pay Gap (%)",
-    caption = "All groups show convergence trends over time"
+    caption = "5 out of 6 groups converge (Liberal -27%, Continental -19%, Nordic -17%, Mediterranean -12%, Eastern -6%). Balkans diverges (+36%)."
   ) +
   theme(legend.position = "bottom")
 

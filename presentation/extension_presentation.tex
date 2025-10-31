@@ -1,0 +1,489 @@
+\documentclass[10pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{default}
+
+% Packages
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% Custom colors
+\definecolor{darkblue}{RGB}{0,51,102}
+\definecolor{lightblue}{RGB}{102,178,255}
+\setbeamercolor{structure}{fg=darkblue}
+
+% Title page information
+\title[Gender Pay Gap: Extended Analysis]{Gender Pay Gap in Europe}
+\subtitle{Extended Cross-National Study: 18 Sectors × 40 Countries × 2010-2022}
+\author{Mehmet Tiryaki}
+\date{\today}
+
+\begin{document}
+
+% ============================================================================
+% SLIDE 1: Title Page
+% ============================================================================
+\begin{frame}
+\titlepage
+\end{frame}
+
+% ============================================================================
+% SLIDE 2: Research Questions (From Main.tex)
+% ============================================================================
+\begin{frame}{Research Questions}
+
+This study addresses three fundamental research questions:
+
+\vspace{0.3cm}
+
+\begin{block}{RQ1: Sectoral Heterogeneity}
+How do gender pay gaps vary systematically across \textbf{18 detailed NACE Rev. 2 economic sectors} in European labor markets from 2010 to 2022, and do certain sectors exhibit \textbf{negative gaps} where women out-earn men?
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{block}{RQ2: Occupational Moderation}
+To what extent do \textbf{occupational skill levels} and \textbf{managerial hierarchies} moderate sectoral gender pay gap differentials within European labor markets?
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{block}{RQ3: Country Groups \& Convergence}
+Do gender pay gaps differ across European country groups (Nordic, Continental, Mediterranean, Eastern European), and is there evidence of \textbf{convergence over time}?
+\end{block}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 3: Extension Plan Motivation
+% ============================================================================
+\begin{frame}{Why This Extension? Addressing Key Concerns}
+
+\textbf{Original Concern:} "3 sectors insufficient—need more variation"
+
+\vspace{0.3cm}
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Before:}
+\begin{itemize}
+    \item 3 broad sectors
+    \item Aggregate Europe
+    \item Limited variation
+    \item Static analysis
+\end{itemize}
+
+\column{0.48\textwidth}
+\textbf{After Extension:}
+\begin{itemize}
+    \item \textcolor{darkblue}{\textbf{18 detailed NACE sectors}}
+    \item \textcolor{darkblue}{\textbf{7 country groups}}
+    \item \textcolor{darkblue}{\textbf{30 individual countries}}
+    \item \textcolor{darkblue}{\textbf{Convergence analysis}}
+\end{itemize}
+\end{columns}
+
+\vspace{0.4cm}
+
+\begin{alertblock}{Extension Plan Goals}
+\begin{enumerate}
+    \item Compare country groups (Nordic vs Continental vs Mediterranean vs Eastern)
+    \item Analyze 2-3 specific countries showing interesting patterns
+    \item Test for convergence/divergence patterns across EU
+\end{enumerate}
+\end{alertblock}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 4: Data Overview - Comprehensive Coverage
+% ============================================================================
+\begin{frame}[shrink=12]{Data: Comprehensive European Coverage}
+
+\textbf{Source:} Eurostat Structure of Earnings Survey (SES) 2010-2022
+
+\vspace{0.3cm}
+
+\begin{columns}[T]
+\column{0.5\textwidth}
+\textbf{Scale:}
+\begin{itemize}
+    \item \textbf{14,725} observations
+    \item \textbf{5,248} panel units
+    \item \textbf{40} European countries
+    \item \textbf{4} waves (2010, 2014, 2018, 2022)
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Dimensions:}
+\begin{itemize}
+    \item \textbf{18} NACE Rev. 2 sectors \small{(B-S)}
+    \item \textbf{9} ISCO-08 occupations \small{(1-9)}
+    \item \textbf{7} country groups \small{(welfare regimes)}
+    \item \textbf{12-year} panel \small{(4 waves)}
+\end{itemize}
+\end{columns}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{\small Why These Dimensions?}
+\small
+\textbf{18 sectors:} Maximum disaggregation available (addresses "3 sectors insufficient" concern) \\
+\textbf{9 occupations:} Full ISCO hierarchy (1=Managers → 9=Elementary) \\
+\textbf{7 country groups:} Welfare regime theory (institutional variation)
+\end{alertblock}
+
+\vspace{0.4cm}
+
+\begin{block}{Country Group Classification (Welfare Regimes)}
+\small
+\begin{tabular}{ll}
+\textbf{Nordic (5):} & Denmark, Finland, Iceland, Norway, Sweden \\
+\textbf{Continental (8):} & Austria, Belgium, Germany, France, Luxembourg, Netherlands, Switzerland \\
+\textbf{Mediterranean (6):} & Cyprus, Greece, Spain, Italy, Malta, Portugal \\
+\textbf{Eastern (11):} & Bulgaria, Czechia, Estonia, Croatia, Hungary, Lithuania, Latvia, Poland \\
+\textbf & Romania, Slovenia, Slovakia \\
+\textbf{Liberal (2):} & Ireland, UK \\
+\textbf{Balkans (6):} & Albania, Bosnia, Montenegro, North Macedonia, Serbia, Kosovo \\
+\textbf{Other (2):} & Turkey, Moldova \\
+\end{tabular}
+\end{block}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 5: Main Finding 1 - 18 Sectors Variation (Addresses RQ1)
+% ============================================================================
+\begin{frame}{Finding 1: Substantial Sectoral Variation}
+
+\begin{center}
+\includegraphics[width=0.95\textwidth]{../figures/18_sectors_scatter.png}
+\end{center}
+
+\vspace{-0.2cm}
+
+\begin{block}{Key Evidence for RQ1}
+\begin{itemize}
+    \item \textbf{8.86 pp range:} Manufacturing (17.11\%) → Hospitality (8.25\%)
+    \item \textbf{Negative gaps exist:} 20.6\% of Hospitality cells, 16.9\% Education
+    \item \textbf{Systematic patterns:} Manufacturing/Finance high, Public/Education low
+\end{itemize}
+\end{block}
+
+\textcolor{darkblue}{\textbf{Conclusion:}} 18 sectors reveal meaningful variation—validates extension!
+
+\vspace{0.2cm}
+
+\begin{block}{\small Methodological Note}
+\small
+18 detailed sectors used for \textbf{descriptive analysis} (show variation). \\
+4 broad sectors used in \textbf{panel regression} (parsimony + avoid multicollinearity).
+\end{block}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 6: Main Finding 2 - Occupational Moderation (Addresses RQ2)
+% ============================================================================
+\begin{frame}{Finding 2: Occupational Hierarchy Matters}
+
+\textbf{Panel Regression with Broad Sectors + Occupations + Interactions:}
+
+\vspace{0.2cm}
+
+\begin{block}{Model Specification (N=14,725)}
+\small
+\textbf{4 Broad Sectors:} Industry (Mining+Manufacturing), Construction, Public (Admin+Education+Health), Services (reference) \\
+\textbf{2 Occupations:} High-Skill (ISCO 1-3: managers, professionals, technicians) vs. Low-Skill (reference) | Managerial (ISCO 1: top management) vs. Non-Managers (reference)
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{columns}[T]
+\column{0.5\textwidth}
+\textbf{Main Effects:}
+\begin{itemize}
+    \item Industry: \textcolor{red}{+2.165***}
+    \item Public Sector: \textcolor{green!60!black}{-2.549***}
+    \item High-Skill: \textcolor{red}{+3.510***}
+    \item Managerial: \textcolor{red}{+2.730***}
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Interactions:}
+\begin{itemize}
+    \item Industry × High-Skill: \textcolor{green!60!black}{-3.352***}
+    \item Public × High-Skill: \textcolor{red}{+4.801***}
+    \item Public × Manager: \textcolor{green!60!black}{-5.449***}
+\end{itemize}
+\end{columns}
+
+\vspace{0.4cm}
+
+\begin{alertblock}{Answer to RQ2: Complex Moderation Patterns}
+\begin{itemize}
+    \item \textbf{Glass ceiling effects:} High-skill (+3.5 pp) and managerial (+2.7 pp) face larger gaps
+    \item \textbf{Industry offset:} High-skill workers in Industry face \textit{smaller} penalties than expected
+    \item \textbf{Public sector reversal:} Public advantage disappears for high-skill but strengthens for managers
+\end{itemize}
+\end{alertblock}
+
+\vspace{0.2cm}
+
+\small
+\textbf{Reference categories:} Services sector, Low-skill/Non-managerial occupations, Year 2010 \\
+\textbf{Hausman test:} $\chi^2$ = 34.541*** $\rightarrow$ Fixed Effects preferred \\
+\textbf{Standard errors:} HC1 cluster-robust (controls serial correlation + heteroskedasticity)
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 7: Main Finding 3 - Country Groups (Addresses RQ3 Part 1)
+% ============================================================================
+\begin{frame}{Finding 3a: Country Group Differences}
+
+\begin{center}
+\includegraphics[width=0.85\textwidth]{../figures/country_groups_comparison.png}
+\end{center}
+
+
+\end{frame}
+
+\begin{frame}{Finding 3a: Country Group Differences}
+
+
+
+\begin{block}{Key Evidence for RQ3 (Part 1): Institutional Variation}
+\begin{itemize}
+    \item \textbf{8.5 pp spread:} Liberal (17.0\%) → Balkans (8.5\%)
+    \item \textbf{Nordic model works:} 11.8\% gap with low dispersion (compressed wages)
+    \item \textbf{Eastern similarity:} 11.7\% gap (socialist legacy + transition heterogeneity)
+    \item \textbf{Liberal penalty:} 17.0\% gap (minimal regulation, weak bargaining)
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 8: Main Finding 4 - Convergence (Addresses RQ3 Part 2)
+% ============================================================================
+\begin{frame}{Finding 3b: Beta Convergence Confirmed}
+
+\begin{center}
+\includegraphics[width=1\textwidth]{../figures/beta_convergence_scatter.png}
+\end{center}
+
+\vspace{-0.3cm}
+
+\begin{block}{Answer to RQ3 (Part 2): Systematic Convergence}
+\begin{itemize}
+    \item \textbf{$\beta$ = -0.474***} (p<0.001, R²=0.517): Each 1pp higher 2010 gap → 0.47pp faster reduction by 2022
+    \item \textbf{R²=0.517:} Initial gaps explain 52\% of subsequent change—very high for cross-country data!
+    \item \textbf{Austria:} 21.8\% → 14.7\% (-7.1 pp over 12 years)
+    \item \textbf{Ireland:} 18.4\% → 13.4\% (-5.0 pp) | \textbf{Estonia:} 15.9\% → 14.3\% (-1.7 pp)
+    \item \textbf{Diverging cases:} Hungary, Croatia, Netherlands (gap increased!)
+\end{itemize}
+\end{block}
+
+\vspace{0.1cm}
+
+\small
+\textbf{Beta convergence:} Growth economics concept—poorer regions catch up to richer (here: high-gap catch up to low-gap) \\
+\textcolor{darkblue}{\textbf{Interpretation:}} EU policy harmonization + competitive pressures work!
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 9: Temporal Trends - All Groups Converging
+% ============================================================================
+\begin{frame}{Temporal Dynamics:}
+
+\begin{center}
+\includegraphics[width=1\textwidth]{../figures/temporal_trends_country_groups.png}
+\end{center}
+
+
+
+\end{frame}
+
+
+\begin{frame}{Temporal Dynamics}
+
+
+
+\begin{block}{Panel Time Fixed Effects (2010 baseline)}
+\begin{itemize}
+    \item 2014: \textcolor{green!60!black}{-1.040 pp***} | 2018: \textcolor{green!60!black}{-0.714 pp**} | 2022: \textcolor{green!60!black}{-1.732 pp***}
+    \item \textbf{Convergence rate:} $\sim$0.17 pp per year
+    \item \textbf{5 out of 6 groups converge (83\%)}—Balkans diverges (+2.4 pp, +36\%)
+    \item Liberal shows fastest convergence (-5.0 pp, -27\%)
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+
+
+% ============================================================================
+% SLIDE 13: Limitations \& Future Research
+% ============================================================================
+\begin{frame}{Limitations \& Future Research Directions}
+
+\begin{block}{Limitations}
+\begin{itemize}
+    \item \textbf{Sigma convergence:} Insufficient balanced panel for yearly variance trends
+    \item \textbf{Unclassified countries:} Some observations lack welfare regime assignment
+    \item \textbf{Composition effects:} Cannot fully separate selection vs. discrimination
+    \item \textbf{COVID-19 impact:} 2022 wave may reflect pandemic-specific distortions
+\end{itemize}
+\end{block}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 15: Summary \& Conclusions
+% ============================================================================
+\begin{frame}{Summary \& Conclusions}
+
+\textbf{Three Research Questions → Three Clear Answers:}
+
+\vspace{0.3cm}
+
+\begin{block}{RQ1: Sectoral Variation}
+✅ \textbf{Yes!} 18 sectors show 8.86 pp range with negative gaps in feminized sectors
+\end{block}
+
+\begin{block}{RQ2: Occupational Moderation}
+✅ \textbf{Complex!} High-skill (+3.5 pp) and managerial (+2.7 pp) penalties vary by sector—Industry offset, Public sector reversal
+\end{block}
+
+\begin{block}{RQ3: Country Groups \& Convergence}
+✅ \textbf{Both confirmed!} 8.5 pp spread across groups + systematic beta convergence ($\beta$=-0.474***)
+\end{block}
+
+
+\vspace{0.2cm}
+
+\textbf{Bottom Line:} Comprehensive analysis of 14,725 observations across 40 countries proves sectoral-occupational-institutional interactions drive European gender wage gaps—with 5 out of 6 country groups converging, demonstrating EU policy effectiveness despite Balkans divergence.
+
+\end{frame}
+
+% ============================================================================
+% BACKUP SLIDES - Additional Clarifications
+% ============================================================================
+
+\appendix
+
+\begin{frame}[plain]
+\begin{center}
+\Huge \textcolor{darkblue}{Backup Slides}
+
+\vspace{0.5cm}
+
+\Large Sector \& Occupation Classifications
+\end{center}
+\end{frame}
+
+% ============================================================================
+% BACKUP 1: NACE Sector Classification
+% ============================================================================
+\begin{frame}{Backup: NACE Rev. 2 Sector Classification}
+
+\textbf{Why 4 Broad Sectors in Regression but 18 in Descriptive?}
+
+\vspace{0.3cm}
+
+\begin{block}{18 Detailed NACE Rev. 2 Sectors (Descriptive Analysis)}
+\small
+\textbf{Industry (B-C):} Mining (B), Manufacturing (C) \\
+\textbf{Utilities (D-E):} Electricity/Gas (D), Water Supply (E) \\
+\textbf{Construction (F):} Construction activities \\
+\textbf{Services (G-N):} Trade (G), Transport (H), Hospitality (I), IT (J), Finance (K), Real Estate (L), Professional (M), Admin Services (N) \\
+\textbf{Public (O-Q):} Public Admin (O), Education (P), Health (Q) \\
+\textbf{Other (R-S):} Arts/Recreation (R), Other Services (S)
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{block}{4 Broad Sectors (Panel Regression)}
+\small
+\textbf{Industry:} B+C (Mining + Manufacturing) \\
+\textbf{Construction:} F \\
+\textbf{Services (reference):} G-N (Trade, Transport, IT, Finance, Professional...) \\
+\textbf{Public Sector:} O-Q (Admin, Education, Health)
+\end{block}
+
+\textbf{Reason:} 18 sectors → multicollinearity + small cells. 4 sectors → parsimony + stable estimates.
+
+\end{frame}
+
+% ============================================================================
+% BACKUP 2: ISCO Occupation Classification
+% ============================================================================
+\begin{frame}{Backup: ISCO-08 Occupation Classification}
+
+\textbf{Why 2 Occupational Variables (High-Skill + Managerial)?}
+
+\vspace{0.3cm}
+
+\begin{block}{9 ISCO-08 Major Groups (Full Classification)}
+\small
+\textbf{1. Managers} - Top management, specialized managers \\
+\textbf{2. Professionals} - Scientists, engineers, doctors, teachers \\
+\textbf{3. Technicians \& Associates} - Technical support, nursing \\
+\textbf{4. Clerical Support} - Office workers, secretaries \\
+\textbf{5. Services \& Sales} - Shop assistants, personal care \\
+\textbf{6. Skilled Agricultural} - Farmers, fishermen \\
+\textbf{7. Craft Workers} - Construction, manufacturing trades \\
+\textbf{8. Plant Operators} - Machine operators, drivers \\
+\textbf{9. Elementary Occupations} - Cleaners, laborers
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{block}{2 Binary Variables for Regression}
+\small
+\textbf{High-Skill (vs. Low-Skill reference):} ISCO 1-3 vs. ISCO 4-9 \\
+\textbf{Managerial (vs. Non-Managerial reference):} ISCO 1 vs. ISCO 2-9
+\end{block}
+
+\textbf{Reason:} Test glass ceiling (managerial) + human capital (skill level) separately.
+
+\end{frame}
+
+% ============================================================================
+% BACKUP 3: Why These Groupings?
+% ============================================================================
+\begin{frame}{Backup: Theoretical Justification for Groupings}
+
+\begin{block}{4 Broad Sectors → Institutional Theory}
+\small
+\textbf{Industry (B-C):} Male-dominated, tournament pay, weak equality enforcement \\
+\textbf{Construction (F):} Physical labor, informal networks, masculine culture \\
+\textbf{Services (G-N):} Mixed, market-driven, customer-facing \\
+\textbf{Public (O-Q):} Formalized pay scales, strong unions, transparency
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{block}{High-Skill (ISCO 1-3) → Human Capital Theory}
+\small
+\textbf{Prediction:} Higher skills → smaller gaps (productivity observable) \\
+\textbf{Reality:} Larger gaps (+3.5 pp)! → Contradicts theory, supports discrimination
+\end{block}
+
+\vspace{0.3cm}
+
+\begin{block}{Managerial (ISCO 1) → Glass Ceiling Theory}
+\small
+\textbf{Prediction:} Discretionary pay at top → larger gaps \\
+\textbf{Reality:} +2.7 pp penalty → Supports glass ceiling \\
+\textbf{BUT:} Public managers -5.4 pp advantage! → Institutional moderation
+\end{block}
+
+\end{frame}
+
+\end{document}

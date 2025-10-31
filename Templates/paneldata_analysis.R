@@ -1,3 +1,7 @@
+## OLD VERSION BACKUP FILE
+## IT IS NOT ACTUALLY USED IN THE ANALYSIS PIPELINE
+
+
 # ============================================================================
 # ENHANCED GENDER PAY GAP ANALYSIS WITH OCCUPATIONAL DIMENSIONS
 # Master's Thesis: Gender Pay Gap Evolution in European Labor Markets
