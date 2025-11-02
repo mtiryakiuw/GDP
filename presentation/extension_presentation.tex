@@ -1,4 +1,8 @@
 \documentclass[10pt]{beamer}
+\documentclass{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\newunicodechar{✅}{\checkmark}
 \usetheme{Madrid}
 \usecolortheme{default}
 
@@ -188,7 +192,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 % ============================================================================
 % SLIDE 6: Main Finding 2 - Occupational Moderation (Addresses RQ2)
 % ============================================================================
-\begin{frame}{Finding 2: Occupational Hierarchy Matters}
+\begin{frame}[shrink=12]{Finding 2: Occupational Hierarchy Matters}
 
 \textbf{Panel Regression with Broad Sectors + Occupations + Interactions:}
 
@@ -206,18 +210,16 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \column{0.5\textwidth}
 \textbf{Main Effects:}
 \begin{itemize}
-    \item Industry: \textcolor{red}{+4.089***}
-    \item Construction: +1.343 n.s.
-    \item Public Sector: \textcolor{green!60!black}{-2.860***}
-    \item High-Skill: \textcolor{red}{+2.520***}
-    \item Managerial: \textcolor{red}{+4.540***}
+    \item Industry: \textcolor{red}{+2.165***}
+    \item Public Sector: \textcolor{green!60!black}{-2.549***}
+    \item High-Skill: \textcolor{red}{+3.510***}
+    \item Managerial: \textcolor{red}{+2.730***}
 \end{itemize}
 
 \column{0.5\textwidth}
 \textbf{Interactions:}
 \begin{itemize}
     \item Industry × High-Skill: \textcolor{green!60!black}{-3.352***}
-    \item Industry × Manager: \textcolor{green!60!black}{-3.253*}
     \item Public × High-Skill: \textcolor{red}{+4.801***}
     \item Public × Manager: \textcolor{green!60!black}{-5.449***}
 \end{itemize}
@@ -227,9 +229,9 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 
 \begin{alertblock}{Answer to RQ2: Complex Moderation Patterns}
 \begin{itemize}
-    \item \textbf{Glass ceiling effects:} High-skill (+2.5 pp) and managerial (+4.5 pp) face larger gaps
-    \item \textbf{Industry offset:} High-skill workers in Industry face \textit{smaller} penalties (-3.4 pp interaction)
-    \item \textbf{Public sector reversal:} Public advantage disappears for high-skill (+4.8 pp) but strengthens for managers (-5.4 pp)
+    \item \textbf{Glass ceiling effects:} High-skill (+3.5 pp) and managerial (+2.7 pp) face larger gaps
+    \item \textbf{Industry offset:} High-skill workers in Industry face \textit{smaller} penalties than expected
+    \item \textbf{Public sector reversal:} Public advantage disappears for high-skill but strengthens for managers
 \end{itemize}
 \end{alertblock}
 
@@ -397,7 +399,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 % ============================================================================
 % BACKUP 1: NACE Sector Classification
 % ============================================================================
-\begin{frame}{Backup: NACE Rev. 2 Sector Classification}
+\begin{frame}[shrink=12]{Backup: NACE Rev. 2 Sector Classification}
 
 \textbf{Why 4 Broad Sectors in Regression but 18 in Descriptive?}
 
@@ -430,7 +432,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 % ============================================================================
 % BACKUP 2: ISCO Occupation Classification
 % ============================================================================
-\begin{frame}{Backup: ISCO-08 Occupation Classification}
+\begin{frame}[shrink=12]{Backup: ISCO-08 Occupation Classification}
 
 \textbf{Why 2 Occupational Variables (High-Skill + Managerial)?}
 
