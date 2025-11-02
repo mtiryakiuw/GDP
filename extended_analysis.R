@@ -41,13 +41,13 @@ country_groups <- list(
   
   Mediterranean = c("CY", "EL", "ES", "IT", "MT", "PT"),
   
-  Eastern = c("BG", "CZ", "EE", "HR", "HU", "LT", "LV", "PL", "RO", "SI", "SK"),
+  Eastern = c("BG", "CZ", "EE", "HR", "HU", "LT", "LV", "MD", "PL", "RO", "SI", "SK"),
   
   Liberal = c("IE", "UK"),
   
   Balkans = c("AL", "BA", "ME", "MK", "RS", "XK"),
   
-  Other = c("TR", "MD")
+  Other = c("TR")
 )
 
 # Create mapping
@@ -218,27 +218,28 @@ if(coef(beta_model)[2] < 0 & summary(beta_model)$coefficients[2,4] < 0.05) {
 cat("\n\n🎯 STEP 5: PANEL MODELS WITH COUNTRY GROUPS\n")
 cat("----------------------------------------------\n")
 
-# Create dummy variables for country groups
+# Create dummy variables for country groups (Continental = reference)
 gap_panel2 <- gap_panel2 %>%
   mutate(
     nordic = as.numeric(country_group == "Nordic"),
-    continental = as.numeric(country_group == "Continental"),
     mediterranean = as.numeric(country_group == "Mediterranean"),
     eastern = as.numeric(country_group == "Eastern"),
     liberal = as.numeric(country_group == "Liberal"),
-    balkans = as.numeric(country_group == "Balkans")
+    balkans = as.numeric(country_group == "Balkans"),
+    other = as.numeric(country_group == "Other")
   )
 
 # Panel data setup
 pdata_extended <- pdata.frame(gap_panel2, index = c("panel_id", "year"))
 
-# Model with country groups
-cat("\n🔸 RANDOM EFFECTS MODEL WITH COUNTRY GROUPS:\n\n")
+# Model with country groups (Balkans as reference)
+cat("\n\n🔸 RANDOM EFFECTS MODEL WITH COUNTRY GROUPS:\n")
+cat("   Reference: Continental (middle of distribution, mean = 13.8%)\n")
 
 model_country_groups <- plm(
   gender_pay_gap ~ industry + construction + public_sector +
     high_skill + managerial +
-    nordic + continental + mediterranean + eastern + liberal + balkans +
+    nordic + mediterranean + eastern + liberal + balkans + other +
     factor(year),
   data = pdata_extended,
   model = "random"
@@ -255,12 +256,13 @@ print(coeftest(model_country_groups, vcov = vcovHC(model_country_groups, type = 
 # ============================================================================
 
 cat("\n\n🔹 COUNTRY GROUP × SECTOR INTERACTIONS:\n")
+cat("   Reference: Continental (middle of distribution, mean = 13.8%)\n")
 cat("----------------------------------------\n")
 
 model_interactions <- plm(
   gender_pay_gap ~ industry + construction + public_sector +
     high_skill + managerial +
-    nordic + mediterranean + eastern +
+    nordic + mediterranean + eastern + liberal + balkans + other +
     nordic:public_sector + mediterranean:industry + eastern:industry +
     factor(year),
   data = pdata_extended,

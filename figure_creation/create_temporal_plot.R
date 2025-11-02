@@ -7,7 +7,7 @@ country_groups <- list(
   Nordic = c("DK", "FI", "IS", "NO", "SE"),
   Continental = c("AT", "BE", "DE", "FR", "LU", "NL", "CH", "LI"),
   Mediterranean = c("CY", "EL", "ES", "IT", "MT", "PT"),
-  Eastern = c("BG", "CZ", "EE", "HR", "HU", "LT", "LV", "PL", "RO", "SI", "SK"),
+  Eastern = c("BG", "CZ", "EE", "HR", "HU", "LT", "LV", "MD", "PL", "RO", "SI", "SK"),
   Liberal = c("IE", "UK"),
   Balkans = c("AL", "BA", "ME", "MK", "RS", "XK")
 )
