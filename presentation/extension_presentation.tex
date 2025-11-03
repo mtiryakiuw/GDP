@@ -62,7 +62,98 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 3: Extension Plan Motivation
+% SLIDE 3: Methodology Overview
+% ============================================================================
+\begin{frame}{Methodology: Multi-Level Panel Approach}
+
+\begin{block}{Econometric Strategy}
+\textbf{Panel Data Models:} Fixed Effects (FE) and Random Effects (RE) with Hausman specification tests
+\begin{itemize}
+    \item \textbf{Model 1:} Baseline sectoral variation (18 NACE sectors)
+    \item \textbf{Model 2:} Sector × Occupation interactions (4 sectors × 2 occupations)
+    \item \textbf{Model 3:} Country group heterogeneity (7 welfare regimes)
+    \item \textbf{Model 4:} Beta convergence (cross-sectional growth model)
+\end{itemize}
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{columns}[T]
+\column{0.5\textwidth}
+\textbf{Model Specification:}
+\begin{itemize}
+    \item \textbf{DV:} Gender pay gap (\%)
+    \item \textbf{IVs:} Sector dummies, Occupation dummies, Country groups, Year FE
+    \item \textbf{Panel:} $i$ = country-sector-occupation, $t$ = wave
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Inference:}
+\begin{itemize}
+    \item \textbf{SE:} HC1 cluster-robust
+    \item \textbf{Tests:} Hausman (FE vs RE), Breusch-Pagan (heteroskedasticity)
+    \item \textbf{Validation:} Balanced panel sensitivity, quantile regression
+\end{itemize}
+\end{columns}
+
+\vspace{0.3cm}
+
+\begin{alertblock}{Key Methodological Choices}
+\small
+\textbf{Why panel data?} Controls time-invariant country/sector characteristics \textbar\ \textbf{Why interactions?} Test heterogeneous effects across contexts \textbar\ \textbf{Why robust SE?} Serial correlation + heteroskedasticity in labor market panels
+\end{alertblock}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 4: Data Construction & Measurement
+% ============================================================================
+\begin{frame}[shrink=8]{Data: Construction \& Quality Assurance}
+
+\textbf{Source:} Eurostat Structure of Earnings Survey (SES) 2010-2022
+
+\vspace{0.2cm}
+
+\begin{block}{Dependent Variable: Gender Pay Gap (\%)}
+\small
+$$\text{GPG}_{ijt} = \left(\frac{\text{Male Mean Earnings}_{ijt} - \text{Female Mean Earnings}_{ijt}}{\text{Male Mean Earnings}_{ijt}}\right) \times 100$$
+\vspace{0.1cm}
+\textbf{Interpretation:} Positive = men earn more; Negative = women earn more \textbar\ \textbf{Earnings measure:} Mean annual gross earnings from Structure of Earnings Survey (SES)
+\end{block}
+
+\vspace{0.2cm}
+
+\begin{columns}[T]
+\column{0.48\textwidth}
+\textbf{Independent Variables:}
+\begin{itemize}
+    \item \textbf{Sectors:} NACE Rev. 2 (B-S), 18 detailed + 4 broad aggregates
+    \item \textbf{Occupations:} ISCO-08 (1-9), binary: High-skill (1-3), Managerial (1 only)
+    \item \textbf{Country groups:} 7 welfare regimes (Esping-Andersen + Eastern/Balkans)
+    \item \textbf{Time:} Year dummies (2010 baseline)
+\end{itemize}
+
+\column{0.52\textwidth}
+\textbf{Data Quality Controls:}
+\begin{itemize}
+    \item \textbf{Outliers:} Winsorized at 1\textsuperscript{st}/99\textsuperscript{th} percentile (gaps $<$-200\% or $>$100\% capped)
+    \item \textbf{Missing:} Cells with $<$50 observations excluded (reliability)
+    \item \textbf{Balance:} Unbalanced panel (not all countries in all waves)
+    \item \textbf{Coverage:} 40 countries, 14,725 obs, 5,248 panels
+\end{itemize}
+\end{columns}
+
+\vspace{0.2cm}
+
+\begin{alertblock}{Measurement Considerations}
+\small
+\textbf{Strengths:} Harmonized Eurostat methodology, large $N$, long panel \textbar\ \textbf{Limitations:} Annual earnings do not control for hours worked (part-time employment may inflate gaps); cannot separate discrimination vs. composition effects; no individual-level controls (education, experience)
+\end{alertblock}
+
+\end{frame}
+
+% ============================================================================
+% SLIDE 5: Extension Plan Motivation
 % ============================================================================
 \begin{frame}{Why This Extension? Addressing Key Concerns}
 
@@ -103,7 +194,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 4: Data Overview - Comprehensive Coverage
+% SLIDE 6: Data Overview - Comprehensive Coverage
 % ============================================================================
 \begin{frame}[shrink=12]{Data: Comprehensive European Coverage}
 
@@ -159,7 +250,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 5: Main Finding 1 - 18 Sectors Variation (Addresses RQ1)
+% SLIDE 7: Main Finding 1 - 18 Sectors Variation (Addresses RQ1)
 % ============================================================================
 \begin{frame}{Finding 1: Substantial Sectoral Variation}
 
@@ -190,7 +281,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 6: Main Finding 2 - Occupational Moderation (Addresses RQ2)
+% SLIDE 8: Main Finding 2 - Occupational Moderation (Addresses RQ2)
 % ============================================================================
 \begin{frame}[shrink=12]{Finding 2: Occupational Hierarchy Matters}
 
@@ -245,7 +336,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 7: Main Finding 3 - Country Groups (Addresses RQ3 Part 1)
+% SLIDE 9: Main Finding 3 - Country Groups (Addresses RQ3 Part 1)
 % ============================================================================
 \begin{frame}{Finding 3a: Country Group Differences}
 
@@ -277,7 +368,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 8: Main Finding 4 - Convergence (Addresses RQ3 Part 2)
+% SLIDE 10: Main Finding 4 - Convergence (Addresses RQ3 Part 2)
 % ============================================================================
 \begin{frame}{Finding 3b: Beta Convergence Confirmed}
 
@@ -306,7 +397,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 9: Temporal Trends - All Groups Converging
+% SLIDE 11: Temporal Trends - All Groups Converging
 % ============================================================================
 \begin{frame}{Temporal Dynamics:}
 
@@ -337,7 +428,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 
 
 % ============================================================================
-% SLIDE 13: Limitations \& Future Research
+% SLIDE 12: Limitations \& Future Research
 % ============================================================================
 \begin{frame}{Limitations \& Future Research Directions}
 
@@ -353,7 +444,7 @@ Do gender pay gaps differ across European country groups (Nordic, Continental, M
 \end{frame}
 
 % ============================================================================
-% SLIDE 15: Summary \& Conclusions
+% SLIDE 13: Summary \& Conclusions
 % ============================================================================
 \begin{frame}{Summary \& Conclusions}
 
