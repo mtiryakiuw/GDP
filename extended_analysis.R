@@ -468,7 +468,7 @@ sector_plot_data <- sector_detail %>%
 # Create plot
 p1 <- ggplot(sector_plot_data, aes(x = mean_gap, y = sector, fill = gap_type)) +
   geom_col(width = 0.7) +
-  geom_vline(xintercept = 0, linetype = "dashed", color = "gray40", size = 0.5) +
+  geom_vline(xintercept = 0, linetype = "dashed", color = "gray40", linewidth = 0.5) +
   scale_fill_manual(
     values = c("High Negative (≥15%)" = "#2ECC71", 
                "Moderate Negative (10-15%)" = "#F39C12",
@@ -503,9 +503,9 @@ p2 <- ggplot(country_group_plot, aes(x = mean_gap, y = country_group, fill = cou
   geom_col(width = 0.7, show.legend = FALSE) +
   geom_errorbarh(aes(xmin = mean_gap - sd_gap/sqrt(n_obs), 
                      xmax = mean_gap + sd_gap/sqrt(n_obs)),
-                 height = 0.3, color = "gray30", size = 0.5) +
+                 height = 0.3, color = "gray30", linewidth = 0.5) +
   geom_vline(xintercept = mean(country_group_plot$mean_gap), 
-             linetype = "dashed", color = "gray40", size = 0.5) +
+             linetype = "dashed", color = "gray40", linewidth = 0.5) +
   scale_fill_brewer(palette = "Set2") +
   labs(
     title = "Gender Pay Gap by Country Group (Welfare Regimes)",
@@ -572,7 +572,7 @@ negative_gaps_data <- sector_detail %>%
 # Create plot
 p4 <- ggplot(negative_gaps_data, aes(x = pct_negative, y = sector)) +
   geom_segment(aes(x = 0, xend = pct_negative, y = sector, yend = sector),
-               color = "gray60", size = 1) +
+               color = "gray60", linewidth = 1) +
   geom_point(aes(size = n_obs, color = mean_gap), alpha = 0.8) +
   scale_color_gradient2(
     low = "#27AE60", mid = "#F39C12", high = "#E74C3C",
@@ -598,16 +598,9 @@ cat("   ✅ Saved: output/figures/negative_gaps_by_sector.png\n")
 cat("5️⃣  Creating temporal trends by country group...\n")
 
 # Calculate mean gap by year and country group
-# First create the country-group mapping dataframe
-country_group_map <- data.frame(
-  country = unlist(country_groups),
-  country_group = rep(names(country_groups), sapply(country_groups, length)),
-  stringsAsFactors = FALSE
-)
-
+# Use gap_panel2 which already has country_group column from earlier processing
 temporal_trends <- gap_panel2 %>%
-  left_join(country_group_map, by = "country") %>%
-  filter(!is.na(country_group), country_group != "Other") %>%
+  filter(!is.na(country_group), country_group != "Other", country_group != "Unclassified") %>%
   group_by(year, country_group) %>%
   summarise(
     mean_gap = mean(gender_pay_gap, na.rm = TRUE),
@@ -617,7 +610,7 @@ temporal_trends <- gap_panel2 %>%
 
 # Create plot
 p5 <- ggplot(temporal_trends, aes(x = year, y = mean_gap, color = country_group, group = country_group)) +
-  geom_line(size = 1.2, alpha = 0.8) +
+  geom_line(linewidth = 1.2, alpha = 0.8) +
   geom_point(size = 3, alpha = 0.8) +
   geom_ribbon(aes(ymin = mean_gap - se_gap, ymax = mean_gap + se_gap, fill = country_group),
               alpha = 0.2, color = NA) +

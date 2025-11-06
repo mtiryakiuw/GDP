@@ -214,7 +214,7 @@ gap_panel2 <- panel2_clean %>%
     # Sector groups
     industry = as.numeric(sector %in% c("Mining", "Manufacturing", "Electricity", "Water")),
     construction = as.numeric(sector == "Construction"),
-    services = as.numeric(sector %in% c("Trade", "Transport", "Hospitality", "IT", "Finance", "Real Estate", "Professional", "Admin Services")),
+    services = as.numeric(sector %in% c("Trade", "Transport", "Hospitality", "IT", "Finance", "Real Estate", "Professional", "Admin Services", "Arts", "Other Services")),
     public_sector = as.numeric(sector %in% c("Public Admin", "Education Sector", "Health")),
     
     # Occupation
@@ -280,7 +280,7 @@ gap_panel3 <- panel3_clean %>%
     # Sector groups
     industry = as.numeric(sector %in% c("Mining", "Manufacturing", "Electricity", "Water")),
     construction = as.numeric(sector == "Construction"),
-    services = as.numeric(sector %in% c("Trade", "Transport", "Hospitality", "IT", "Finance", "Real Estate", "Professional", "Admin Services")),
+    services = as.numeric(sector %in% c("Trade", "Transport", "Hospitality", "IT", "Finance", "Real Estate", "Professional", "Admin Services", "Arts", "Other Services")),
     public_sector = as.numeric(sector %in% c("Public Admin", "Education Sector", "Health")),
     
     # Year trends

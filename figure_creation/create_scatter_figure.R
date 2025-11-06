@@ -103,8 +103,8 @@ p_scatter <- ggplot(sector_detail, aes(x = pct_negative, y = mean_gap)) +
   # Labels
   labs(
     title = "Gender Pay Gap by 18 NACE Rev. 2 Sectors: Two Dimensions",
-    subtitle = "X-axis: % of cases where women earn more | Y-axis: Mean gender pay gap",
-    x = "Negative Gap Incidence (%)\n← Consistent Male Advantage | More Female Advantage →",
+    subtitle = "Each sector averaged across country-occupation-year observations",
+    x = "Frequency of Contexts Where Women Out-Earn Men (%)\n← Consistent Male Advantage | More Female Advantage →",
     y = "Mean Gender Pay Gap (%)"
   ) +
   

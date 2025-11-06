@@ -1,5 +1,8 @@
 library(tidyverse)
 
+# Start capturing output to report file
+sink("output/reports/temporal_trends_analysis.txt")
+
 # Read temporal trends data
 temporal_data <- read.csv("output/data/temporal_trends_by_group.csv")
 
@@ -110,3 +113,8 @@ cat("Pattern: Sharp increase 2010-2014, then stabilization at higher level\n\n")
 
 cat("\n✅ CORRECTED FINDINGS SAVED!\n")
 cat("=" %>% rep(80) %>% paste(collapse=""), "\n\n")
+
+# Close report file
+sink()
+
+cat("\n📝 Report saved to: output/reports/temporal_trends_analysis.txt\n")

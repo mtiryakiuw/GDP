@@ -1,0 +1,87 @@
+================================================================================ 
+TEMPORAL TRENDS ANALYSIS BY COUNTRY GROUP
+================================================================================ 
+
+
+📊 CHANGE FROM 2010 TO 2022:
+================================================================================ 
+
+# A tibble: 6 × 5
+  country_group gap_2010 gap_2022 change pct_change
+  <chr>            <dbl>    <dbl>  <dbl>      <dbl>
+1 Liberal          18.4     13.4   -5.05     -27.4 
+2 Continental      14.4     11.8   -2.68     -18.5 
+3 Nordic           12.9     10.6   -2.23     -17.3 
+4 Mediterranean    15.9     14.0   -1.95     -12.2 
+5 Eastern          11.7     11.1   -0.65      -5.55
+6 Balkans           6.58     8.96   2.38      36.2 
+
+
+🔍 INTERPRETATION:
+================================================================================ 
+
+📉 Liberal: 18.41 pp → 13.36 pp | Change: -5.05 pp (-27.4%) | ✅ CONVERGING (Gap Reduced)
+📉 Continental: 14.45 pp → 11.77 pp | Change: -2.68 pp (-18.5%) | ✅ CONVERGING (Gap Reduced)
+📉 Nordic: 12.87 pp → 10.64 pp | Change: -2.23 pp (-17.3%) | ✅ CONVERGING (Gap Reduced)
+📉 Mediterranean: 15.93 pp → 13.98 pp | Change: -1.95 pp (-12.2%) | ✅ CONVERGING (Gap Reduced)
+📉 Eastern: 11.71 pp → 11.06 pp | Change: -0.65 pp (-5.6%) | ✅ CONVERGING (Gap Reduced)
+📈 Balkans: 6.58 pp → 8.96 pp | Change: 2.38 pp (36.2%) | ❌ DIVERGING (Gap Increased)
+
+
+📋 SUMMARY:
+================================================================================ 
+
+Converging groups: 5/6 (83.3%)
+Diverging groups: 1/6 (16.7%)
+
+
+🎯 CORRECTED STATEMENT:
+================================================================================ 
+
+INCORRECT: "All country groups show declining trends"
+
+CORRECT: "Most country groups show convergence trends:
+  - 5 out of 6 groups converged (83%)
+  - Liberal: -5.05 pp (-27.4%) - FASTEST convergence
+  - Nordic: -2.23 pp (-17.3%) - Steady improvement
+  - Continental: -2.68 pp (-18.5%)
+  - Eastern: -0.65 pp (-5.5%)
+  - Mediterranean: -1.95 pp (-12.2%)
+  - Balkans: +2.38 pp (+36.2%) - DIVERGING (gap increased!)"
+
+
+
+⚠️ BALKANS DIVERGENCE EXPLANATION:
+================================================================================ 
+
+Possible reasons for Balkans divergence:
+1. Data quality issues in candidate countries (inconsistent reporting)
+2. EU accession process effects (labor market restructuring)
+3. Brain drain of skilled women to Western Europe
+4. Socialist legacy institutions weakening over time
+5. Sectoral composition shifts (decline of public sector employment)
+6. Small sample size amplifying measurement error
+
+
+📅 BALKANS YEAR-BY-YEAR TREND:
+================================================================================ 
+
+# A tibble: 4 × 3
+  country_group  year   gap
+  <chr>         <dbl> <dbl>
+1 Balkans        2010  6.58
+2 Balkans        2014  8.45
+3 Balkans        2018  8.76
+4 Balkans        2022  8.96
+
+2010: 6.58%
+2014: 8.45% (+1.87 pp, +28.4%)
+2018: 8.76% (+0.31 pp, +3.7%)
+2022: 8.96% (+0.20 pp, +2.3%)
+
+Pattern: Sharp increase 2010-2014, then stabilization at higher level
+
+
+✅ CORRECTED FINDINGS SAVED!
+================================================================================ 
+

@@ -1,0 +1,194 @@
+=== PANEL 2 DIAGNOSTIC TESTS ===
+
+Dataset: panel2_sector_occupation_4years.csv
+Observations: 14725 
+Panels: 5248 
+
+--- BREUSCH-GODFREY TEST ---
+Tests for: Serial correlation in panel residuals
+H0: No serial correlation
+
+
+	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
+
+data:  gender_pay_gap ~ industry + construction + public_sector + high_skill +  ...
+chisq = 1245.2, df = 1, p-value < 2.2e-16
+alternative hypothesis: serial correlation in idiosyncratic errors
+
+
+Interpretation:
+*** Highly significant (p < 0.001): Strong evidence of serial correlation
+→ Cluster-robust standard errors are necessary
+
+--- BREUSCH-PAGAN TEST ---
+Tests for: Heteroskedasticity in panel residuals
+H0: Homoskedastic errors
+
+
+	studentized Breusch-Pagan test
+
+data:  model_re
+BP = 29.233, df = 8, p-value = 0.0002886
+
+
+Interpretation:
+*** Highly significant (p < 0.001): Strong evidence of heteroskedasticity
+→ Robust standard errors are necessary
+
+=== TESTS COMPLETED ===
+
+
+=== TABLE 2 MAIN RESULTS ===
+
+--- RANDOM EFFECTS MODEL ---
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)      12.23750    0.31398 38.9749 < 2.2e-16 ***
+industry          2.16470    0.48078  4.5025 6.767e-06 ***
+construction      0.92691    0.78539  1.1802 0.2379384    
+public_sector    -2.54873    0.46109 -5.5276 3.301e-08 ***
+high_skill        3.50969    0.43420  8.0831 6.805e-16 ***
+managerial        2.73022    0.62023  4.4019 1.080e-05 ***
+factor(year)2014 -1.21406    0.25782 -4.7090 2.511e-06 ***
+factor(year)2018 -0.91866    0.26918 -3.4128 0.0006447 ***
+factor(year)2022 -2.06132    0.26581 -7.7549 9.417e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Model Summary:
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + factor(year), data = pdata, model = "random")
+
+Unbalanced Panel: n = 5248, T = 1-4, N = 14725
+
+Effects:
+                 var std.dev share
+idiosyncratic 108.61   10.42 0.507
+individual    105.57   10.27 0.493
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2879  0.4947  0.5477  0.5027  0.5477  0.5477 
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-233.6246   -4.2161    0.4305    0.0318    5.1642   72.0273 
+
+Coefficients:
+                 Estimate Std. Error z-value  Pr(>|z|)    
+(Intercept)      12.23750    0.28907 42.3346 < 2.2e-16 ***
+industry          2.16470    0.45853  4.7210 2.347e-06 ***
+construction      0.92691    0.77479  1.1963 0.2315627    
+public_sector    -2.54873    0.48419 -5.2639 1.410e-07 ***
+high_skill        3.50969    0.52559  6.6776 2.429e-11 ***
+managerial        2.73022    0.69542  3.9260 8.637e-05 ***
+factor(year)2014 -1.21406    0.25948 -4.6788 2.885e-06 ***
+factor(year)2018 -0.91866    0.25557 -3.5946 0.0003249 ***
+factor(year)2022 -2.06132    0.25869 -7.9683 1.609e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1765600
+Residual Sum of Squares: 1721600
+R-Squared:      0.025049
+Adj. R-Squared: 0.024519
+Chisq: 285.99 on 8 DF, p-value: < 2.22e-16
+
+
+--- FIXED EFFECTS MODEL ---
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+factor(year)2014 -1.03953    0.26494 -3.9237 8.783e-05 ***
+factor(year)2018 -0.71432    0.27494 -2.5981  0.009389 ** 
+factor(year)2022 -1.73239    0.26769 -6.4715 1.018e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+Model Summary:
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + factor(year), data = pdata, model = "within")
+
+Unbalanced Panel: n = 5248, T = 1-4, N = 14725
+
+Residuals:
+     Min.   1st Qu.    Median   3rd Qu.      Max. 
+-154.1108   -2.8608    0.0000    3.0049  115.0041 
+
+Coefficients:
+                 Estimate Std. Error t-value  Pr(>|t|)    
+factor(year)2014 -1.03953    0.25969 -4.0030 6.303e-05 ***
+factor(year)2018 -0.71432    0.25625 -2.7876  0.005321 ** 
+factor(year)2022 -1.73239    0.26151 -6.6245 3.674e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1033900
+Residual Sum of Squares: 1029000
+R-Squared:      0.0047984
+Adj. R-Squared: -0.54669
+F-statistic: 15.2265 on 3 and 9474 DF, p-value: 6.9928e-10
+
+
+--- HAUSMAN TEST ---
+Tests for: Fixed vs Random Effects specification
+H0: Random Effects is consistent and efficient
+
+
+	Hausman Test
+
+data:  gender_pay_gap ~ industry + construction + public_sector + high_skill +  ...
+chisq = 34.541, df = 3, p-value = 1.523e-07
+alternative hypothesis: one model is inconsistent
+
+
+Interpretation:
+*** Highly significant (p < 0.001): Reject H0
+→ Fixed Effects is preferred
+
+
+=== KEY COEFFICIENTS FOR TABLE 2 ===
+
+Random Effects (with HC1 cluster-robust SE):
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)      12.23750    0.31398 38.9749 < 2.2e-16 ***
+industry          2.16470    0.48078  4.5025 6.767e-06 ***
+construction      0.92691    0.78539  1.1802 0.2379384    
+public_sector    -2.54873    0.46109 -5.5276 3.301e-08 ***
+high_skill        3.50969    0.43420  8.0831 6.805e-16 ***
+managerial        2.73022    0.62023  4.4019 1.080e-05 ***
+factor(year)2014 -1.21406    0.25782 -4.7090 2.511e-06 ***
+factor(year)2018 -0.91866    0.26918 -3.4128 0.0006447 ***
+factor(year)2022 -2.06132    0.26581 -7.7549 9.417e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+Fixed Effects (with HC1 cluster-robust SE):
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+factor(year)2014 -1.03953    0.26494 -3.9237 8.783e-05 ***
+factor(year)2018 -0.71432    0.27494 -2.5981  0.009389 ** 
+factor(year)2022 -1.73239    0.26769 -6.4715 1.018e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+=== ANALYSIS COMPLETED ===

@@ -5,6 +5,9 @@
 library(plm)
 library(lmtest)
 
+# Start capturing output to report file
+sink("output/reports/diagnostic_tests_results.txt")
+
 # Load Panel 2 data
 gap_panel2 <- read.csv('output/data/panel2_sector_occupation_4years.csv')
 
@@ -148,46 +151,14 @@ tryCatch({
 cat("\n\n=== KEY COEFFICIENTS FOR TABLE 2 ===\n\n")
 
 cat("Random Effects (with HC1 cluster-robust SE):\n")
-cat(sprintf("Industry:        %.3f*** (%.3f)\n", 
-            coef_re["industry", "Estimate"], 
-            coef_re["industry", "Std. Error"]))
-cat(sprintf("Construction:    %.3f*** (%.3f)\n", 
-            coef_re["construction", "Estimate"], 
-            coef_re["construction", "Std. Error"]))
-cat(sprintf("Public Sector:   %.3f*** (%.3f)\n", 
-            coef_re["public_sector", "Estimate"], 
-            coef_re["public_sector", "Std. Error"]))
-cat(sprintf("High-Skill:      %.3f*** (%.3f)\n", 
-            coef_re["high_skill", "Estimate"], 
-            coef_re["high_skill", "Std. Error"]))
-cat(sprintf("Managerial:      %.3f*** (%.3f)\n", 
-            coef_re["managerial", "Estimate"], 
-            coef_re["managerial", "Std. Error"]))
-cat(sprintf("Year 2014:       %.3f*** (%.3f)\n", 
-            coef_re["factor(year)2014", "Estimate"], 
-            coef_re["factor(year)2014", "Std. Error"]))
-cat(sprintf("Year 2018:       %.3f*** (%.3f)\n", 
-            coef_re["factor(year)2018", "Estimate"], 
-            coef_re["factor(year)2018", "Std. Error"]))
-cat(sprintf("Year 2022:       %.3f*** (%.3f)\n", 
-            coef_re["factor(year)2022", "Estimate"], 
-            coef_re["factor(year)2022", "Std. Error"]))
+print(coef_re)
 
-cat("\nFixed Effects (with HC1 cluster-robust SE):\n")
-cat(sprintf("Industry:        %.3f*** (%.3f)\n", 
-            coef_fe["industry", "Estimate"], 
-            coef_fe["industry", "Std. Error"]))
-cat(sprintf("Construction:    %.3f (%.3f)\n", 
-            coef_fe["construction", "Estimate"], 
-            coef_fe["construction", "Std. Error"]))
-cat(sprintf("Public Sector:   %.3f*** (%.3f)\n", 
-            coef_fe["public_sector", "Estimate"], 
-            coef_fe["public_sector", "Std. Error"]))
-cat(sprintf("High-Skill:      %.3f*** (%.3f)\n", 
-            coef_fe["high_skill", "Estimate"], 
-            coef_fe["high_skill", "Std. Error"]))
-cat(sprintf("Managerial:      %.3f*** (%.3f)\n", 
-            coef_fe["managerial", "Estimate"], 
-            coef_fe["managerial", "Std. Error"]))
+cat("\n\nFixed Effects (with HC1 cluster-robust SE):\n")
+print(coef_fe)
 
 cat("\n=== ANALYSIS COMPLETED ===\n")
+
+# Close report file
+sink()
+
+cat("\n📝 Report saved to: output/reports/diagnostic_tests_results.txt\n")
