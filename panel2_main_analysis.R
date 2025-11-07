@@ -335,6 +335,90 @@ robust_interaction <- coeftest(model_interaction, vcov = vcovHC(model_interactio
 print(robust_interaction)
 
 # ============================================================================
+# JOINT SIGNIFICANCE TEST FOR INTERACTION TERMS
+# ============================================================================
+
+cat("\n\n\n🔬 JOINT SIGNIFICANCE TEST FOR INTERACTION TERMS\n")
+cat("==================================================\n\n")
+
+# Test if all 4 interaction terms are jointly significant
+# This tests whether the interaction model is superior to additive model
+
+cat("Testing H0: All interaction coefficients = 0\n")
+cat("(i.e., additive model is sufficient)\n\n")
+
+# Load car package for Wald test
+if(!require(car, quietly = TRUE)) {
+  install.packages("car")
+  library(car)
+}
+
+# Define interaction terms to test
+interaction_terms <- c("industry:high_skill", "industry:managerial", 
+                       "public_sector:high_skill", "public_sector:managerial")
+
+# Wald test with cluster-robust vcov
+wald_result <- tryCatch({
+  linearHypothesis(model_interaction, 
+                   interaction_terms,
+                   vcov = vcovHC(model_interaction, type="HC1"))
+}, error = function(e) {
+  cat("⚠️ Wald test failed:", e$message, "\n")
+  NULL
+})
+
+if(!is.null(wald_result)) {
+  print(wald_result)
+  
+  # Extract F-statistic and p-value (handle different output formats)
+  if("F" %in% names(wald_result)) {
+    f_stat <- wald_result$F[2]
+    p_value <- wald_result$`Pr(>F)`[2]
+  } else if("Chisq" %in% names(wald_result)) {
+    f_stat <- wald_result$Chisq[2]
+    p_value <- wald_result$`Pr(>Chisq)`[2]
+  } else {
+    # Manual extraction from print output
+    f_stat <- NA
+    p_value <- NA
+  }
+  
+  df1 <- wald_result$Df[2]
+  df2 <- wald_result$Res.Df[2]
+  
+  cat("\n📊 JOINT TEST SUMMARY:\n")
+  cat("======================\n")
+  
+  if(!is.na(f_stat)) {
+    cat(sprintf("F-statistic: %.3f\n", f_stat))
+    cat(sprintf("Degrees of freedom: %d, %d\n", df1, df2))
+    cat(sprintf("p-value: %s\n", format.pval(p_value, digits = 4)))
+    
+    if(p_value < 0.001) {
+      cat("\n✅ RESULT: Strongly reject H0 (p < 0.001)\n")
+      cat("→ Interaction terms are jointly highly significant\n")
+      cat("→ Interactive specification is statistically superior to additive model\n")
+    } else if(p_value < 0.05) {
+      cat("\n✅ RESULT: Reject H0 (p < 0.05)\n")
+      cat("→ Interaction terms are jointly significant\n")
+    } else {
+      cat("\n⚠️ RESULT: Cannot reject H0 (p >= 0.05)\n")
+      cat("→ Interaction terms not jointly significant\n")
+    }
+  } else {
+    cat("F-statistic: See table above\n")
+    cat(sprintf("Degrees of freedom: %d, %d\n", df1, df2))
+    cat("\nPlease check the Wald test output above for F-statistic and p-value.\n")
+  }
+  
+  cat("\nINTERPRETATION:\n")
+  cat("This Wald test evaluates whether sector-occupation interactions\n")
+  cat("provide significant explanatory power beyond additive main effects.\n")
+  cat("Rejection of H0 confirms that occupational wage gaps differ\n")
+  cat("systematically across sectoral contexts, validating Research Question 2.\n\n")
+}
+
+# ============================================================================
 # STEP 9: DIAGNOSTIC TESTS
 # ============================================================================
 

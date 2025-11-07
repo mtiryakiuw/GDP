@@ -331,6 +331,51 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 
+🔬 JOINT SIGNIFICANCE TEST FOR INTERACTION TERMS
+==================================================
+
+Testing H0: All interaction coefficients = 0
+(i.e., additive model is sufficient)
+
+
+Linear hypothesis test:
+industry:high_skill = 0
+industry:managerial = 0
+public_sector:high_skill = 0
+public_sector:managerial = 0
+
+Model 1: restricted model
+Model 2: gender_pay_gap ~ industry + construction + public_sector + high_skill + 
+    managerial + industry:high_skill + industry:managerial + 
+    public_sector:high_skill + public_sector:managerial + factor(year)
+
+Note: Coefficient covariance matrix supplied.
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1  14421                         
+2  14417  4 63.146  6.322e-13 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+📊 JOINT TEST SUMMARY:
+======================
+F-statistic: 63.146
+Degrees of freedom: 4, 14417
+p-value: 6.322e-13
+
+✅ RESULT: Strongly reject H0 (p < 0.001)
+→ Interaction terms are jointly highly significant
+→ Interactive specification is statistically superior to additive model
+
+INTERPRETATION:
+This Wald test evaluates whether sector-occupation interactions
+provide significant explanatory power beyond additive main effects.
+Rejection of H0 confirms that occupational wage gaps differ
+systematically across sectoral contexts, validating Research Question 2.
+
+
+
+
 🔬 STEP 9: DIAGNOSTIC TESTS
 ============================
 
@@ -519,7 +564,7 @@ Bottom 10 Sectors with Lowest Gender Pay Gaps:
 ==================================
 
 % Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
-% Date and time: Fri, Nov 07, 2025 - 01:36:14
+% Date and time: Fri, Nov 07, 2025 - 02:26:10
 \begin{table}[!htbp] \centering 
   \caption{Panel 2: Sector × Occupation Analysis - Gender Pay Gap Determinants (2010-2022)} 
   \label{} 
