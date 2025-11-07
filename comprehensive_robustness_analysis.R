@@ -48,6 +48,27 @@ if(!file.exists(panel2_file)) {
 panel2_clean <- read_csv(panel2_file, show_col_types = FALSE)
 
 cat(sprintf("✓ Loaded %d observations\n", nrow(panel2_clean)))
+
+# ============================================================================
+# IMPORTANT: Apply same data cleaning as panel2_main_analysis.R
+# Remove extreme outliers to match the dataset used in primary models
+# ============================================================================
+
+original_n <- nrow(panel2_clean)
+
+panel2_clean <- panel2_clean %>%
+  filter(
+    gender_pay_gap >= -20,
+    gender_pay_gap <= 80,
+    is.finite(gender_pay_gap),
+    !is.na(gender_pay_gap)
+  )
+
+cleaned_n <- nrow(panel2_clean)
+removed_n <- original_n - cleaned_n
+
+cat(sprintf("✓ Removed %d extreme outliers (%.1f%%), leaving %d observations\n", 
+            removed_n, 100 * removed_n / original_n, cleaned_n))
 cat(sprintf("✓ Unique panels: %d\n", n_distinct(panel2_clean$panel_id)))
 cat(sprintf("✓ Countries: %d\n", n_distinct(panel2_clean$country)))
 cat(sprintf("✓ Years: %s\n\n", paste(sort(unique(panel2_clean$year)), collapse=", ")))
@@ -83,11 +104,14 @@ cat("📊 STEP 3: Estimating baseline model...\n")
 cat(paste0(rep("=", 80), collapse=""), "\n")
 
 # Define model formula (consistent across all specifications)
-# Note: All 4 sector dummy variables included (industry, construction, services, public_sector)
-# This matches the panel2_main_analysis.R specification
+# IMPORTANT: This must match the INTERACTION MODEL used in panel2_model_summaries.txt
+# which is the primary model reported in the thesis main results table
 base_formula <- as.formula(
-  "gender_pay_gap ~ industry + construction + services + public_sector + 
-   high_skill + managerial + factor(year)"
+  "gender_pay_gap ~ industry + construction + public_sector + 
+   high_skill + managerial + 
+   industry:high_skill + industry:managerial + 
+   public_sector:high_skill + public_sector:managerial + 
+   factor(year)"
 )
 
 model_baseline <- plm(base_formula, data = pdata_main, model = "random")

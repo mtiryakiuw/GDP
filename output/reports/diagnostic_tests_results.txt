@@ -59,46 +59,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 Model Summary:
-Oneway (individual) effect Random Effect Model 
-   (Swamy-Arora's transformation)
-
-Call:
-plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
-    high_skill + managerial + factor(year), data = pdata, model = "random")
-
-Unbalanced Panel: n = 5248, T = 1-4, N = 14725
-
-Effects:
-                 var std.dev share
-idiosyncratic 108.61   10.42 0.507
-individual    105.57   10.27 0.493
-theta:
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.2879  0.4947  0.5477  0.5027  0.5477  0.5477 
-
-Residuals:
-     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
--233.6246   -4.2161    0.4305    0.0318    5.1642   72.0273 
-
-Coefficients:
-                 Estimate Std. Error z-value  Pr(>|z|)    
-(Intercept)      12.23750    0.28907 42.3346 < 2.2e-16 ***
-industry          2.16470    0.45853  4.7210 2.347e-06 ***
-construction      0.92691    0.77479  1.1963 0.2315627    
-public_sector    -2.54873    0.48419 -5.2639 1.410e-07 ***
-high_skill        3.50969    0.52559  6.6776 2.429e-11 ***
-managerial        2.73022    0.69542  3.9260 8.637e-05 ***
-factor(year)2014 -1.21406    0.25948 -4.6788 2.885e-06 ***
-factor(year)2018 -0.91866    0.25557 -3.5946 0.0003249 ***
-factor(year)2022 -2.06132    0.25869 -7.9683 1.609e-15 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Total Sum of Squares:    1765600
-Residual Sum of Squares: 1721600
-R-Squared:      0.025049
-Adj. R-Squared: 0.024519
-Chisq: 285.99 on 8 DF, p-value: < 2.22e-16
 
 
 --- FIXED EFFECTS MODEL ---
@@ -114,31 +74,6 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 
 Model Summary:
-Oneway (individual) effect Within Model
-
-Call:
-plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
-    high_skill + managerial + factor(year), data = pdata, model = "within")
-
-Unbalanced Panel: n = 5248, T = 1-4, N = 14725
-
-Residuals:
-     Min.   1st Qu.    Median   3rd Qu.      Max. 
--154.1108   -2.8608    0.0000    3.0049  115.0041 
-
-Coefficients:
-                 Estimate Std. Error t-value  Pr(>|t|)    
-factor(year)2014 -1.03953    0.25969 -4.0030 6.303e-05 ***
-factor(year)2018 -0.71432    0.25625 -2.7876  0.005321 ** 
-factor(year)2022 -1.73239    0.26151 -6.6245 3.674e-11 ***
----
-Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
-
-Total Sum of Squares:    1033900
-Residual Sum of Squares: 1029000
-R-Squared:      0.0047984
-Adj. R-Squared: -0.54669
-F-statistic: 15.2265 on 3 and 9474 DF, p-value: 6.9928e-10
 
 
 --- HAUSMAN TEST ---
