@@ -1,0 +1,21 @@
+"sector","occupation","predicted_gap","se","ci_display"
+"Services","Non-High-Skill
+Non-Managerial",13.93,0.251,"[13.43, 14.42]"
+"Services","High-Skill
+Non-Managerial",16.45,0.404,"[15.66, 17.24]"
+"Services","Managerial",18.47,0.697,"[17.1, 19.83]"
+"Industry","Non-High-Skill
+Non-Managerial",17.51,0.408,"[16.71, 18.31]"
+"Industry","High-Skill
+Non-Managerial",16.68,0.698,"[15.31, 18.04]"
+"Industry","Managerial",18.79,1.327,"[16.19, 21.39]"
+"Construction","Non-High-Skill
+Non-Managerial",14.76,0.559,"[13.67, 15.86]"
+"Construction","High-Skill
+Non-Managerial",17.29,0.643,"[16.03, 18.55]"
+"Construction","Managerial",19.3,0.865,"[17.61, 21]"
+"Public Sector","Non-High-Skill
+Non-Managerial",10.56,0.397,"[9.78, 11.34]"
+"Public Sector","High-Skill
+Non-Managerial",17.88,0.925,"[16.07, 19.69]"
+"Public Sector","Managerial",9.65,1.451,"[6.81, 12.5]"
