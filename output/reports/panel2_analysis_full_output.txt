@@ -1,48 +1,3 @@
-── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.4     ✔ tidyr     1.3.1
-✔ purrr     1.0.4     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
-
-Attaching package: ‘plm’
-
-The following objects are masked from ‘package:dplyr’:
-
-    between, lag, lead
-
-Loading required package: zoo
-
-Attaching package: ‘zoo’
-
-The following objects are masked from ‘package:base’:
-
-    as.Date, as.Date.numeric
-
-
-Please cite as: 
-
- Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.
- R package version 5.2.3. https://CRAN.R-project.org/package=stargazer 
-
-
-Attaching package: ‘gridExtra’
-
-The following object is masked from ‘package:dplyr’:
-
-    combine
-
-
-Attaching package: ‘strucchange’
-
-The following object is masked from ‘package:stringr’:
-
-    boundary
-
 ============================================
 PANEL 2: SECTOR × OCCUPATION ANALYSIS
 18 Detailed Sectors × 9 Occupations
@@ -153,14 +108,13 @@ Panel completeness:
 ===================================
 
 By Sector Group:
-# A tibble: 5 × 6
+# A tibble: 4 × 6
   sector_group  n_obs mean_gap sd_gap min_gap max_gap
   <chr>         <int>    <dbl>  <dbl>   <dbl>   <dbl>
 1 Industry       2806     16.0   11.9   -19.7    75.4
 2 Construction    812     14.7   11.3   -19.3    55.5
-3 Services       6602     13.9   11.9   -19.9    78.9
-4 Other          1622     13.2   13.2   -19.8    79.5
-5 Public Sector  2588     11.2   11.6   -19.4    66.8
+3 Services       8224     13.8   12.2   -19.9    79.5
+4 Public Sector  2588     11.2   11.6   -19.4    66.8
 
 
 By Occupation Type:
@@ -203,44 +157,42 @@ Oneway (individual) effect Random Effect Model
    (Swamy-Arora's transformation)
 
 Call:
-plm(formula = gender_pay_gap ~ industry + construction + services + 
-    public_sector + high_skill + managerial + factor(year), data = pdata2, 
-    model = "random")
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + factor(year), data = pdata2, model = "random")
 
 Unbalanced Panel: n = 5176, T = 1-4, N = 14430
 
 Effects:
                  var std.dev share
 idiosyncratic 67.298   8.204  0.49
-individual    69.947   8.363  0.51
+individual    69.977   8.365  0.51
 theta:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.2997  0.5072  0.5597  0.5137  0.5597  0.5597 
+ 0.2998  0.5073  0.5597  0.5138  0.5597  0.5597 
 
 Residuals:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--34.1118  -4.5434  -0.1070  -0.0197   4.4821  50.9107 
+-34.1131  -4.5331  -0.1035  -0.0193   4.4710  50.9101 
 
 Coefficients:
                  Estimate Std. Error  z-value  Pr(>|z|)    
-(Intercept)      13.56335    0.43830  30.9457 < 2.2e-16 ***
-industry          2.85168    0.52304   5.4522 4.976e-08 ***
-construction      1.33755    0.72163   1.8535   0.06381 .  
-services          0.64564    0.46828   1.3787   0.16797    
-public_sector    -2.28751    0.53782  -4.2533 2.106e-05 ***
-high_skill        2.67108    0.41858   6.3814 1.755e-10 ***
-managerial        3.00977    0.55333   5.4394 5.347e-08 ***
-factor(year)2014 -1.71481    0.20346  -8.4283 < 2.2e-16 ***
-factor(year)2018 -1.45415    0.20012  -7.2663 3.694e-13 ***
-factor(year)2022 -2.66193    0.20246 -13.1481 < 2.2e-16 ***
+(Intercept)      14.07757    0.23021  61.1513 < 2.2e-16 ***
+industry          2.33631    0.36588   6.3854 1.710e-10 ***
+construction      0.82215    0.61734   1.3318    0.1829    
+public_sector    -2.80302    0.38667  -7.2490 4.198e-13 ***
+high_skill        2.67442    0.41863   6.3886 1.674e-10 ***
+managerial        3.01092    0.55341   5.4407 5.307e-08 ***
+factor(year)2014 -1.71454    0.20346  -8.4271 < 2.2e-16 ***
+factor(year)2018 -1.45412    0.20012  -7.2663 3.696e-13 ***
+factor(year)2022 -2.66125    0.20246 -13.1449 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Total Sum of Squares:    1067400
+Total Sum of Squares:    1067300
 Residual Sum of Squares: 1007600
-R-Squared:      0.056122
-Adj. R-Squared: 0.055533
-Chisq: 495.223 on 9 DF, p-value: < 2.22e-16
+R-Squared:      0.055993
+Adj. R-Squared: 0.055469
+Chisq: 493.231 on 8 DF, p-value: < 2.22e-16
 
 
 MODEL 2: Fixed Effects
@@ -248,9 +200,8 @@ MODEL 2: Fixed Effects
 Oneway (individual) effect Within Model
 
 Call:
-plm(formula = gender_pay_gap ~ industry + construction + services + 
-    public_sector + high_skill + managerial + factor(year), data = pdata2, 
-    model = "within")
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + factor(year), data = pdata2, model = "within")
 
 Unbalanced Panel: n = 5176, T = 1-4, N = 14430
 
@@ -278,8 +229,8 @@ Hausman Test (FE vs RE):
 
 	Hausman Test
 
-data:  gender_pay_gap ~ industry + construction + services + public_sector +  ...
-chisq = 92.091, df = 3, p-value < 2.2e-16
+data:  gender_pay_gap ~ industry + construction + public_sector + high_skill +  ...
+chisq = 91.553, df = 3, p-value < 2.2e-16
 alternative hypothesis: one model is inconsistent
 
 
@@ -293,49 +244,48 @@ Oneway (individual) effect Random Effect Model
    (Swamy-Arora's transformation)
 
 Call:
-plm(formula = gender_pay_gap ~ industry + construction + services + 
-    public_sector + high_skill + managerial + industry:high_skill + 
-    industry:managerial + public_sector:high_skill + public_sector:managerial + 
-    factor(year), data = pdata2, model = "random")
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + industry:high_skill + industry:managerial + 
+    public_sector:high_skill + public_sector:managerial + factor(year), 
+    data = pdata2, model = "random")
 
 Unbalanced Panel: n = 5176, T = 1-4, N = 14430
 
 Effects:
                  var std.dev share
-idiosyncratic 67.298   8.204 0.496
-individual    68.496   8.276 0.504
+idiosyncratic 67.298   8.204 0.495
+individual    68.526   8.278 0.505
 theta:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.2960  0.5033  0.5559  0.5099  0.5559  0.5559 
+ 0.2961  0.5034  0.5560  0.5100  0.5560  0.5560 
 
 Residuals:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--34.2361  -4.5186  -0.1207  -0.0225   4.4068  51.3239 
+-34.1807  -4.5107  -0.1188  -0.0221   4.4123  51.3227 
 
 Coefficients:
                          Estimate Std. Error  z-value  Pr(>|z|)    
-(Intercept)              13.41978    0.43985  30.5102 < 2.2e-16 ***
-industry                  4.08863    0.55953   7.3073 2.726e-13 ***
-construction              1.34325    0.71660   1.8745 0.0608665 .  
-services                  0.63675    0.46501   1.3693 0.1709026    
-public_sector            -2.85956    0.58001  -4.9302 8.215e-07 ***
-high_skill                2.51982    0.52781   4.7741 1.805e-06 ***
-managerial                4.53985    0.69436   6.5382 6.227e-11 ***
-factor(year)2014         -1.72812    0.20348  -8.4928 < 2.2e-16 ***
-factor(year)2018         -1.46733    0.20014  -7.3315 2.276e-13 ***
-factor(year)2022         -2.67309    0.20246 -13.2030 < 2.2e-16 ***
-industry:high_skill      -3.35165    1.05792  -3.1682 0.0015341 ** 
-industry:managerial      -3.25331    1.42376  -2.2850 0.0223119 *  
-public_sector:high_skill  4.80095    1.12409   4.2710 1.946e-05 ***
-public_sector:managerial -5.44937    1.47432  -3.6962 0.0002189 ***
+(Intercept)              13.92633    0.23793  58.5302 < 2.2e-16 ***
+industry                  3.58190    0.41974   8.5337 < 2.2e-16 ***
+construction              0.83495    0.61305   1.3620 0.1732106    
+public_sector            -3.36633    0.44667  -7.5365 4.828e-14 ***
+high_skill                2.52514    0.52787   4.7837 1.721e-06 ***
+managerial                4.54156    0.69445   6.5398 6.161e-11 ***
+factor(year)2014         -1.72785    0.20348  -8.4916 < 2.2e-16 ***
+factor(year)2018         -1.46729    0.20014  -7.3314 2.278e-13 ***
+factor(year)2022         -2.67241    0.20246 -13.1998 < 2.2e-16 ***
+industry:high_skill      -3.35694    1.05805  -3.1728 0.0015100 ** 
+industry:managerial      -3.25500    1.42395  -2.2859 0.0222599 *  
+public_sector:high_skill  4.79560    1.12424   4.2656 1.993e-05 ***
+public_sector:managerial -5.45110    1.47452  -3.6969 0.0002183 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Total Sum of Squares:    1073300
+Total Sum of Squares:    1073100
 Residual Sum of Squares: 1008300
-R-Squared:      0.060588
-Adj. R-Squared: 0.059741
-Chisq: 567.221 on 13 DF, p-value: < 2.22e-16
+R-Squared:      0.06046
+Adj. R-Squared: 0.059678
+Chisq: 565.234 on 12 DF, p-value: < 2.22e-16
 
 
 
@@ -362,20 +312,19 @@ Interaction Model - Robust SE:
 t test of coefficients:
 
                          Estimate Std. Error  t value  Pr(>|t|)    
-(Intercept)              13.41978    0.46232  29.0271 < 2.2e-16 ***
-industry                  4.08863    0.59441   6.8784 6.301e-12 ***
-construction              1.34325    0.68958   1.9479 0.0514437 .  
-services                  0.63675    0.48027   1.3258 0.1849248    
-public_sector            -2.85956    0.58555  -4.8835 1.053e-06 ***
-high_skill                2.51982    0.43323   5.8163 6.143e-09 ***
-managerial                4.53985    0.65014   6.9828 3.019e-12 ***
-factor(year)2014         -1.72812    0.19953  -8.6609 < 2.2e-16 ***
-factor(year)2018         -1.46733    0.21161  -6.9341 4.263e-12 ***
-factor(year)2022         -2.67309    0.20694 -12.9174 < 2.2e-16 ***
-industry:high_skill      -3.35165    0.90194  -3.7160 0.0002031 ***
-industry:managerial      -3.25331    1.41939  -2.2921 0.0219169 *  
-public_sector:high_skill  4.80095    1.08169   4.4384 9.132e-06 ***
-public_sector:managerial -5.44937    1.54229  -3.5333 0.0004117 ***
+(Intercept)              13.92633    0.25086  55.5134 < 2.2e-16 ***
+industry                  3.58190    0.44772   8.0002 1.336e-15 ***
+construction              0.83495    0.56799   1.4700 0.1415859    
+public_sector            -3.36633    0.43582  -7.7242 1.200e-14 ***
+high_skill                2.52514    0.43525   5.8015 6.709e-09 ***
+managerial                4.54156    0.65094   6.9769 3.149e-12 ***
+factor(year)2014         -1.72785    0.19951  -8.6603 < 2.2e-16 ***
+factor(year)2018         -1.46729    0.21160  -6.9342 4.259e-12 ***
+factor(year)2022         -2.67241    0.20694 -12.9137 < 2.2e-16 ***
+industry:high_skill      -3.35694    0.90291  -3.7179 0.0002016 ***
+industry:managerial      -3.25500    1.41974  -2.2927 0.0218805 *  
+public_sector:high_skill  4.79560    1.08247   4.4302 9.482e-06 ***
+public_sector:managerial -5.45110    1.54257  -3.5338 0.0004110 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -390,7 +339,7 @@ Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’
 
 	Breusch-Godfrey/Wooldridge test for serial correlation in panel models
 
-data:  gender_pay_gap ~ industry + construction + services + public_sector +  ...
+data:  gender_pay_gap ~ industry + construction + public_sector + high_skill +  ...
 chisq = 1144.3, df = 1, p-value < 2.2e-16
 alternative hypothesis: serial correlation in idiosyncratic errors
 
@@ -405,10 +354,10 @@ alternative hypothesis: serial correlation in idiosyncratic errors
 	studentized Breusch-Pagan test
 
 data:  lm_model
-BP = 194.47, df = 9, p-value < 2.2e-16
+BP = 172.9, df = 8, p-value < 2.2e-16
 
 
-📊 Test statistic: BP = 194.466, df = 9, p-value = < 2.2e-16
+📊 Test statistic: BP = 172.897, df = 8, p-value = < 2.2e-16
 ⚠️ Heteroskedasticity detected (p < 0.05)
    → Using cluster-robust standard errors (HC1)
 
@@ -426,15 +375,15 @@ Hartigan's Dip Test (Multimodality):
 -------------------------------------
   Industry: D = 0.0051, p-value = 0.956 (unimodal)
   Construction: D = 0.0091, p-value = 0.965 (unimodal)
-  Services: D = 0.0026, p-value = 0.995 (unimodal)
+  Services: D = 0.0024, p-value = 0.994 (unimodal)
   Public Sector: D = 0.0055, p-value = 0.927 (unimodal)
 
 
 Kolmogorov-Smirnov Test (Distributional Equality):
 ---------------------------------------------------
   Industry vs Public Sector: D = 0.2269, p-value = < 2.2e-16 (different distributions)
-  Industry vs Services: D = 0.0899, p-value = 2.93e-14 (different distributions)
-  Services vs Public Sector: D = 0.1455, p-value = < 2.2e-16 (different distributions)
+  Industry vs Services: D = 0.1006, p-value = < 2.2e-16 (different distributions)
+  Services vs Public Sector: D = 0.1328, p-value = < 2.2e-16 (different distributions)
 
 
 5. Structural Break Test (Chow Test):
@@ -483,16 +432,15 @@ Balanced Panel Model Results:
 t test of coefficients:
 
                  Estimate Std. Error t value  Pr(>|t|)    
-(Intercept)      13.02195    0.58082 22.4199 < 2.2e-16 ***
-industry          3.19358    0.70787  4.5115 6.518e-06 ***
-construction      2.15876    0.83989  2.5703   0.01018 *  
-services          0.83196    0.60582  1.3733   0.16970    
-public_sector    -1.73037    0.70608 -2.4507   0.01428 *  
-high_skill        3.29827    0.44299  7.4454 1.055e-13 ***
-managerial        2.83544    0.67314  4.2123 2.553e-05 ***
-factor(year)2014 -1.37468    0.21265 -6.4644 1.069e-10 ***
-factor(year)2018 -1.01056    0.22288 -4.5340 5.862e-06 ***
-factor(year)2022 -2.15313    0.21956 -9.8065 < 2.2e-16 ***
+(Intercept)      13.69971    0.30274 45.2521 < 2.2e-16 ***
+industry          2.51720    0.49789  5.0557 4.372e-07 ***
+construction      1.48262    0.67282  2.2036   0.02758 *  
+public_sector    -2.40619    0.49519 -4.8592 1.199e-06 ***
+high_skill        3.29802    0.44457  7.4185 1.291e-13 ***
+managerial        2.82258    0.67364  4.1900 2.816e-05 ***
+factor(year)2014 -1.37468    0.21264 -6.4648 1.067e-10 ***
+factor(year)2018 -1.01056    0.22287 -4.5343 5.855e-06 ***
+factor(year)2022 -2.15313    0.21955 -9.8071 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -507,16 +455,15 @@ Winsorized Model Results:
 t test of coefficients:
 
                  Estimate Std. Error  t value  Pr(>|t|)    
-(Intercept)      13.27637    0.38738  34.2726 < 2.2e-16 ***
-industry          2.73310    0.46475   5.8808 4.173e-09 ***
-construction      1.59611    0.60514   2.6376  0.008359 ** 
-services          0.81269    0.40934   1.9854  0.047120 *  
-public_sector    -2.00828    0.47554  -4.2232 2.423e-05 ***
-high_skill        2.59392    0.33228   7.8064 6.288e-15 ***
-managerial        2.52357    0.47943   5.2636 1.433e-07 ***
-factor(year)2014 -1.57088    0.17232  -9.1160 < 2.2e-16 ***
-factor(year)2018 -1.27902    0.18181  -7.0351 2.082e-12 ***
-factor(year)2022 -2.41061    0.18095 -13.3217 < 2.2e-16 ***
+(Intercept)      13.92358    0.20969  66.4015 < 2.2e-16 ***
+industry          2.08438    0.32986   6.3190 2.710e-10 ***
+construction      0.94739    0.50891   1.8616   0.06268 .  
+public_sector    -2.65717    0.34500  -7.7019 1.428e-14 ***
+high_skill        2.59808    0.33342   7.7923 7.026e-15 ***
+managerial        2.52504    0.48005   5.2599 1.462e-07 ***
+factor(year)2014 -1.57047    0.17231  -9.1143 < 2.2e-16 ***
+factor(year)2018 -1.27887    0.18180  -7.0345 2.089e-12 ***
+factor(year)2022 -2.40964    0.18097 -13.3153 < 2.2e-16 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
@@ -572,7 +519,7 @@ Bottom 10 Sectors with Lowest Gender Pay Gaps:
 ==================================
 
 % Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
-% Date and time: Tue, Oct 28, 2025 - 23:54:38
+% Date and time: Fri, Nov 07, 2025 - 01:26:34
 \begin{table}[!htbp] \centering 
   \caption{Panel 2: Sector × Occupation Analysis - Gender Pay Gap Determinants (2010-2022)} 
   \label{} 
@@ -585,47 +532,44 @@ Bottom 10 Sectors with Lowest Gender Pay Gaps:
  & Main Effects & With Interactions \\ 
 \\[-1.8ex] & (1) & (2)\\ 
 \hline \\[-1.8ex] 
- Industry sector &  & 4.089$^{***}$ \\ 
-  &  & (0.560) \\ 
+ Industry sector &  & 3.582$^{***}$ \\ 
+  &  & (0.420) \\ 
   & & \\ 
- Construction &  & 1.343 \\ 
-  &  & (0.717) \\ 
+ Construction &  & 0.835 \\ 
+  &  & (0.613) \\ 
   & & \\ 
- Services &  & 0.637 \\ 
-  &  & (0.465) \\ 
+ Services &  & $-$3.366$^{***}$ \\ 
+  &  & (0.447) \\ 
   & & \\ 
- Public sector &  & $-$2.860$^{***}$ \\ 
-  &  & (0.580) \\ 
-  & & \\ 
- High-skill occupation &  & 2.520$^{***}$ \\ 
+ Public sector &  & 2.525$^{***}$ \\ 
   &  & (0.528) \\ 
   & & \\ 
- Managerial position &  & 4.540$^{***}$ \\ 
+ High-skill occupation &  & 4.542$^{***}$ \\ 
   &  & (0.694) \\ 
   & & \\ 
- Industry × High-skill & $-$1.361$^{***}$ & $-$1.728$^{***}$ \\ 
+ Managerial position & $-$1.361$^{***}$ & $-$1.728$^{***}$ \\ 
   & (0.207) & (0.203) \\ 
   & & \\ 
- Industry × Managerial & $-$1.015$^{***}$ & $-$1.467$^{***}$ \\ 
+ Industry × High-skill & $-$1.015$^{***}$ & $-$1.467$^{***}$ \\ 
   & (0.204) & (0.200) \\ 
   & & \\ 
- Public × High-skill & $-$2.173$^{***}$ & $-$2.673$^{***}$ \\ 
+ Industry × Managerial & $-$2.173$^{***}$ & $-$2.672$^{***}$ \\ 
   & (0.208) & (0.202) \\ 
   & & \\ 
- Public × Managerial &  & $-$3.352$^{**}$ \\ 
+ Public × High-skill &  & $-$3.357$^{**}$ \\ 
   &  & (1.058) \\ 
   & & \\ 
- Year 2014 &  & $-$3.253$^{*}$ \\ 
+ Public × Managerial &  & $-$3.255$^{*}$ \\ 
   &  & (1.424) \\ 
   & & \\ 
- Year 2018 &  & 4.801$^{***}$ \\ 
+ Year 2014 &  & 4.796$^{***}$ \\ 
   &  & (1.124) \\ 
   & & \\ 
- Year 2022 &  & $-$5.449$^{***}$ \\ 
-  &  & (1.474) \\ 
+ Year 2018 &  & $-$5.451$^{***}$ \\ 
+  &  & (1.475) \\ 
   & & \\ 
- Constant &  & 13.420$^{***}$ \\ 
-  &  & (0.440) \\ 
+ Year 2022 &  & 13.926$^{***}$ \\ 
+  &  & (0.238) \\ 
   & & \\ 
 \hline \\[-1.8ex] 
 Observations & 14430 & 14430 \\ 
@@ -635,9 +579,9 @@ Detailed sectors & 18 & 18 \\
 Occupations (ISCO) & 9 & 9 \\ 
 Model type & Fixed Effects & Random Effects \\ 
 Observations & 14,430 & 14,430 \\ 
-R$^{2}$ & 0.012 & 0.061 \\ 
+R$^{2}$ & 0.012 & 0.060 \\ 
 Adjusted R$^{2}$ & $-$0.541 & 0.060 \\ 
-F Statistic & 37.681$^{***}$ (df = 3; 9251) & 567.221$^{***}$ \\ 
+F Statistic & 37.681$^{***}$ (df = 3; 9251) & 565.234$^{***}$ \\ 
 \hline 
 \hline \\[-1.8ex] 
 \textit{Note:}  & \multicolumn{2}{l}{$^{*}$p$<$0.05; $^{**}$p$<$0.01; $^{***}$p$<$0.001} \\ 

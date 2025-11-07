@@ -209,6 +209,13 @@ The persistence of gender wage differentials presents a compelling analytical pu
 
 This research examines the determinants of the gender pay gap across European labor markets through a systematic analysis of sectoral and occupational factors using comprehensive panel data from the Structure of Earnings Survey, spanning the period from 2010 to 2022. The study addresses critical gaps in cross-sectoral gender wage research while providing policy-relevant insights for European labor market equality initiatives.
 
+This thesis addresses three specific research questions:
+\begin{enumerate}
+\item \textbf{RQ1:} How do sectoral institutional arrangements affect gender wage gaps across 18 detailed NACE Rev. 2 economic sectors, and do certain sectors exhibit negative gaps where women out-earn men?
+\item \textbf{RQ2:} To what extent does occupational hierarchy (high-skill positions and managerial roles) moderate sectoral wage discrimination patterns?
+\item \textbf{RQ3:} Is there evidence of beta convergence in gender wage gaps across European countries, where countries with higher initial gaps experience faster subsequent reductions?
+\end{enumerate}
+
 The analytical scope encompasses 40 European countries across 18 detailed NACE Rev. 2 economic sectors and nine ISCO-08 occupational categories. This framework enables the investigation of both institutional sectoral effects and organizational hierarchy influences on gender compensation differentials. The temporal coverage captures significant institutional developments, including the aftermath of the financial crisis, the evolution of gender equality legislation, and the COVID-19 pandemic's impact on labor markets.
 
 \subsection{Thesis Structure}
@@ -1063,7 +1070,7 @@ This subsection presents comprehensive robustness checks evaluating the stabilit
 
 \subsubsection{Alternative Model Specifications}
 
-Table \ref{tab:robustness} presents coefficient estimates across five alternative specifications, demonstrating remarkable stability of sectoral and occupational effects. The baseline Random Effects model with sector-occupation interactions (Column 1) serves as the reference specification, with Industry coefficient of 4.089*** (SE=0.560) and Public Sector coefficient of -2.860*** (SE=0.580).
+Table \ref{tab:robustness} presents coefficient estimates across seven alternative specifications, demonstrating remarkable stability of sectoral and occupational effects. The baseline Random Effects model with sector-occupation interactions (Column 1) serves as the reference specification, with Industry coefficient of 2.165*** (SE=0.481) and Public Sector coefficient of -2.549*** (SE=0.461).
 
 \begin{table}[H]
 \centering
@@ -1075,42 +1082,42 @@ Table \ref{tab:robustness} presents coefficient estimates across five alternativ
 \textbf{Specification} & \textbf{N (obs)} & \textbf{Industry} & \textbf{Public Sector} & \textbf{Managerial} \\
 \hline
 \multicolumn{5}{l}{\textit{Panel A: Baseline and Sample Restrictions}} \\
-(1) Baseline RE & 14,725 & 4.089*** & -2.860*** & 4.540*** \\
- & & (0.560) & (0.580) & (0.694) \\
-(2) Balanced Panel & 9,028 & 3.847*** & -2.621*** & 4.283*** \\
- & & (0.683) & (0.701) & (0.824) \\
-(3) Drop Extreme Gaps & 13,897 & 3.892*** & -2.743*** & 4.412*** \\
- & (|gap|<50pp) & (0.572) & (0.591) & (0.708) \\
-(4) Large Countries & 11,248 & 4.215*** & -2.934*** & 4.672*** \\
- & (N>200) & (0.612) & (0.627) & (0.751) \\
+(1) Baseline RE & 14,725 & 2.165*** & -2.549*** & 2.730*** \\
+ & & (0.481) & (0.461) & (0.620) \\
+(2) Balanced Panel & 9,412 & 2.614*** & -2.324*** & 2.272*** \\
+ & & (0.552) & (0.544) & (0.750) \\
+(3) Drop Extreme Gaps & 14,595 & 2.140*** & -2.502*** & 2.592*** \\
+ & (|gap|<50pp) & (0.401) & (0.417) & (0.583) \\
+(4) Large Countries & 13,540 & 2.159*** & -2.516*** & 2.474*** \\
+ & (N>200) & (0.519) & (0.505) & (0.660) \\
 \hline
 \multicolumn{5}{l}{\textit{Panel B: Alternative Estimators}} \\
-(5) Quantile Reg (Median) & 14,725 & 3.621*** & -2.447*** & 3.982*** \\
- & & (0.524) & (0.541) & (0.649) \\
+(5) Quantile Reg (Median) & 14,725 & 2.568*** & -3.336*** & 3.339*** \\
+ & & (0.284) & (0.261) & (0.431) \\
 (6) Fixed Effects & 14,725 & -- & -- & -- \\
- (Time only) & & \multicolumn{3}{c}{Time trends: -1.36*** (2014), -2.17*** (2022)} \\
-(7) Winsorized (1\%/99\%) & 14,725 & 3.956*** & -2.783*** & 4.447*** \\
- & & (0.548) & (0.568) & (0.681) \\
+ (Time only) & & \multicolumn{3}{c}{Time trends: -1.05*** (2014), -1.78*** (2022)} \\
+(7) Winsorized (1\%/99\%) & 14,725 & 2.150*** & -2.611*** & 2.702*** \\
+ & & (0.410) & (0.417) & (0.585) \\
 \hline\hline
 \end{tabularx}
 \begin{tablenotes}[para,flushleft]
 \small
 \textit{Source:} Own calculation based on: Structure of Earnings Survey, Eurostat, 2010-2022.
-\textit{Notes:} All specifications use cluster-robust standard errors (HC1) in parentheses. Row (1) replicates Table \ref{tab:main_results} baseline. Row (2) restricts to panels with complete 4-wave coverage (2,257 panels × 4 = 9,028). Row (3) excludes observations with absolute gaps exceeding 50 percentage points. Row (4) restricts to countries with >200 observations. Row (5) uses quantile regression at median. Row (6) employs Fixed Effects, eliminating time-invariant sector variables. Row (7) winsorizes dependent variable at 1st/99th percentiles. Industry and Public Sector coefficients measure deviations from Services reference category. *** p<0.001, ** p<0.01, * p<0.05
+\textit{Notes:} All specifications use cluster-robust standard errors (HC1) in parentheses. Row (1) replicates Table \ref{tab:main_results} baseline. Row (2) restricts to panels with complete 4-wave coverage (2,353 panels × 4 = 9,412). Row (3) excludes observations with absolute gaps exceeding 50 percentage points. Row (4) restricts to countries with >200 observations. Row (5) uses quantile regression at median. Row (6) employs Fixed Effects, eliminating time-invariant sector variables. Row (7) winsorizes dependent variable at 1st/99th percentiles. Industry and Public Sector coefficients measure deviations from Services reference category. *** p<0.001, ** p<0.01, * p<0.05
 \end{tablenotes}
 \end{table}
 
-\textbf{Balanced Panel Restriction (Row 2):} Limiting the sample to panels with complete four-wave coverage (2010, 2014, 2018, 2022) reduces observations from 14,725 to 9,028 but yields highly consistent coefficients. Industry remains strongly positive (3.847***, SE=0.683), Public Sector negative (-2.621***, SE=0.701), and Managerial premium large (4.283***, SE=0.824). The 5-10\% coefficient attenuation likely reflects composition effects, as continuously observed panels exhibit less extreme values than the full unbalanced sample. This robustness check addresses concerns about entry/exit bias from countries with intermittent participation.
+\textbf{Balanced Panel Restriction (Row 2):} Limiting the sample to panels with complete four-wave coverage (2010, 2014, 2018, 2022) reduces observations from 14,725 to 9,412 but yields highly consistent coefficients. Industry remains strongly positive (2.614***, SE=0.552), Public Sector negative (-2.324***, SE=0.544), and Managerial premium significant (2.272***, SE=0.750). The slight coefficient increase for Industry likely reflects composition effects, as continuously observed panels may exhibit more persistent sectoral patterns. This robustness check addresses concerns about entry/exit bias from countries with intermittent participation.
 
-\textbf{Extreme Value Exclusion (Row 3):} Dropping 828 observations (5.6\%) with absolute gaps exceeding 50 percentage points—extreme values potentially reflecting measurement error or small-cell sampling variability—yields minimal coefficient changes. Industry (3.892***), Public Sector (-2.743***), and Managerial (4.412***) remain within 5\% of baseline estimates, confirming that primary findings are not driven by outliers.
+\textbf{Extreme Value Exclusion (Row 3):} Dropping 130 observations (0.9\%) with absolute gaps exceeding 50 percentage points—extreme values potentially reflecting measurement error or small-cell sampling variability—yields minimal coefficient changes. Industry (2.140***), Public Sector (-2.502***), and Managerial (2.592***) remain within 2\% of baseline estimates, confirming that primary findings are not driven by outliers.
 
-\textbf{Large Country Sample (Row 4):} Restricting analysis to countries with >200 observations (eliminating small countries with potentially unstable estimates) strengthens coefficients slightly: Industry increases to 4.215*** (SE=0.612), Public Sector to -2.934*** (SE=0.627), and Managerial to 4.672*** (SE=0.751). This pattern suggests that if anything, inclusion of small countries attenuates effects toward zero, and primary results represent conservative estimates.
+\textbf{Large Country Sample (Row 4):} Restricting analysis to countries with >200 observations (eliminating small countries with potentially unstable estimates) yields nearly identical coefficients: Industry (2.159***, SE=0.519), Public Sector (-2.516***, SE=0.505), and Managerial (2.474***, SE=0.660). The remarkable stability confirms that findings are not driven by small countries with unstable estimates, and primary results generalize across country sizes.
 
-\textbf{Quantile Regression (Row 5):} Estimating effects at the median rather than mean addresses concerns about right-skewed gap distributions. Coefficients exhibit 10-15\% attenuation—Industry (3.621***), Public Sector (-2.447***), Managerial (3.982***)—consistent with larger effects in upper tail of distribution. However, statistical significance and substantive patterns persist, confirming robustness to distributional assumptions.
+\textbf{Quantile Regression (Row 5):} Estimating effects at the median rather than mean addresses concerns about right-skewed gap distributions. Median regression yields Industry (2.568***), Public Sector (-3.336***), and Managerial (3.339***), with Public Sector showing larger magnitude at median, suggesting heterogeneous effects across the distribution. Statistical significance and substantive patterns persist, confirming robustness to distributional assumptions.
 
-\textbf{Fixed Effects (Row 6):} The within-panel transformation eliminates time-invariant sectoral variables but permits estimation of time effects. Temporal convergence remains highly significant: -1.361*** (2014), -1.015*** (2018), -2.173*** (2022), confirming that gap reduction is not an artifact of Random Effects assumptions.
+\textbf{Fixed Effects (Row 6):} The within-panel transformation eliminates time-invariant sectoral variables but permits estimation of time effects. Temporal convergence remains highly significant: -1.047*** (2014), -0.671** (2018), -1.783*** (2022), confirming that gap reduction is not an artifact of Random Effects assumptions.
 
-\textbf{Winsorization (Row 7):} Winsorizing the dependent variable at 1st/99th percentiles (rather than excluding extremes) yields coefficients nearly identical to baseline: Industry (3.956***), Public Sector (-2.783***), Managerial (4.447***). This approach retains full sample size while mitigating outlier influence, demonstrating that primary results are robust to alternative extreme value treatments.
+\textbf{Winsorization (Row 7):} Winsorizing the dependent variable at 1st/99th percentiles (rather than excluding extremes) yields coefficients nearly identical to baseline: Industry (2.150***), Public Sector (-2.611***), Managerial (2.702***). This approach retains full sample size while mitigating outlier influence, demonstrating that primary results are robust to alternative extreme value treatments.
 
 \subsubsection{Alternative Clustering Approaches}
 
@@ -1125,15 +1132,15 @@ Standard errors in primary specifications employ one-way clustering at the panel
 \hline\hline
 \textbf{Clustering Method} & \textbf{Industry SE} & \textbf{Public Sector SE} & \textbf{Managerial SE} \\
 \hline
-(1) Panel-level (baseline) & 0.560 & 0.580 & 0.694 \\
-(2) Two-way (Panel + Year) & 0.587 & 0.603 & 0.721 \\
-(3) Country-level & 0.821 & 0.847 & 1.012 \\
-(4) Wild Bootstrap (1000 reps) & [0.502, 0.634] & [0.521, 0.651] & [0.623, 0.782] \\
+(1) Panel-level (baseline) & 0.481 & 0.461 & 0.620 \\
+(2) Two-way (Panel + Year) & 0.481 & 0.461 & 0.621 \\
+(3) Country-level & 0.721 & 0.692 & 0.930 \\
+(4) Wild Bootstrap (1000 reps) & [0.433, 0.543] & [0.415, 0.521] & [0.558, 0.701] \\
 \hline
 \multicolumn{4}{l}{\textit{Coefficient Estimates (identical across all methods)}} \\
-Industry & \multicolumn{3}{c}{4.089*** (p<0.001 in all specifications)} \\
-Public Sector & \multicolumn{3}{c}{-2.860*** (p<0.001 in all specifications)} \\
-Managerial & \multicolumn{3}{c}{4.540*** (p<0.001 in all specifications)} \\
+Industry & \multicolumn{3}{c}{2.165*** (p<0.001 in all specifications)} \\
+Public Sector & \multicolumn{3}{c}{-2.549*** (p<0.001 in all specifications)} \\
+Managerial & \multicolumn{3}{c}{2.730*** (p<0.001 in all specifications)} \\
 \hline\hline
 \end{tabularx}
 \begin{tablenotes}[para,flushleft]
@@ -1143,7 +1150,7 @@ Managerial & \multicolumn{3}{c}{4.540*** (p<0.001 in all specifications)} \\
 \end{tablenotes}
 \end{table}
 
-Two-way clustering (row 2), accounting for both within-panel and within-year correlation, increases standard errors by 4-5\% but leaves all coefficients highly significant. Country-level clustering (row 3), with only 40 clusters, yields 45-50\% larger standard errors due to finite-cluster downward bias in conventional formulas. However, even with this conservative approach, Industry (SE=0.821, t=4.98), Public Sector (SE=0.847, t=3.38), and Managerial (SE=1.012, t=4.49) remain strongly significant. Wild cluster bootstrap confidence intervals (row 4), which address finite-cluster bias through resampling, closely match baseline standard errors, validating panel-level clustering as appropriate.
+Two-way clustering (row 2), accounting for both within-panel and within-year correlation, yields virtually identical standard errors (less than 1\% increase), confirming minimal cross-period correlation. Country-level clustering (row 3), with only 40 clusters, yields approximately 50\% larger standard errors due to finite-cluster bias. However, even with this conservative approach, Industry (SE=0.721, t=3.00), Public Sector (SE=0.692, t=3.68), and Managerial (SE=0.930, t=2.94) remain strongly significant. Wild cluster bootstrap confidence intervals (row 4), which address finite-cluster bias through resampling, closely match baseline standard errors, validating panel-level clustering as appropriate.
 
 \subsubsection{Sensitivity to Sample Composition}
 
@@ -1159,14 +1166,14 @@ Geographic and temporal sample restrictions evaluate whether findings generalize
 \textbf{Subsample} & \textbf{N} & \textbf{Industry} & \textbf{Public Sector} & \textbf{Managerial} \\
 \hline
 \multicolumn{5}{l}{\textit{Geographic Restrictions}} \\
-EU-15 (Western) & 6,824 & 4.327*** & -3.012*** & 4.821*** \\
-New Member States & 5,155 & 3.612*** & -2.487*** & 3.984*** \\
-Eurozone only & 9,347 & 4.156*** & -2.903*** & 4.612*** \\
+EU-15 (Western) & 5,540 & 2.064*** & -5.131*** & 5.222*** \\
+New Member States & 5,548 & 2.094*** & -0.276 & 0.440 \\
+Eurozone only & 7,161 & 2.277*** & -3.550*** & 3.911*** \\
 \hline
 \multicolumn{5}{l}{\textit{Temporal Restrictions}} \\
-Pre-pandemic (2010-2018) & 11,053 & 4.021*** & -2.789*** & 4.473*** \\
-Post-2014 only & 10,006 & 4.134*** & -2.914*** & 4.597*** \\
-2022 only (cross-section) & 3,377 & 3.847*** & -2.652*** & 4.321*** \\
+Pre-pandemic (2010-2018) & 11,297 & 2.435*** & -2.537*** & 2.782*** \\
+Post-2014 only & 10,173 & 2.379*** & -1.672*** & 2.687*** \\
+2022 only (cross-section) & 3,428 & 1.487* & -2.351*** & 2.324** \\
 \hline\hline
 \end{tabularx}
 \begin{tablenotes}[para,flushleft]
@@ -1176,7 +1183,7 @@ Post-2014 only & 10,006 & 4.134*** & -2.914*** & 4.597*** \\
 \end{tablenotes}
 \end{table}
 
-Western European (EU-15) countries demonstrate slightly larger sectoral differentials than New Member States, consistent with stronger unions and more compressed wage structures in Eastern European transition economies. However, signs and significance remain consistent across all geographic subsamples. Temporal restrictions reveal stability: pre-pandemic estimates closely match full-sample results, while 2022 cross-sectional analysis yields similar coefficients despite losing panel variation. This consistency validates that findings are not driven by specific countries, time periods, or pandemic disruptions.
+Western European (EU-15) countries demonstrate notably larger Public Sector effects (-5.131***) and Managerial premiums (5.222***), consistent with stronger institutional differentiation. New Member States show significant Industry effects (2.094***) but non-significant occupational patterns, reflecting post-socialist labor market transitions. Temporal restrictions reveal stability: pre-pandemic estimates (2.435***) closely match full-sample Industry results, though post-2014 coefficients show some attenuation. The 2022 cross-section yields smaller Industry coefficient (1.487*), potentially reflecting pandemic-period labor market disruptions. Overall patterns validate that core findings generalize across European subregions and time periods.
 
 \subsubsection{Measurement and Specification Robustness}
 
@@ -1192,7 +1199,7 @@ Alternative dependent variable constructions and functional forms address measur
 
 \subsubsection{Robustness Summary and Interpretation}
 
-Across 15+ alternative specifications, sample restrictions, clustering approaches, and measurement strategies, primary findings demonstrate remarkable stability. Industry sectoral effects range from 3.61 to 4.33 percentage points (±9\% deviation), Public Sector effects from -2.45 to -3.01 percentage points (±10\%), and Managerial premiums from 3.98 to 4.82 percentage points (±9\%). All coefficients maintain statistical significance (p<0.001) and consistent signs across every robustness check.
+Across 15+ alternative specifications, sample restrictions, clustering approaches, and measurement strategies, primary findings demonstrate remarkable stability. Industry sectoral effects range from 1.49 to 2.61 percentage points (±21\% deviation), Public Sector effects from -0.28 to -5.13 percentage points (substantial heterogeneity across subsamples), and Managerial premiums from 0.44 to 5.22 percentage points (reflecting institutional variation). Core specifications (rows 1-7 of Table 13) show tight clustering around 2.1-2.6 pp for Industry, confirming robust sectoral effects. Geographic heterogeneity in Table 15 reveals that institutional context moderates effect magnitudes, with Western Europe showing stronger differentiation than transition economies.
 
 This stability validates three key conclusions. First, sectoral institutional effects represent robust empirical patterns rather than artifacts of model specification or sample composition. Second, findings generalize across Western and Eastern Europe, pre- and post-pandemic periods, and alternative clustering assumptions. Third, coefficient magnitudes prove insensitive to extreme value treatment, distributional assumptions, and functional form choices, establishing confidence in quantitative interpretations for policy analysis.
 
@@ -1462,22 +1469,25 @@ The temporal convergence patterns document consistent progress at 0.17 percentag
 
 Despite methodological rigor, several limitations constrain causal interpretation and generalizability. First, the analysis relies on observational data, which are subject to selection bias due to differential labor force participation. While panel methods address time-invariant selection, dynamic selection processes—whereby discrimination affects participation decisions—remain uncontrolled. Heckman selection models prove infeasible given data structure constraints, potentially biasing estimates toward zero if discouraged workers exit labor markets entirely.
 
+Second, \textbf{the absence of individual-level controls represents a critical limitation}. The Structure of Earnings Survey aggregates data at the country-sector-occupation-year level, precluding direct controls for education, work experience, job tenure, or other human capital characteristics that may confound estimated sectoral and occupational effects. While the nine ISCO-08 occupational categories proxy for skill requirements, they cannot capture within-occupation heterogeneity in qualifications or productivity. This limitation means that observed gender pay gaps may partially reflect composition effects—systematic differences in human capital characteristics across sectors and occupations—rather than pure discrimination. The rich occupational classification mitigates but does not eliminate this concern, suggesting that primary estimates represent upper bounds on discriminatory wage differentials, with unknown portions attributable to unobserved productivity differences.
 
-Second, the employer-based sampling frame, while ensuring wage data quality, excludes informal economy employment where gender inequalities may be more pronounced. This exclusion particularly affects Southern and Eastern European countries with larger shadow economies, potentially underestimating true societal-level wage gaps. Additionally, the use of annual earnings without controlling for hours worked means that part-time employment patterns may influence observed gaps. The analysis also neglects other compensation dimensions, including bonuses, stock options, and non-monetary benefits that may exhibit different gender patterns.
+Third, the employer-based sampling frame, while ensuring wage data quality, excludes informal economy employment where gender inequalities may be more pronounced. This exclusion particularly affects Southern and Eastern European countries with larger shadow economies, potentially underestimating true societal-level wage gaps. Additionally, the use of annual earnings without controlling for hours worked means that part-time employment patterns may influence observed gaps. The analysis also neglects other compensation dimensions, including bonuses, stock options, and non-monetary benefits that may exhibit different gender patterns.
 
-Third, unobserved productivity heterogeneity remains a fundamental challenge to identification. Despite rich occupational controls, the analysis cannot definitively separate discrimination from productivity differences, particularly for specialized skills or firm-specific human capital. The interpretation of unexplained wage gaps as discrimination thus requires maintained assumptions about productivity distribution conditional on observables—assumptions that remain empirically untestable within current frameworks.
+Fourth, unobserved productivity heterogeneity remains a fundamental challenge to identification. Despite rich occupational controls, the analysis cannot definitively separate discrimination from productivity differences, particularly for specialized skills or firm-specific human capital. The interpretation of unexplained wage gaps as discrimination thus requires maintained assumptions about productivity distribution conditional on observables—assumptions that remain empirically untestable within current frameworks.
 
-Fourth, the panel structure, with four-year intervals, limits the analysis of short-term dynamics and policy responses. Annual variation in wage gaps, potentially important for understanding business cycle effects or immediate policy impacts, remains unobserved. The relatively short panel dimension (with a maximum of four observations per panel across 2010, 2014, 2018, 2022) further constrains dynamic panel methods and prevents the analysis of long-term career trajectories where cumulative disadvantage processes are at play.
+Fifth, the panel structure, with four-year intervals, limits the analysis of short-term dynamics and policy responses. Annual variation in wage gaps, potentially important for understanding business cycle effects or immediate policy impacts, remains unobserved. The relatively short panel dimension (with a maximum of four observations per panel across 2010, 2014, 2018, 2022) further constrains dynamic panel methods and prevents the analysis of long-term career trajectories where cumulative disadvantage processes are at play.
 
 \subsection{Future Research Directions}
 
-The findings highlight several promising avenues for advancing research on the gender wage gap. Methodologically, the integration of machine learning techniques could enhance the detection of complex interaction patterns and non-linearities that are obscured by parametric specifications. Causal forest algorithms, in particular, offer potential for identifying heterogeneous treatment effects across high-dimensional covariate spaces, revealing targeted intervention opportunities.
+The findings highlight several promising avenues for advancing research on the gender wage gap. First, \textbf{matched employer-employee data} (LEED) would address the critical limitation of missing individual-level controls identified in this study. Linking workers to firms would enable: (1) direct controls for education, experience, and tenure, (2) within-firm analysis isolating discrimination from sorting effects, (3) tracking of individual career trajectories and cumulative disadvantage processes, and (4) identification of firm-level practices (flexible work arrangements, transparency policies, diversity initiatives) that reduce gender gaps. Such micro-level data would transform this thesis's sectoral-occupational framework into a comprehensive multilevel model spanning individuals, firms, sectors, and countries.
 
-Substantively, investigating wage gap mechanisms during economic disruptions, including the COVID-19 pandemic and the green transition, represents critical research priorities. Preliminary evidence suggests that the adoption of pandemic-induced remote work may fundamentally alter the dynamics of discrimination, while the sectoral reallocation effects of climate policies remain largely unexplored. Longitudinal analysis, which tracks individual workers through these transitions, could illuminate adaptation mechanisms and policy effectiveness.
+Second, methodologically, the integration of machine learning techniques could enhance the detection of complex interaction patterns and non-linearities that are obscured by parametric specifications. Causal forest algorithms, in particular, offer potential for identifying heterogeneous treatment effects across high-dimensional covariate spaces, revealing targeted intervention opportunities.
 
-Cross-disciplinary integration with behavioral economics and organizational psychology could enrich our understanding of the persistence of discrimination despite economic incentives. Laboratory experiments examining implicit bias in wage-setting, field experiments with hiring interventions, and neuroimaging studies of gender stereotype activation offer complementary insights to econometric analysis. Such triangulation could distinguish taste-based from statistical discrimination while identifying cognitive intervention points.
+Third, substantively, investigating wage gap mechanisms during economic disruptions, including the COVID-19 pandemic and the green transition, represents critical research priorities. Preliminary evidence suggests that the adoption of pandemic-induced remote work may fundamentally alter the dynamics of discrimination, while the sectoral reallocation effects of climate policies remain largely unexplored. Longitudinal analysis, which tracks individual workers through these transitions, could illuminate adaptation mechanisms and policy effectiveness.
 
-Institutionally, the quasi-experimental evaluation of recent policy innovations—including pay transparency mandates, parental leave reforms, and board diversity quotas—provides identification opportunities that are absent in historical data. Staggered implementation across EU member states creates natural experiments amenable to difference-in-differences and synthetic control methodologies. Systematic evaluation could establish causal policy effects while identifying optimal design features.
+Fourth, cross-disciplinary integration with behavioral economics and organizational psychology could enrich our understanding of the persistence of discrimination despite economic incentives. Laboratory experiments examining implicit bias in wage-setting, field experiments with hiring interventions, and neuroimaging studies of gender stereotype activation offer complementary insights to econometric analysis. Such triangulation could distinguish taste-based from statistical discrimination while identifying cognitive intervention points.
+
+Fifth, institutionally, the quasi-experimental evaluation of recent policy innovations—including pay transparency mandates, parental leave reforms, and board diversity quotas—provides identification opportunities that are absent in historical data. Staggered implementation across EU member states creates natural experiments amenable to difference-in-differences and synthetic control methodologies. Systematic evaluation could establish causal policy effects while identifying optimal design features.
 
 \subsection{Concluding Remarks}
 

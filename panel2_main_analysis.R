@@ -5,6 +5,9 @@
 # Years: 2010, 2014, 2018, 2022
 # ============================================================================
 
+# Start capturing all output to file
+sink("output/reports/panel2_analysis_full_output.txt", split = TRUE)
+
 library(tidyverse)
 library(plm)
 library(lmtest)
@@ -244,7 +247,7 @@ cat("-----------------------------------\n")
 
 model_re <- plm(
   gender_pay_gap ~ 
-    industry + construction + services + public_sector +
+    industry + construction + public_sector +
     high_skill + managerial + 
     factor(year),
   data = pdata2, 
@@ -259,7 +262,7 @@ cat("------------------------\n")
 
 model_fe <- plm(
   gender_pay_gap ~ 
-    industry + construction + services + public_sector +
+    industry + construction + public_sector +
     high_skill + managerial + 
     factor(year),
   data = pdata2, 
@@ -303,7 +306,7 @@ cat("-----------------------------------------\n")
 
 model_interaction <- plm(
   gender_pay_gap ~ 
-    industry + construction + services + public_sector +
+    industry + construction + public_sector +
     high_skill + managerial +
     industry:high_skill + industry:managerial +
     public_sector:high_skill + public_sector:managerial +
@@ -635,7 +638,7 @@ if(nrow(panel2_balanced) > 100) {
   model_balanced <- tryCatch({
     plm(
       gender_pay_gap ~ 
-        industry + construction + services + public_sector +
+        industry + construction + public_sector +
         high_skill + managerial + 
         factor(year),
       data = pdata_balanced, 
@@ -678,7 +681,7 @@ pdata_winsor <- pdata.frame(panel2_winsor, index = c("panel_id", "year"))
 model_winsor <- tryCatch({
   plm(
     gender_pay_gap_winsor ~ 
-      industry + construction + services + public_sector +
+      industry + construction + public_sector +
       high_skill + managerial + 
       factor(year),
     data = pdata_winsor, 
@@ -842,3 +845,6 @@ cat("  Robustness checks:     Balanced panel, Winsorized DV\n\n")
 
 cat("🚀 READY FOR THESIS INTEGRATION!\n")
 cat("Next step: Run panel1_supplementary_analysis.R for age dimension\n\n")
+
+# Stop capturing output
+sink()
