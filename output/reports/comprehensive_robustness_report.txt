@@ -4,7 +4,7 @@
 ║     For Thesis Section 6.8: Robustness and Sensitivity Analyses       ║
 ╚════════════════════════════════════════════════════════════════════════╝
 
-Generated: 2025-11-12 20:56:37.911154
+Generated: 2025-11-12 21:10:29.283587
 
 ================================================================================ 
 TABLE 13: ALTERNATIVE SPECIFICATIONS & SAMPLE RESTRICTIONS
@@ -19,7 +19,7 @@ Summary of coefficient stability across 7 alternative specifications:
 2 (2) Balanced Panel         9028 2.433 (0.499) -2.357 (0.502) 3.641 (0.621)
 3 (3) Drop Extreme Gaps     14356 2.056 (0.363) -2.665 (0.383) 3.496 (0.489)
 4 (4) Large Countries       13273 2.386 (0.416) -2.667 (0.425) 3.791 (0.547)
-5 (5) Quantile Reg (Median) 14430 2.439 (0.289) -3.378 (0.235) 4.050 (0.426)
+5 (5) Quantile Reg (Median) 14430 2.439 (0.274) -3.378 (0.242) 4.050 (0.359)
 6 (6) Fixed Effects         14430 NA (NA)       NA (NA)        NA (NA)      
 7 (7) Winsorized (1%/99%)   14430 2.219 (0.370) -2.753 (0.383) 3.730 (0.490)
 
