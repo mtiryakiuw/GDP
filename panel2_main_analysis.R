@@ -928,7 +928,7 @@ cat("  Model includes:        Sector effects, Occupation effects, Time trends\n"
 cat("  Robustness checks:     Balanced panel, Winsorized DV\n\n")
 
 cat("🚀 READY FOR THESIS INTEGRATION!\n")
-cat("Next step: Run panel1_supplementary_analysis.R for age dimension\n\n")
+
 
 # Stop capturing output
 sink()
