@@ -407,10 +407,51 @@ BP = 181.73, df = 8, p-value < 2.2e-16
    → Using cluster-robust standard errors (HC1)
 
 
-3. Model Fit Statistics:
+3. Model Fit Statistics (R², AIC, BIC):
+=========================================
+
+📊 R-SQUARED STATISTICS:
 -------------------------
 Primary Model ( Fixed Effects ):
   R-squared (within): 0.0121 
+
+Interaction Model:
+  R-squared (within): 0.0601 
+  R-squared (between): NA 
+  R-squared (overall): 0.0593 
+
+
+📊 AIC/BIC MODEL COMPARISON:
+-----------------------------
+Calculating information criteria for model selection...
+
+Primary Model (Fixed Effects):
+  RSS: 622571.4 
+  Parameters (k): 4 
+  AIC: 54330.44 
+  BIC: 54360.75 
+  R² (within): 0.0121 
+
+Interaction Model:
+  RSS: 1009204 
+  Parameters (k): 14 
+  AIC: 61320.98 
+  BIC: 61427.06 
+  R² (within): 0.0601 
+
+MODEL COMPARISON SUMMARY:
+---------------------------------------------------------------------- 
+Model                                 N     k        AIC        BIC      R²
+---------------------------------------------------------------------- 
+Fixed Effects (Primary)           14430     4    54330.4    54360.8   0.0121 ✓ BEST
+RE with Interactions              14430    14    61321.0    61427.1   0.0601
+---------------------------------------------------------------------- 
+
+INTERPRETATION:
+  • Lower AIC/BIC indicates better model fit
+  • AIC favors explanatory power, BIC penalizes complexity more
+
+✅ Model comparison saved to: output/reports/model_fit_comparison.csv
 
 
 4. Distributional Tests:
@@ -564,7 +605,7 @@ Bottom 10 Sectors with Lowest Gender Pay Gaps:
 ==================================
 
 % Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
-% Date and time: Wed, Nov 12, 2025 - 17:53:27
+% Date and time: Wed, Nov 12, 2025 - 20:24:59
 \begin{table}[!htbp] \centering 
   \caption{Panel 2: Sector × Occupation Analysis - Gender Pay Gap Determinants (2010-2022)} 
   \label{} 

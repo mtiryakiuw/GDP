@@ -481,7 +481,10 @@ if(!is.null(bp_test)) {
 }
 
 # Model fit statistics
-cat("\n\n3. Model Fit Statistics:\n")
+cat("\n\n3. Model Fit Statistics (R², AIC, BIC):\n")
+cat("=========================================\n\n")
+
+cat("📊 R-SQUARED STATISTICS:\n")
 cat("-------------------------\n")
 cat("Primary Model (", model_type, "):\n")
 cat("  R-squared (within):", round(summary(model_primary)$r.squared["rsq"], 4), "\n")
@@ -489,6 +492,103 @@ if(model_type == "Random Effects") {
   cat("  R-squared (between):", round(summary(model_primary)$r.squared["between"], 4), "\n")
   cat("  R-squared (overall):", round(summary(model_primary)$r.squared["adjrsq"], 4), "\n")
 }
+
+cat("\nInteraction Model:\n")
+cat("  R-squared (within):", round(summary(model_interaction)$r.squared["rsq"], 4), "\n")
+if(inherits(model_interaction, "plm")) {
+  cat("  R-squared (between):", round(summary(model_interaction)$r.squared["between"], 4), "\n")
+  cat("  R-squared (overall):", round(summary(model_interaction)$r.squared["adjrsq"], 4), "\n")
+}
+
+cat("\n\n📊 AIC/BIC MODEL COMPARISON:\n")
+cat("-----------------------------\n")
+cat("Calculating information criteria for model selection...\n\n")
+
+# Calculate AIC/BIC for panel models
+# AIC = n * log(RSS/n) + 2*k
+# BIC = n * log(RSS/n) + k*log(n)
+
+# Primary Model (RE or FE)
+rss_primary <- deviance(model_primary)
+n_primary <- nobs(model_primary)
+k_primary <- length(coef(model_primary)) + 1
+aic_primary <- n_primary * log(rss_primary/n_primary) + 2 * k_primary
+bic_primary <- n_primary * log(rss_primary/n_primary) + k_primary * log(n_primary)
+r2_primary <- summary(model_primary)$r.squared["rsq"]
+
+cat("Primary Model (", model_type, "):\n", sep="")
+cat("  RSS:", round(rss_primary, 2), "\n")
+cat("  Parameters (k):", k_primary, "\n")
+cat("  AIC:", round(aic_primary, 2), "\n")
+cat("  BIC:", round(bic_primary, 2), "\n")
+cat("  R² (within):", round(r2_primary, 4), "\n\n")
+
+# Interaction Model
+rss_interaction <- deviance(model_interaction)
+n_interaction <- nobs(model_interaction)
+k_interaction <- length(coef(model_interaction)) + 1
+aic_interaction <- n_interaction * log(rss_interaction/n_interaction) + 2 * k_interaction
+bic_interaction <- n_interaction * log(rss_interaction/n_interaction) + k_interaction * log(n_interaction)
+r2_interaction <- summary(model_interaction)$r.squared["rsq"]
+
+cat("Interaction Model:\n")
+cat("  RSS:", round(rss_interaction, 2), "\n")
+cat("  Parameters (k):", k_interaction, "\n")
+cat("  AIC:", round(aic_interaction, 2), "\n")
+cat("  BIC:", round(bic_interaction, 2), "\n")
+cat("  R² (within):", round(r2_interaction, 4), "\n\n")
+
+# Comparison
+cat("MODEL COMPARISON SUMMARY:\n")
+cat(strrep("-", 70), "\n")
+cat(sprintf("%-30s %8s %5s %10s %10s %8s\n", 
+            "Model", "N", "k", "AIC", "BIC", "R²"))
+cat(strrep("-", 70), "\n")
+
+best_aic <- which.min(c(aic_primary, aic_interaction))
+best_bic <- which.min(c(bic_primary, bic_interaction))
+
+cat(sprintf("%-30s %8d %5d %10.1f %10.1f %8.4f%s\n", 
+            paste0(model_type, " (Primary)"), 
+            n_primary, k_primary, aic_primary, bic_primary, r2_primary,
+            ifelse(best_aic == 1 && best_bic == 1, " ✓ BEST", 
+                   ifelse(best_aic == 1, " ✓ AIC", ifelse(best_bic == 1, " ✓ BIC", "")))))
+
+cat(sprintf("%-30s %8d %5d %10.1f %10.1f %8.4f%s\n", 
+            "RE with Interactions", 
+            n_interaction, k_interaction, aic_interaction, bic_interaction, r2_interaction,
+            ifelse(best_aic == 2 && best_bic == 2, " ✓ BEST", 
+                   ifelse(best_aic == 2, " ✓ AIC", ifelse(best_bic == 2, " ✓ BIC", "")))))
+
+cat(strrep("-", 70), "\n\n")
+
+cat("INTERPRETATION:\n")
+cat("  • Lower AIC/BIC indicates better model fit\n")
+cat("  • AIC favors explanatory power, BIC penalizes complexity more\n")
+
+if(aic_interaction < aic_primary) {
+  aic_improvement <- aic_primary - aic_interaction
+  cat(sprintf("  • Interaction model improves AIC by %.1f points\n", aic_improvement))
+}
+
+if(bic_interaction < bic_primary) {
+  bic_improvement <- bic_primary - bic_interaction
+  cat(sprintf("  • Interaction model improves BIC by %.1f points\n", bic_improvement))
+}
+
+# Save model comparison to CSV
+model_fit_comparison <- data.frame(
+  Model = c(paste0(model_type, " (Primary)"), "RE with Interactions"),
+  N = c(n_primary, n_interaction),
+  k = c(k_primary, k_interaction),
+  RSS = round(c(rss_primary, rss_interaction), 2),
+  AIC = round(c(aic_primary, aic_interaction), 1),
+  BIC = round(c(bic_primary, bic_interaction), 1),
+  R2_within = round(c(r2_primary, r2_interaction), 4)
+)
+
+write.csv(model_fit_comparison, "output/reports/model_fit_comparison.csv", row.names = FALSE)
+cat("\n✅ Model comparison saved to: output/reports/model_fit_comparison.csv\n")
 
 # Distributional Tests
 cat("\n\n4. Distributional Tests:\n")

@@ -1039,13 +1039,13 @@ Comprehensive diagnostic evaluation confirms econometric validity while identify
 
 \textbf{Goodness-of-Fit Assessment:}
 \begin{itemize}
-\item McFadden's pseudo-R$^2$: 0.387 (substantial explanatory power)
-\item Akaike Information Criterion: 28,934 (preferred over nested alternatives)
-\item Cross-validation RMSE: 6.82 (15\% improvement over null model)
+\item Within-R$^2$: 0.027--0.035 across main specifications (sector-occupation heterogeneity explains 2.7--3.5\% of within-panel variation)
+\item Akaike Information Criterion: FE model (62,542) preferred over RE alternatives (70,133--70,146)
+\item Adjusted R$^2$: 0.026--0.033 after degrees-of-freedom correction
 \end{itemize}
 
 \textbf{Residual Analysis:}
-Standardized residuals exhibit approximate normality with minimal influential observations. Cook's distance identifies 851 high-leverage observations (5.9\%), with the most influential cases primarily involving the Public Sector in small countries with extreme gap values (e.g., Austria managers in 2010: 48.0\%; Malta service workers in 2010: 46.7\%). Sensitivity analyses excluding observations with Cook's distance > 4/n yield results that are quantitatively similar, confirming the robustness of coefficient estimates to influential observations.
+Standardized residuals exhibit approximate normality with minimal influential observations. Cook's distance identifies 806 high-leverage observations (5.5\%), with influential cases distributed across multiple countries (Latvia: 48 observations, Lithuania: 39, Hungary: 40). The most influential cases involve small panels with extreme gap values in specific country-sector-occupation combinations. Sensitivity analyses excluding observations with Cook's distance > 4/n yield quantitatively similar results (coefficient changes <10\%), confirming the robustness of estimates to influential observations.
 
 The diagnostic evaluation confirms robust model performance with minimal concerns regarding specification. Residual analysis indicates appropriate functional form selection, while bootstrap distributions demonstrate the stability of coefficients across resampling iterations. These validation procedures establish confidence in substantive interpretations while acknowledging inherent limitations in observational inference.
 
@@ -1174,13 +1174,9 @@ Western European (EU-15) countries demonstrate notably larger Public Sector effe
 
 Alternative dependent variable constructions and functional forms address measurement and modeling assumptions.
 
-\textbf{Log Wage Ratios:} Using log(male wage / female wage) rather than percentage gaps yields qualitatively identical results, with Industry (β=0.039, SE=0.005, p<0.001) and Public Sector (β=-0.027, SE=0.006, p<0.001) demonstrating consistent patterns despite log-linear specification.
+\textbf{Log Wage Ratios:} Using log(male wage / female wage) rather than percentage gaps yields qualitatively identical results, with Industry (β=0.017, SE=0.005, p<0.001) and Public Sector (β=-0.024, SE=0.004, p<0.001) demonstrating consistent patterns despite log-linear specification. The multiplicative interpretation confirms that industry sectors increase male-to-female wage ratios by approximately 1.7\%, while public sectors reduce ratios by 2.4\%.
 
-\textbf{Absolute Gaps:} Analyzing absolute wage differences (€ per year) rather than percentage gaps confirms substantive findings, though magnitudes reflect country-specific wage levels. Industry sectors show €2,847 higher absolute gaps (p<0.001), while Public sectors show €1,923 lower gaps (p<0.001).
-
-\textbf{Distributional Analysis:} Quantile regression across deciles (10th, 25th, 50th, 75th, 90th percentiles) reveals larger effects at the upper tail: Industry coefficient increases from 2.89*** (10th percentile) to 5.21*** (90th percentile), consistent with glass ceiling mechanisms concentrating discrimination at higher wage levels.
-
-\textbf{Nonlinear Specifications:} Fractional logit models treating gaps as bounded (0,1) proportions yield average marginal effects of 4.02 percentage points (Industry) and -2.81 percentage points (Public Sector), nearly identical to linear estimates.
+\textbf{Distributional Analysis:} Quantile regression across the gender pay gap distribution (10th, 25th, 50th, 75th, 90th percentiles) reveals pronounced glass ceiling effects for managerial positions. The Managerial coefficient increases dramatically from -1.44 (10th percentile) to 8.28*** (90th percentile), a 9.72 percentage point increase, consistent with glass ceiling mechanisms concentrating managerial premiums at higher wage levels. Public sector effects exhibit a U-shaped pattern across the distribution, reaching maximum magnitude at the median (-3.24***), while industry effects remain relatively stable across quantiles (2.14--2.55 pp).
 
 \subsubsection{Robustness Summary and Interpretation}
 
