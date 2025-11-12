@@ -1,0 +1,175 @@
+================================================================================ 
+MODEL 3: COUNTRY GROUPS + SECTOR INTERACTIONS
+================================================================================ 
+
+MODEL 3A: MAIN EFFECTS ONLY
+-------------------------------------------------------------------------------- 
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + nordic + mediterranean + eastern + 
+    liberal + balkans + other + factor(year), data = pdata_model3, 
+    model = "random")
+
+Unbalanced Panel: n = 4762, T = 1-4, N = 14239
+
+Effects:
+                 var std.dev share
+idiosyncratic 108.61   10.42 0.513
+individual    103.02   10.15 0.487
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2836  0.4901  0.5433  0.5055  0.5433  0.5433 
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-233.9786   -4.1748    0.3622    0.0377    5.1317   71.5133 
+
+Coefficients:
+                 Estimate Std. Error z-value  Pr(>|z|)    
+(Intercept)      12.16066    0.47068 25.8363 < 2.2e-16 ***
+industry          2.27398    0.47267  4.8110 1.502e-06 ***
+construction      0.72461    0.79537  0.9110 0.3622754    
+public_sector    -2.14388    0.49712 -4.3126 1.613e-05 ***
+high_skill        3.26074    0.41948  7.7733 7.645e-15 ***
+managerial        3.10312    0.61799  5.0213 5.132e-07 ***
+nordic           -1.45989    0.63055 -2.3153 0.0205991 *  
+mediterranean     1.11095    0.61963  1.7929 0.0729864 .  
+eastern          -1.76706    0.50658 -3.4882 0.0004862 ***
+liberal           3.64274    0.85746  4.2483 2.154e-05 ***
+balkans          -4.97354    0.74476 -6.6780 2.422e-11 ***
+other            -2.43098    1.29206 -1.8815 0.0599068 .  
+factor(year)2014 -0.94668    0.26336 -3.5946 0.0003249 ***
+factor(year)2018 -0.57119    0.25989 -2.1978 0.0279644 *  
+factor(year)2022 -1.67817    0.26378 -6.3621 1.990e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1712200
+Residual Sum of Squares: 1670400
+R-Squared:      0.024521
+Adj. R-Squared: 0.023561
+Chisq: 363.498 on 14 DF, p-value: < 2.22e-16
+
+
+Robust SE:
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)      12.16066    0.46897 25.9305 < 2.2e-16 ***
+industry          2.27398    0.49127  4.6288 3.710e-06 ***
+construction      0.72461    0.80596  0.8991 0.3686320    
+public_sector    -2.14388    0.48558 -4.4151 1.017e-05 ***
+high_skill        3.26074    0.37802  8.6258 < 2.2e-16 ***
+managerial        3.10312    0.57001  5.4440 5.297e-08 ***
+nordic           -1.45989    0.48995 -2.9797 0.0028906 ** 
+mediterranean     1.11095    0.59646  1.8626 0.0625452 .  
+eastern          -1.76706    0.51964 -3.4006 0.0006743 ***
+liberal           3.64274    0.89101  4.0883 4.369e-05 ***
+balkans          -4.97354    0.76256 -6.5221 7.166e-11 ***
+other            -2.43098    1.30809 -1.8584 0.0631305 .  
+factor(year)2014 -0.94668    0.26364 -3.5907 0.0003308 ***
+factor(year)2018 -0.57119    0.27594 -2.0700 0.0384690 *  
+factor(year)2022 -1.67817    0.27304 -6.1464 8.140e-10 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+ ================================================================================ 
+MODEL 3B: WITH SPECIFIC INTERACTIONS
+-------------------------------------------------------------------------------- 
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + nordic + mediterranean + eastern + 
+    liberal + balkans + other + nordic:public_sector + mediterranean:industry + 
+    eastern:industry + factor(year), data = pdata_model3, model = "random")
+
+Unbalanced Panel: n = 4762, T = 1-4, N = 14239
+
+Effects:
+                 var std.dev share
+idiosyncratic 108.61   10.42 0.513
+individual    103.06   10.15 0.487
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2837  0.4901  0.5434  0.5056  0.5434  0.5434 
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-234.0928   -4.2043    0.3830    0.0378    5.1223   71.5218 
+
+Coefficients:
+                       Estimate Std. Error z-value  Pr(>|z|)    
+(Intercept)            12.15382    0.47932 25.3566 < 2.2e-16 ***
+industry                2.55004    0.65503  3.8930 9.902e-05 ***
+construction            0.72845    0.79545  0.9158 0.3597885    
+public_sector          -2.44314    0.53713 -4.5485 5.404e-06 ***
+high_skill              3.26113    0.41953  7.7734 7.643e-15 ***
+managerial              3.10912    0.61807  5.0304 4.895e-07 ***
+nordic                 -1.83271    0.68061 -2.6928 0.0070861 ** 
+mediterranean           1.05168    0.67076  1.5679 0.1169052    
+eastern                -1.57163    0.54719 -2.8722 0.0040761 ** 
+liberal                 3.65546    0.85760  4.2624 2.022e-05 ***
+balkans                -4.97684    0.74486 -6.6816 2.364e-11 ***
+other                  -2.44855    1.29222 -1.8948 0.0581137 .  
+factor(year)2014       -0.94569    0.26335 -3.5910 0.0003295 ***
+factor(year)2018       -0.57080    0.25989 -2.1963 0.0280681 *  
+factor(year)2022       -1.67815    0.26377 -6.3621 1.990e-10 ***
+public_sector:nordic    1.95223    1.33939  1.4576 0.1449643    
+industry:mediterranean  0.37072    1.38733  0.2672 0.7893017    
+industry:eastern       -0.90910    0.99529 -0.9134 0.3610352    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1712000
+Residual Sum of Squares: 1669900
+R-Squared:      0.024733
+Adj. R-Squared: 0.023568
+Chisq: 366.578 on 17 DF, p-value: < 2.22e-16
+
+
+Robust SE:
+
+t test of coefficients:
+
+                       Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)            12.15382    0.46931 25.8970 < 2.2e-16 ***
+industry                2.55004    0.63860  3.9932 6.553e-05 ***
+construction            0.72845    0.80685  0.9028 0.3666310    
+public_sector          -2.44314    0.54682 -4.4679 7.959e-06 ***
+high_skill              3.26113    0.37820  8.6227 < 2.2e-16 ***
+managerial              3.10912    0.56960  5.4584 4.884e-08 ***
+nordic                 -1.83271    0.51069 -3.5887 0.0003335 ***
+mediterranean           1.05168    0.62897  1.6721 0.0945304 .  
+eastern                -1.57163    0.56073 -2.8028 0.0050727 ** 
+liberal                 3.65546    0.89027  4.1060 4.048e-05 ***
+balkans                -4.97684    0.76334 -6.5198 7.277e-11 ***
+other                  -2.44855    1.30627 -1.8745 0.0608879 .  
+factor(year)2014       -0.94569    0.26365 -3.5869 0.0003358 ***
+factor(year)2018       -0.57080    0.27593 -2.0686 0.0385986 *  
+factor(year)2022       -1.67815    0.27306 -6.1457 8.175e-10 ***
+public_sector:nordic    1.95223    1.01114  1.9307 0.0535386 .  
+industry:mediterranean  0.37072    1.44923  0.2558 0.7981060    
+industry:eastern       -0.90910    1.05729 -0.8598 0.3898922    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+COUNTRY GROUP EFFECTS:
+ Country_Group Coefficient
+       Balkans   -4.976835
+         Other   -2.448548
+        Nordic   -1.832714
+       Eastern   -1.571635
+ Mediterranean    1.051685
+       Liberal    3.655461

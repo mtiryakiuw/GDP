@@ -13,48 +13,48 @@ Unbalanced Panel: n = 974, T = 1-4, N = 2346
 
 Effects:
                  var std.dev share
-idiosyncratic 80.789   8.988 0.601
-individual    53.615   7.322 0.399
+idiosyncratic 80.789   8.988 0.602
+individual    53.326   7.302 0.398
 theta:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.2247  0.3445  0.3445  0.3967  0.4769  0.4769 
+ 0.2239  0.3435  0.3435  0.3957  0.4759  0.4759 
 
 Residuals:
      Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
--174.7375   -3.3975    0.4596    0.0297    4.1221   35.4821 
+-174.5814   -3.3173    0.3990    0.0295    4.0647   35.4906 
 
 Coefficients:
                  Estimate Std. Error z-value  Pr(>|z|)    
-(Intercept)      16.49752    0.87529 18.8481 < 2.2e-16 ***
-young            -7.11178    0.78996 -9.0027 < 2.2e-16 ***
-senior            0.43323    0.78955  0.5487  0.583205    
-high_skill        4.65984    0.96339  4.8369 1.319e-06 ***
-managerial       -1.01145    1.27565 -0.7929  0.427841    
-factor(year)2014 -0.66573    0.74959 -0.8881  0.374475    
-factor(year)2018 -1.18882    0.68969 -1.7237  0.084761 .  
-factor(year)2022 -2.36772    0.69582 -3.4028  0.000667 ***
+(Intercept)      16.08835    0.88635 18.1513 < 2.2e-16 ***
+young            -7.11697    0.78857 -9.0252 < 2.2e-16 ***
+senior            0.42920    0.78812  0.5446 0.5860342    
+high_skill        3.91312    0.73994  5.2884 1.234e-07 ***
+managerial        0.14767    1.10559  0.1336 0.8937442    
+factor(year)2014 -0.66543    0.74932 -0.8880 0.3745177    
+factor(year)2018 -1.18698    0.68943 -1.7217 0.0851247 .  
+factor(year)2022 -2.36804    0.69555 -3.4046 0.0006627 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Total Sum of Squares:    211750
-Residual Sum of Squares: 190960
-R-Squared:      0.098268
-Adj. R-Squared: 0.095569
-Chisq: 157.664 on 7 DF, p-value: < 2.22e-16
+Total Sum of Squares:    212050
+Residual Sum of Squares: 190840
+R-Squared:      0.10007
+Adj. R-Squared: 0.097376
+Chisq: 162.715 on 7 DF, p-value: < 2.22e-16
 
 Robust Standard Errors:
 
 t test of coefficients:
 
                  Estimate Std. Error t value  Pr(>|t|)    
-(Intercept)      16.49752    0.90404 18.2486 < 2.2e-16 ***
-young            -7.11178    0.86744 -8.1986 3.964e-16 ***
-senior            0.43323    0.78280  0.5534 0.5800149    
-high_skill        4.65984    0.82538  5.6457 1.845e-08 ***
-managerial       -1.01145    1.24358 -0.8133 0.4161059    
-factor(year)2014 -0.66573    0.61307 -1.0859 0.2776369    
-factor(year)2018 -1.18882    0.77755 -1.5289 0.1264179    
-factor(year)2022 -2.36772    0.63291 -3.7410 0.0001877 ***
+(Intercept)      16.08835    0.91683 17.5478 < 2.2e-16 ***
+young            -7.11697    0.86616 -8.2167 3.423e-16 ***
+senior            0.42920    0.77851  0.5513 0.5814698    
+high_skill        3.91312    0.63126  6.1989 6.700e-10 ***
+managerial        0.14767    1.10909  0.1331 0.8940896    
+factor(year)2014 -0.66543    0.61254 -1.0863 0.2774398    
+factor(year)2018 -1.18698    0.77703 -1.5276 0.1267505    
+factor(year)2022 -2.36804    0.63260 -3.7434 0.0001859 ***
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

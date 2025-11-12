@@ -1,0 +1,13 @@
+"Sector","Occupation","Predicted_Gap"
+"Services","Baseline",11.35
+"Services","High-Skill",15.45
+"Services","Managerial",15.63
+"Industry","Baseline",15.47
+"Industry","High-Skill",15.58
+"Industry","Managerial",16.45
+"Construction","Baseline",12.28
+"Construction","High-Skill",16.38
+"Construction","Managerial",16.56
+"Public Sector","Baseline",8.84
+"Public Sector","High-Skill",13.54
+"Public Sector","Managerial",11.27

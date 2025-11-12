@@ -63,39 +63,39 @@ Unbalanced Panel: n = 5176, T = 1-4, N = 14430
 
 Effects:
                  var std.dev share
-idiosyncratic 67.298   8.204 0.495
-individual    68.526   8.278 0.505
+idiosyncratic 67.298   8.204 0.496
+individual    68.404   8.271 0.504
 theta:
    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.2961  0.5034  0.5560  0.5100  0.5560  0.5560 
+ 0.2958  0.5031  0.5557  0.5097  0.5557  0.5557 
 
 Residuals:
     Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
--34.1807  -4.5107  -0.1188  -0.0221   4.4123  51.3227 
+-34.1959  -4.5094  -0.0924  -0.0262   4.4272  51.2704 
 
 Coefficients:
                          Estimate Std. Error  z-value  Pr(>|z|)    
-(Intercept)              13.92633    0.23793  58.5302 < 2.2e-16 ***
-industry                  3.58190    0.41974   8.5337 < 2.2e-16 ***
-construction              0.83495    0.61305   1.3620 0.1732106    
-public_sector            -3.36633    0.44667  -7.5365 4.828e-14 ***
-high_skill                2.52514    0.52787   4.7837 1.721e-06 ***
-managerial                4.54156    0.69445   6.5398 6.161e-11 ***
-factor(year)2014         -1.72785    0.20348  -8.4916 < 2.2e-16 ***
-factor(year)2018         -1.46729    0.20014  -7.3314 2.278e-13 ***
-factor(year)2022         -2.67241    0.20246 -13.1998 < 2.2e-16 ***
-industry:high_skill      -3.35694    1.05805  -3.1728 0.0015100 ** 
-industry:managerial      -3.25500    1.42395  -2.2859 0.0222599 *  
-public_sector:high_skill  4.79560    1.12424   4.2656 1.993e-05 ***
-public_sector:managerial -5.45110    1.47452  -3.6969 0.0002183 ***
+(Intercept)              13.40622    0.25688  52.1893 < 2.2e-16 ***
+industry                  4.39222    0.46654   9.4145 < 2.2e-16 ***
+construction              0.82891    0.61292   1.3524  0.176251    
+public_sector            -2.70551    0.49265  -5.4918 3.979e-08 ***
+high_skill                2.93636    0.41052   7.1528 8.505e-13 ***
+managerial                4.66309    0.60169   7.7500 9.187e-15 ***
+factor(year)2014         -1.74678    0.20364  -8.5779 < 2.2e-16 ***
+factor(year)2018         -1.48208    0.20028  -7.4002 1.360e-13 ***
+factor(year)2022         -2.69175    0.20261 -13.2852 < 2.2e-16 ***
+industry:high_skill      -4.21113    0.82060  -5.1318 2.870e-07 ***
+industry:managerial      -3.21317    1.24080  -2.5896  0.009609 ** 
+public_sector:high_skill  0.36200    0.88176   0.4106  0.681403    
+public_sector:managerial -1.67830    1.28222  -1.3089  0.190566    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
-Total Sum of Squares:    1073100
-Residual Sum of Squares: 1008300
-R-Squared:      0.06046
-Adj. R-Squared: 0.059678
-Chisq: 565.234 on 12 DF, p-value: < 2.22e-16
+Total Sum of Squares:    1073600
+Residual Sum of Squares: 1009200
+R-Squared:      0.060122
+Adj. R-Squared: 0.05934
+Chisq: 559.424 on 12 DF, p-value: < 2.22e-16
 
 
 Robust Standard Errors:
@@ -103,19 +103,19 @@ Robust Standard Errors:
 t test of coefficients:
 
                          Estimate Std. Error  t value  Pr(>|t|)    
-(Intercept)              13.92633    0.25086  55.5134 < 2.2e-16 ***
-industry                  3.58190    0.44772   8.0002 1.336e-15 ***
-construction              0.83495    0.56799   1.4700 0.1415859    
-public_sector            -3.36633    0.43582  -7.7242 1.200e-14 ***
-high_skill                2.52514    0.43525   5.8015 6.709e-09 ***
-managerial                4.54156    0.65094   6.9769 3.149e-12 ***
-factor(year)2014         -1.72785    0.19951  -8.6603 < 2.2e-16 ***
-factor(year)2018         -1.46729    0.21160  -6.9342 4.259e-12 ***
-factor(year)2022         -2.67241    0.20694 -12.9137 < 2.2e-16 ***
-industry:high_skill      -3.35694    0.90291  -3.7179 0.0002016 ***
-industry:managerial      -3.25500    1.41974  -2.2927 0.0218805 *  
-public_sector:high_skill  4.79560    1.08247   4.4302 9.482e-06 ***
-public_sector:managerial -5.45110    1.54257  -3.5338 0.0004110 ***
+(Intercept)              13.40622    0.26767  50.0845 < 2.2e-16 ***
+industry                  4.39222    0.51188   8.5806 < 2.2e-16 ***
+construction              0.82891    0.56756   1.4605   0.14418    
+public_sector            -2.70551    0.49425  -5.4740 4.474e-08 ***
+high_skill                2.93636    0.38524   7.6222 2.649e-14 ***
+managerial                4.66309    0.61092   7.6329 2.439e-14 ***
+factor(year)2014         -1.74678    0.19954  -8.7540 < 2.2e-16 ***
+factor(year)2018         -1.48208    0.21161  -7.0039 2.600e-12 ***
+factor(year)2022         -2.69175    0.20699 -13.0046 < 2.2e-16 ***
+industry:high_skill      -4.21113    0.77353  -5.4441 5.293e-08 ***
+industry:managerial      -3.21317    1.31767  -2.4385   0.01476 *  
+public_sector:high_skill  0.36200    0.85986   0.4210   0.67376    
+public_sector:managerial -1.67830    1.37545  -1.2202   0.22241    
 ---
 Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 

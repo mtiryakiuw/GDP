@@ -1,0 +1,180 @@
+================================================================================ 
+MODEL 2: SECTOR-OCCUPATION INTERACTIONS
+================================================================================ 
+
+MODEL 2A: BASELINE (NO INTERACTIONS)
+-------------------------------------------------------------------------------- 
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + factor(year), data = pdata_model2, 
+    model = "random")
+
+Unbalanced Panel: n = 5248, T = 1-4, N = 14725
+
+Effects:
+                 var std.dev share
+idiosyncratic 108.61   10.42 0.509
+individual    104.76   10.24 0.491
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2865  0.4932  0.5463  0.5013  0.5463  0.5463 
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-233.6895   -4.1977    0.4126    0.0219    5.1451   72.2354 
+
+Coefficients:
+                 Estimate Std. Error z-value  Pr(>|z|)    
+(Intercept)      11.75015    0.30333 38.7367 < 2.2e-16 ***
+industry          2.14641    0.45737  4.6930 2.693e-06 ***
+construction      0.92003    0.77282  1.1905 0.2338562    
+public_sector    -2.51977    0.48294 -5.2176 1.813e-07 ***
+high_skill        3.37417    0.40828  8.2644 < 2.2e-16 ***
+managerial        3.37741    0.60268  5.6039 2.095e-08 ***
+factor(year)2014 -1.25516    0.25960 -4.8350 1.332e-06 ***
+factor(year)2018 -0.95287    0.25565 -3.7272 0.0001936 ***
+factor(year)2022 -2.10223    0.25880 -8.1231 4.545e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1769100
+Residual Sum of Squares: 1722100
+R-Squared:      0.026571
+Adj. R-Squared: 0.026042
+Chisq: 310.638 on 8 DF, p-value: < 2.22e-16
+
+
+Robust SE:
+
+t test of coefficients:
+
+                 Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)      11.75015    0.33413 35.1662 < 2.2e-16 ***
+industry          2.14641    0.48058  4.4663 8.016e-06 ***
+construction      0.92003    0.78307  1.1749 0.2400534    
+public_sector    -2.51977    0.46254 -5.4477 5.185e-08 ***
+high_skill        3.37417    0.36612  9.2161 < 2.2e-16 ***
+managerial        3.37741    0.56120  6.0182 1.806e-09 ***
+factor(year)2014 -1.25516    0.25746 -4.8752 1.098e-06 ***
+factor(year)2018 -0.95287    0.26894 -3.5431 0.0003967 ***
+factor(year)2022 -2.10223    0.26566 -7.9133 2.684e-15 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+ ================================================================================ 
+MODEL 2B: WITH INTERACTIONS
+-------------------------------------------------------------------------------- 
+
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + industry:high_skill + industry:managerial + 
+    public_sector:high_skill + public_sector:managerial + factor(year), 
+    data = pdata_model2, model = "random")
+
+Unbalanced Panel: n = 5248, T = 1-4, N = 14725
+
+Effects:
+                 var std.dev share
+idiosyncratic 108.61   10.42 0.512
+individual    103.58   10.18 0.488
+theta:
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.2846  0.4911  0.5443  0.4992  0.5443  0.5443 
+
+Residuals:
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-234.0499   -4.2017    0.4169    0.0197    5.1140   72.3160 
+
+Coefficients:
+                         Estimate Std. Error z-value  Pr(>|z|)    
+(Intercept)              11.35220    0.32231 35.2216 < 2.2e-16 ***
+industry                  4.12237    0.58403  7.0585 1.683e-12 ***
+construction              0.93101    0.77000  1.2091 0.2266194    
+public_sector            -2.51012    0.61563 -4.0773 4.556e-05 ***
+high_skill                4.09493    0.51566  7.9412 2.003e-15 ***
+managerial                4.27578    0.75725  5.6465 1.638e-08 ***
+factor(year)2014         -1.26454    0.25963 -4.8705 1.113e-06 ***
+factor(year)2018         -0.96061    0.25568 -3.7570 0.0001720 ***
+factor(year)2022         -2.10927    0.25881 -8.1498 3.646e-16 ***
+industry:high_skill      -3.98637    1.03084 -3.8671 0.0001101 ***
+industry:managerial      -3.30436    1.56176 -2.1158 0.0343623 *  
+public_sector:high_skill  0.59805    1.10876  0.5394 0.5896227    
+public_sector:managerial -1.84567    1.61286 -1.1444 0.2524777    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Total Sum of Squares:    1774200
+Residual Sum of Squares: 1722800
+R-Squared:      0.028973
+Adj. R-Squared: 0.028181
+Chisq: 348.359 on 12 DF, p-value: < 2.22e-16
+
+
+Robust SE:
+
+t test of coefficients:
+
+                         Estimate Std. Error t value  Pr(>|t|)    
+(Intercept)              11.35220    0.35740 31.7631 < 2.2e-16 ***
+industry                  4.12237    0.67124  6.1415 8.387e-10 ***
+construction              0.93101    0.78566  1.1850 0.2360353    
+public_sector            -2.51012    0.62071 -4.0439 5.283e-05 ***
+high_skill                4.09493    0.46963  8.7195 < 2.2e-16 ***
+managerial                4.27578    0.67914  6.2959 3.144e-10 ***
+factor(year)2014         -1.26454    0.25754 -4.9101 9.201e-07 ***
+factor(year)2018         -0.96061    0.26901 -3.5709 0.0003569 ***
+factor(year)2022         -2.10927    0.26579 -7.9358 2.241e-15 ***
+industry:high_skill      -3.98637    0.93540 -4.2617 2.042e-05 ***
+industry:managerial      -3.30436    1.49879 -2.2047 0.0274913 *  
+public_sector:high_skill  0.59805    0.96330  0.6208 0.5347218    
+public_sector:managerial -1.84567    1.52867 -1.2074 0.2273065    
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+
+JOINT TEST:
+
+Linear hypothesis test:
+industry:high_skill = 0
+industry:managerial = 0
+public_sector:high_skill = 0
+public_sector:managerial = 0
+
+Model 1: restricted model
+Model 2: gender_pay_gap ~ industry + construction + public_sector + high_skill + 
+    managerial + industry:high_skill + industry:managerial + 
+    public_sector:high_skill + public_sector:managerial + factor(year)
+
+Note: Coefficient covariance matrix supplied.
+
+  Res.Df Df Chisq Pr(>Chisq)    
+1  14716                        
+2  14712  4  34.6  5.614e-07 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+
+MARGINAL EFFECTS:
+        Sector Occupation Predicted_Gap
+      Services   Baseline         11.35
+      Services High-Skill         15.45
+      Services Managerial         15.63
+      Industry   Baseline         15.47
+      Industry High-Skill         15.58
+      Industry Managerial         16.45
+  Construction   Baseline         12.28
+  Construction High-Skill         16.38
+  Construction Managerial         16.56
+ Public Sector   Baseline          8.84
+ Public Sector High-Skill         13.54
+ Public Sector Managerial         11.27

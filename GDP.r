@@ -160,7 +160,7 @@ gap_panel1 <- panel1_clean %>%
     # Dummy variables
     young = as.numeric(age_group == "Young"),
     senior = as.numeric(age_group == "Senior"),
-    high_skill = as.numeric(occupation %in% c("Managers", "Professionals")),
+    high_skill = as.numeric(occupation %in% c("Managers", "Professionals", "Technicians")),
     managerial = as.numeric(occupation == "Managers"),
     
     # Year trends
@@ -218,7 +218,7 @@ gap_panel2 <- panel2_clean %>%
     public_sector = as.numeric(sector %in% c("Public Admin", "Education Sector", "Health")),
     
     # Occupation
-    high_skill = as.numeric(occupation %in% c("Managers", "Professionals")),
+    high_skill = as.numeric(occupation %in% c("Managers", "Professionals", "Technicians")),
     managerial = as.numeric(occupation == "Managers"),
     
     # Year trends
