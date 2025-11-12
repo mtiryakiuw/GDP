@@ -28,7 +28,9 @@
 \usepackage{adjustbox}
 \usepackage{tabularx}
 \usepackage[square]{natbib}  % veya [square] parantez için
+\urlstyle{same}
 
+\sloppy % uzun satır taşmasını engeller\usepackage{hyperref}
 
 % Set paragraph indentation to 1cm - University requirement
 \setlength{\parindent}{1cm}
@@ -379,7 +381,12 @@ These research questions address the limited systematic investigation of sectora
 
 This study uses the European Union Structure of Earnings Survey (SES), a comprehensive employer-based survey that provides harmonized data on earnings structures across European labor markets. The SES is the leading source for comparative wage analysis in Europe, offering establishment-level sampling and detailed occupational classifications \citep{eurostat2023}. The dataset covers 40 European countries from 2010 to 2022, including all 27 EU member states plus 13 non-EU countries (EFTA members, EU candidate countries, and potential candidates). Observations are collected every four years (2010, 2014, 2018, and 2022), creating a balanced four-wave panel. This structure enables analysis of gender wage gaps across key economic cycles, such as the financial crisis recovery and the COVID-19 pandemic.
 
-The primary data source is Eurostat's Structure of Earnings Survey by NACE Rev. 2 sections and ISCO-08 major groups, using datasets: \texttt{earn\_ses10\_49} (2010, \url{https://ec.europa.eu/eurostat/databrowser/view/earn_ses10_49/}), \texttt{earn\_ses14\_49} (2014, \url{https://ec.europa.eu/eurostat/databrowser/view/earn_ses14_49/}), \texttt{earn\_ses18\_49} (2018, \url{https://ec.europa.eu/eurostat/databrowser/view/earn_ses18_49/}), and \texttt{earn\_ses22\_49} (2022, \url{https://ec.europa.eu/eurostat/databrowser/view/earn_ses22_49/}), all publicly accessible through Eurostat's online database.
+The primary data source is Eurostat's Structure of Earnings Survey by NACE Rev.~2 sections and ISCO-08 major groups, 
+using datasets: \texttt{earn\_ses10\_49} (2010, \nolinkurl{https://ec.europa.eu/eurostat/databrowser/view/earn_ses10_49/}), 
+\texttt{earn\_ses14\_49} (2014, \nolinkurl{https://ec.europa.eu/eurostat/databrowser/view/earn_ses14_49/}), 
+\texttt{earn\_ses18\_49} (2018, \nolinkurl{https://ec.europa.eu/eurostat/databrowser/view/earn_ses18_49/}), 
+and \texttt{earn\_ses22\_49} (2022, \nolinkurl{https://ec.europa.eu/eurostat/databrowser/view/earn_ses22_49/}), 
+all publicly accessible through Eurostat's online database.
 
 The SES uses a two-stage random sampling method. First, it selects establishments proportionate to their size. Then it samples employees within those establishments. This design ensures representative coverage across economic sectors and maintains sufficient within-establishment variation for hierarchical modeling. The survey attains response rates over 80\% in participating countries due to mandatory reporting. This substantially reduces non-response bias relative to household-based wage surveys \citep{eurostat2022b}.
 
@@ -1231,7 +1238,7 @@ Hospitality (I) & 8.25 & 13.99 & [-114.7, 60.0] & 824 & 20.6 \\
 \end{tablenotes}
 \end{table}
 
-The sectoral analysis reveals substantial heterogeneity, with mean gaps ranging from 17.11\% (Manufacturing) to 8.25\% (Hospitality)—an 8.86 percentage-point spread. This finding directly addresses the professor's concern that "by selecting the 3 sectors you will not see this variation," demonstrating that sectoral disaggregation uncovers meaningful institutional differences in gender wage determination.
+The sectoral analysis reveals substantial heterogeneity, with mean gaps ranging from 17.11\% (Manufacturing) to 8.25\% (Hospitality)—an 8.86 percentage-point spread. This finding directly aims to show that sectoral disaggregation reveals significant institutional differences in gender wage determination.
 
 To formally test these sectoral differences, Model Specification 1 estimates regression coefficients for all 18 sectors relative to Other Services as the reference category, controlling for occupational composition and temporal trends. Table \ref{tab:model1_18sectors} presents the panel regression results.
 
@@ -1498,7 +1505,7 @@ The complex sector-occupation interaction patterns provide evidence for compleme
 
 From a policy perspective, the analysis provides actionable insights for equality interventions. The substantial Public sector institutional advantage (-2.706 pp coefficient relative to Services reference) combined with interaction effects suggests that extending public sector employment practices—including transparent pay scales, formalized promotion procedures, and robust enforcement mechanisms—to the private sector could yield significant equality gains. The quantified magnitude of sectoral effects implies that shifts in sectoral employment composition or the adoption of public-sector wage-setting practices in Industry (where gaps are +4.392 pp relative to Services) could meaningfully reduce economy-wide gender wage differentials.
 
-The occupational gap findings (High-skill: +2.936 pp, Managerial: +4.663 pp) necessitate targeted interventions that address glass-ceiling mechanisms beyond general equal-pay legislation. Policy instruments might include mandatory pay transparency at executive levels, gender quotas for senior positions, and restructuring of tournament-style promotion systems that disadvantage women through excessive hours requirements and geographical mobility demands. The Industry sector interactions (Industry\u00d7High-skill: -4.211 pp, Industry\u00d7Managerial: -3.213 pp) demonstrate that occupational penalties vary systematically across institutional contexts, requiring sector-specific policy calibration.
+The occupational gap findings (High-skill: +2.936 pp, Managerial: +4.663 pp) necessitate targeted interventions that address glass-ceiling mechanisms beyond general equal-pay legislation. Policy instruments might include mandatory pay transparency at executive levels, gender quotas for senior positions, and restructuring of tournament-style promotion systems that disadvantage women through excessive hours requirements and geographical mobility demands. The Industry sector interactions (Industry x High-skill: -4.211 pp, Industry x Managerial: -3.213 pp) demonstrate that occupational penalties vary systematically across institutional contexts, requiring sector-specific policy calibration.
 
 The temporal convergence patterns document consistent progress at 0.17 percentage points per year (2010-2022), suggesting that existing policies and structural changes are gradually reducing gender wage inequality. However, the convergence in 2022 (-1.732 pp from the 2010 baseline) may reflect pandemic-induced labor market disruptions that disproportionately affected male-dominated sectors. Long-term monitoring will clarify whether this represents structural change or temporary compositional effects.
 
