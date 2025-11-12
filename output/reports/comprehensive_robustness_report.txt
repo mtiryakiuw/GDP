@@ -4,7 +4,7 @@
 ║     For Thesis Section 6.8: Robustness and Sensitivity Analyses       ║
 ╚════════════════════════════════════════════════════════════════════════╝
 
-Generated: 2025-11-07 02:16:50.94357
+Generated: 2025-11-12 20:56:37.911154
 
 ================================================================================ 
 TABLE 13: ALTERNATIVE SPECIFICATIONS & SAMPLE RESTRICTIONS
@@ -15,19 +15,19 @@ Summary of coefficient stability across 7 alternative specifications:
 # A tibble: 7 × 5
   specification             n_obs industry      public         managerial   
   <chr>                     <dbl> <chr>         <chr>          <chr>        
-1 (1) Baseline RE           14430 3.582 (0.448) -3.366 (0.436) 4.542 (0.651)
-2 (2) Balanced Panel         9028 2.517 (0.498) -2.406 (0.495) 2.823 (0.674)
-3 (3) Drop Extreme Gaps     14356 2.072 (0.363) -2.683 (0.380) 2.690 (0.535)
-4 (4) Large Countries       13273 2.400 (0.416) -2.681 (0.422) 2.882 (0.594)
-5 (5) Quantile Reg (Median) 14430 2.500 (0.274) -3.467 (0.285) 3.444 (0.441)
+1 (1) Baseline RE           14430 4.392 (0.512) -2.706 (0.494) 4.663 (0.611)
+2 (2) Balanced Panel         9028 2.433 (0.499) -2.357 (0.502) 3.641 (0.621)
+3 (3) Drop Extreme Gaps     14356 2.056 (0.363) -2.665 (0.383) 3.496 (0.489)
+4 (4) Large Countries       13273 2.386 (0.416) -2.667 (0.425) 3.791 (0.547)
+5 (5) Quantile Reg (Median) 14430 2.439 (0.289) -3.378 (0.235) 4.050 (0.426)
 6 (6) Fixed Effects         14430 NA (NA)       NA (NA)        NA (NA)      
-7 (7) Winsorized (1%/99%)   14430 2.230 (0.369) -2.771 (0.380) 2.923 (0.536)
+7 (7) Winsorized (1%/99%)   14430 2.219 (0.370) -2.753 (0.383) 3.730 (0.490)
 
 
 Interpretation:
-- Industry coefficients range from 2.072 to 3.582 
-- Public Sector coefficients range from -3.467 to -2.406 
-- Managerial coefficients range from 2.690 to 4.542 
+- Industry coefficients range from 2.056 to 4.392 
+- Public Sector coefficients range from -3.378 to -2.357 
+- Managerial coefficients range from 3.496 to 4.663 
 - All specifications maintain consistent signs and significance
 - Coefficient stability demonstrates robust empirical patterns
 
@@ -40,17 +40,17 @@ Standard error sensitivity to clustering assumptions:
 # A tibble: 4 × 4
   clustering_method                      industry_se public_se managerial_se
   <chr>                                        <dbl>     <dbl>         <dbl>
-1 (1) Panel-level (baseline)                   0.448     0.436         0.651
-2 (2) Two-way (Panel + Year)                   0.457     0.445         0.664
-3 (3) Country-level                            0.578     0.579         0.824
-4 (4) Wild Cluster Bootstrap (1000 reps)       0.334     0.336         0.487
+1 (1) Panel-level (baseline)                   0.512     0.494         0.611
+2 (2) Two-way (Panel + Year)                   0.522     0.504         0.623
+3 (3) Country-level                            0.578     0.583         0.756
+4 (4) Wild Cluster Bootstrap (1000 reps)       0.379     0.387         0.453
 
 
 Interpretation:
 - Coefficients identical across all methods (only SEs differ)
-- Industry coef: 3.582 
-- Public Sector coef: -3.366 
-- Managerial coef: 4.542 
+- Industry coef: 4.392 
+- Public Sector coef: -2.706 
+- Managerial coef: 4.663 
 - Two-way clustering increases SEs by ~5%
 - Country-level clustering (40 clusters) increases SEs by ~45%
 - All coefficients remain highly significant under conservative clustering
@@ -64,12 +64,12 @@ Coefficient stability across geographic and temporal restrictions:
 # A tibble: 6 × 5
   subsample                 n_obs industry      public         managerial   
   <chr>                     <dbl> <chr>         <chr>          <chr>        
-1 EU-15 (Western)            5459 3.397 (0.792) -4.468 (0.692) 6.429 (0.985)
-2 New Member States          5400 3.905 (0.735) -1.912 (0.816) 1.655 (1.162)
-3 Eurozone only              7025 3.463 (0.679) -3.486 (0.663) 5.133 (0.910)
-4 Pre-pandemic (2010-2018)  11053 3.700 (0.480) -3.509 (0.466) 4.780 (0.696)
-5 Post-2014 only            10006 3.430 (0.484) -2.451 (0.462) 4.099 (0.726)
-6 2022 only (cross-section)  3377 3.478 (0.568) -2.882 (0.562) 3.794 (0.956)
+1 EU-15 (Western)            5459 4.595 (0.914) -3.769 (0.786) 6.129 (0.943)
+2 New Member States          5400 4.321 (0.831) -0.829 (0.925) 2.341 (1.055)
+3 Eurozone only              7025 4.477 (0.781) -2.640 (0.764) 5.170 (0.856)
+4 Pre-pandemic (2010-2018)  11053 4.525 (0.550) -2.940 (0.528) 4.932 (0.653)
+5 Post-2014 only            10006 4.333 (0.562) -1.446 (0.527) 4.088 (0.678)
+6 2022 only (cross-section)  3377 4.439 (0.655) -1.761 (0.649) 3.828 (0.888)
 
 
 Interpretation:

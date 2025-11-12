@@ -31,33 +31,86 @@ cat("╔════════════════════════
 cat("║   COMPREHENSIVE ROBUSTNESS & SENSITIVITY ANALYSIS FOR THESIS          ║\n")
 cat("╚════════════════════════════════════════════════════════════════════════╝\n\n")
 
-################################################################################
-# STEP 1: LOAD DATA
-################################################################################
+# ============================================================================
+# STEP 1: LOAD PANEL 2 DATA
+# ============================================================================
 
-cat("📂 STEP 1: Loading cleaned panel data...\n")
-cat("=" %>% rep(80) %>% paste0(collapse="") %>% paste0("\n"))
+cat("📥 STEP 1: LOADING PANEL 2 DATA (Sector × Occupation)...\n")
+cat("----------------------------------------------------------\n")
 
-# Load from panel2_main_analysis.R output
-panel2_file <- "output/data/panel2_sector_occupation_4years.csv"
+panel2 <- read.csv("output/data/panel2_sector_occupation_4years.csv")
 
-if(!file.exists(panel2_file)) {
-  stop("❌ ERROR: panel2_sector_occupation_4years.csv not found!\n",
-       "   Please run panel2_main_analysis.R first to generate this data.")
+cat("  ✅ Panel 2 loaded:", nrow(panel2), "observations\n")
+cat("  Countries:", length(unique(panel2$country)), "\n")
+cat("  Years:", paste(sort(unique(panel2$year)), collapse = ", "), "\n")
+cat("  Sectors:", length(unique(panel2$sector)), "\n")
+cat("  Occupations:", length(unique(panel2$occupation)), "\n")
+cat("  Unique panels:", length(unique(panel2$panel_id)), "\n\n")
+
+# ============================================================================
+# STEP 1.1: DATA QUALITY ASSESSMENT
+# ============================================================================
+
+cat("🔍 STEP 1.1: DATA QUALITY ASSESSMENT\n")
+cat("====================================\n\n")
+
+# Basic statistics
+cat("Gender Pay Gap Summary:\n")
+print(summary(panel2$gender_pay_gap))
+
+cat("\n📊 Observations by Year:\n")
+panel2 %>%
+  group_by(year) %>%
+  summarise(n = n(), mean_gap = round(mean(gender_pay_gap, na.rm = TRUE), 2)) %>%
+  print()
+
+cat("\n📊 Observations by Sector (18 Detailed):\n")
+sector_summary <- panel2 %>%
+  group_by(sector) %>%
+  summarise(
+    n_obs = n(),
+    mean_gap = round(mean(gender_pay_gap, na.rm = TRUE), 2),
+    sd_gap = round(sd(gender_pay_gap, na.rm = TRUE), 2),
+    countries = n_distinct(country)
+  ) %>%
+  arrange(desc(mean_gap))
+
+print(sector_summary)
+
+cat("\n📊 Observations by Occupation (9 ISCO levels):\n")
+occupation_summary <- panel2 %>%
+  group_by(occupation) %>%
+  summarise(
+    n_obs = n(),
+    mean_gap = round(mean(gender_pay_gap, na.rm = TRUE), 2),
+    sd_gap = round(sd(gender_pay_gap, na.rm = TRUE), 2)
+  ) %>%
+  arrange(desc(mean_gap))
+
+print(occupation_summary)
+
+# Check for outliers
+outliers <- panel2 %>%
+  filter(gender_pay_gap < -20 | gender_pay_gap > 80)
+
+cat("\n⚠️ Potential outliers (gap < -20% or > 80%):", nrow(outliers), "\n")
+
+if(nrow(outliers) > 0) {
+  cat("Sample of outliers:\n")
+  print(head(outliers %>% select(country, year, sector, occupation, gender_pay_gap)))
 }
 
-panel2_clean <- read_csv(panel2_file, show_col_types = FALSE)
-
-cat(sprintf("✓ Loaded %d observations\n", nrow(panel2_clean)))
-
 # ============================================================================
-# IMPORTANT: Apply same data cleaning as panel2_main_analysis.R
-# Remove extreme outliers to match the dataset used in primary models
+# STEP 1.2: CLEAN OUTLIERS
 # ============================================================================
 
-original_n <- nrow(panel2_clean)
+cat("\n\n🧹 STEP 1.2: CLEANING EXTREME OUTLIERS\n")
+cat("======================================\n\n")
 
-panel2_clean <- panel2_clean %>%
+original_n <- nrow(panel2)
+
+# Remove extreme outliers
+panel2_clean <- panel2 %>%
   filter(
     gender_pay_gap >= -20,
     gender_pay_gap <= 80,
@@ -68,11 +121,12 @@ panel2_clean <- panel2_clean %>%
 cleaned_n <- nrow(panel2_clean)
 removed_n <- original_n - cleaned_n
 
-cat(sprintf("✓ Removed %d extreme outliers (%.1f%%), leaving %d observations\n", 
-            removed_n, 100 * removed_n / original_n, cleaned_n))
-cat(sprintf("✓ Unique panels: %d\n", n_distinct(panel2_clean$panel_id)))
-cat(sprintf("✓ Countries: %d\n", n_distinct(panel2_clean$country)))
-cat(sprintf("✓ Years: %s\n\n", paste(sort(unique(panel2_clean$year)), collapse=", ")))
+cat(sprintf("Original observations: %d\n", original_n))
+cat(sprintf("Cleaned observations: %d\n", cleaned_n))
+cat(sprintf("Removed outliers: %d (%.1f%%)\n\n", removed_n, 100 * removed_n / original_n))
+
+cat("Cleaned data summary:\n")
+print(summary(panel2_clean$gender_pay_gap))
 
 ################################################################################
 # STEP 2: PREPARE PANEL STRUCTURE
