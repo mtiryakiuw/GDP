@@ -1,0 +1,93 @@
+VERIFICATION QUESTION FOR OTHER AI MODELS
+==========================================
+
+I have a Panel 2 analysis output file with the following structure:
+
+---
+MODEL 1: PRIMARY MODEL (Fixed Effects)
+---
+This is a Fixed Effects (Within) model with the following output:
+
+```
+Oneway (individual) effect Within Model
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + factor(year), data = pdata2, model = "within")
+
+Coefficients:
+                 Estimate Std. Error  t-value  Pr(>|t|)    
+factor(year)2014 -1.36094    0.20740  -6.5620 5.592e-11 ***
+factor(year)2018 -1.01482    0.20435  -4.9662 6.951e-07 ***
+factor(year)2022 -2.17274    0.20826 -10.4327 < 2.2e-16 ***
+```
+
+---
+MODEL 3: INTERACTION MODEL (Random Effects)
+---
+This is a Random Effects model with interactions:
+
+```
+Oneway (individual) effect Random Effect Model 
+   (Swamy-Arora's transformation)
+
+Call:
+plm(formula = gender_pay_gap ~ industry + construction + public_sector + 
+    high_skill + managerial + industry:high_skill + industry:managerial + 
+    public_sector:high_skill + public_sector:managerial + factor(year), 
+    data = pdata2, model = "random")
+
+Coefficients:
+                         Estimate Std. Error  z-value  Pr(>|z|)    
+(Intercept)              13.40622    0.25688  52.1893 < 2.2e-16 ***
+industry                  4.39222    0.46654   9.4145 < 2.2e-16 ***
+construction              0.82891    0.61292   1.3524  0.176251    
+public_sector            -2.70551    0.49265  -5.4918 3.979e-08 ***
+high_skill                2.93636    0.41052   7.1528 8.505e-13 ***
+managerial                4.66309    0.60169   7.7500 9.187e-15 ***
+factor(year)2014         -1.74678    0.20364  -8.5779 < 2.2e-16 ***
+factor(year)2018         -1.48208    0.20028  -7.4002 1.360e-13 ***
+factor(year)2022         -2.69175    0.20261 -13.2852 < 2.2e-16 ***
+industry:high_skill      -4.21113    0.82060  -5.1318 2.870e-07 ***
+industry:managerial      -3.21317    1.24080  -2.5896  0.009609 ** 
+public_sector:high_skill  0.36200    0.88176   0.4106  0.681403    
+public_sector:managerial -1.67830    1.28222  -1.3089  0.190566    
+```
+
+---
+QUESTION:
+---
+
+In my thesis abstract, I reported these numbers:
+- industry: 4.392
+- public_sector: -2.706
+- high_skill: 2.936
+- managerial: 4.663
+- industry:high_skill: -4.211
+- public_sector:managerial: -1.678
+- factor(year)2014: -1.361
+- factor(year)2018: -1.015
+- factor(year)2022: -2.173
+
+AI Model A says: "These numbers come from TWO DIFFERENT MODELS:
+- Main effects (industry, public, high_skill, managerial) come from Model 3 (Interaction/Random Effects)
+- Year effects (-1.361, -1.015, -2.173) come from Model 1 (Primary/Fixed Effects)
+- This is INCONSISTENT mixing of two models"
+
+AI Model B says: "No, Model A is wrong. All these numbers come from a single 'No Interactions' model.
+The numbers 4.392, 2.936, etc. are NOT from the Interaction Model.
+In the Primary Model (no interactions), the coefficients are:
+- industry: 2.325
+- public_sector: -2.785
+- high_skill: 2.127
+- managerial: 3.813"
+
+WHICH AI MODEL IS CORRECT?
+
+Please carefully examine the output above and tell me:
+1. Where do the numbers 4.392, -2.706, 2.936, 4.663 come from?
+2. Where do the numbers -1.361, -1.015, -2.173 come from?
+3. Is it possible for a Fixed Effects (Within) model to show coefficients for time-invariant variables like industry, public_sector?
+4. Did I mix coefficients from two different models, or did I use a single consistent model?
+
+Please provide detailed reasoning with references to the specific model outputs shown above.
